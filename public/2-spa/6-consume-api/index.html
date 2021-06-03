@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Consume the API :: DevAx - Monoliths to Microservices - Creating an Authenticated Single Page Application (SPA)</title>
+
+    
+    <link href="/css/nucleus.css?1622721957" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622721957" rel="stylesheet">
+    <link href="/css/hybrid.css?1622721957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622721957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622721957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622721957" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622721957" rel="stylesheet">
+    <link href="/css/theme.css?1622721957" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622721957" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1622721957" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1622721957"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2-spa/6-consume-api/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1622721957"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622721957"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1622721957"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/">
+          <b>1. </b>Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Create Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Create Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/2-remote-env-config-cli/" title="Remote enviroment &amp; Configure the AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Remote enviroment &amp; Configure the AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/" title="Single Page Application" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/2-spa/">
+          <b>2. </b>Single Page Application
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/1-prerequisites/" title="Pre-requisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/1-prerequisites/">
+          <b>2.1. </b>Pre-requisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/1-prerequisites/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/1-prerequisites/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/1-prerequisites/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/1-prerequisites/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/2-build-deploy/" title="Serverless Microservices" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/2-build-deploy/">
+          <b>2.2. </b>Serverless Microservices
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/3-api-gateway/" title="Create and Expose the API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/3-api-gateway/">
+          <b>2.3. </b>Create and Expose the API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/4-codestar-cicd/" title="Deploy the API using CodeStar and CI/CD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/4-codestar-cicd/">
+          <b>2.4. </b>Deploy the API using CodeStar and CI/CD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/4-codestar-cicd/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/4-codestar-cicd/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/4-codestar-cicd/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/4-codestar-cicd/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/5-setup-spa/" title="Setup the SPA Webpage" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-spa/5-setup-spa/">
+          <b>2.5. </b>Setup the SPA Webpage
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-spa/6-consume-api/" title="Consume the API" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/2-spa/6-consume-api/">
+          <b>2.6. </b>Consume the API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-aaa/" title="Configure AAA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-aaa/">
+          <b>3. </b>Configure AAA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-aaa/1-cognito/" title="SPA Authentication" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-aaa/1-cognito/">
+          <b>3.1. </b>SPA Authentication
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-aaa/2-microservice-authen/" title="Microservice Authentication" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-aaa/2-microservice-authen/">
+          <b>3.2. </b>Microservice Authentication
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-aaa/3-deploy-test/" title="Deploy and Test" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-aaa/3-deploy-test/">
+          <b>3.3. </b>Deploy and Test
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-aaa/4-signup-signin/" title="User Sign Up/Sign In" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-aaa/4-signup-signin/">
+          <b>3.4. </b>User Sign Up/Sign In
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-xray/" title="Application Performance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-xray/">
+          <b>4. </b>Application Performance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-challenge/" title="Challenge" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-challenge/">
+          <b>5. </b>Challenge
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-conclusion/" title="Conclusion" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-conclusion/">
+          <b>6. </b>Conclusion
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-resources/" title="Reference resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-resources/">
+          <b>7. </b>Reference resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-spa/6-consume-api/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-spa/6-consume-api/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Creating an Authenticated Single Page Application (SPA)</a> > <a href='/2-spa/'>Single Page Application</a> > Consume the API
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Consume the API
+            </h1>
+          
+
+        
+
+
+
+	<p><strong>Build a Client to Consume the API</strong></p>
+<p>You now have a working model of the web site running as an SPA calling for data via RESTful APIs hosted on AWS Lambda, and served from Amazon API Gateway. These data feeds are considered public because the user does not need to be signed-in and provide credentials for the call to the API. In this exercise, we will take a look at how we can require authentication to make the API calls, and the use of API Keys to enforce call-rate throttling and quota management. To demonstrate, we will use a Java client application, to show how you can consume the auto-generated Java SDKs in your applications.</p>
+<p><strong>Contents</strong></p>
+<ul>
+<li><a href="#create-response-model-for-the-tripsearch-api">Create Response Model for the TripSearch API</a></li>
+<li><a href="#assign-the-tripsfromcityresponse-model-to-the-tripsfromcity-api-call">Assign the TripsFromCityResponse model to the <strong>/tripsfromcity</strong> API call</a></li>
+<li><a href="#build-a-java-client-application-that-consumes-the-api">Build a Java client application that consumes the API</a></li>
+<li><a href="#regenerate-the-client-sdk-and-install-on-your-development-machine">Regenerate the client SDK and install on your development machine</a></li>
+<li><a href="#test-the-newly-generated-sdk-with-the-java-client-app">Test the newly generated SDK with the Java client app</a></li>
+<li><a href="#set-the-api-key-in-the-client-code-and-re-run-the-api-consumer-application-with-throttling-enabled">Set the API Key in the client code and re-run the API consumer application with throttling enabled</a></li>
+</ul>
+<h4 id="create-response-model-for-the-tripsearch-api">Create Response Model for the TripSearch API</h4>
+<p>In order for the SDK generator to create the appropriate classes for a strongly-typed language like Java (as opposed to Javascript, for example) we need to tell API Gateway what the shape or schema of the request/response objects looks like. In the <strong>TripSearch API</strong>, we are using the <strong>GET</strong> method for each of the three API calls. Therefore, there is no schema for inbound requests because the <strong>city</strong> parameter is passed on as part of the URL. If we instead changed the method to <strong>POST</strong>, we would need to pass in the city parameter in the <strong>body</strong> payload, and would need to create a model for this object schema for the code generator to create a Java class for us to bind to.</p>
+<p>The result data from the API calls is returned in the <strong>body</strong> of the response. In order for the code generator to create an appropriate class to represent this response, we need to create a response model, and set it as the method response model.</p>
+<ol>
+<li>Open the <strong>API Gateway console</strong> and click the <strong>Models</strong> link beneath <code>iDevelop - Trip Search API</code>.</li>
+<li>Click Create</li>
+<li>For <strong>Model name</strong> type <code>TripsFromCityResponse</code></li>
+<li>For <strong>Content-type</strong> type <code>application/json</code></li>
+<li>For <strong>Model schema</strong> paste in the following description:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;object&#34;</span>,
+  <span style="color:#f92672">&#34;properties&#34;</span> : {
+    <span style="color:#f92672">&#34;succeeded&#34;</span> : {
+      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;boolean&#34;</span>
+    },
+    <span style="color:#f92672">&#34;errorMessage&#34;</span> : {
+      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;string&#34;</span>
+    },
+    <span style="color:#f92672">&#34;errorType&#34;</span> : {
+      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>
+    },
+    <span style="color:#f92672">&#34;data&#34;</span> : {
+      <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;array&#34;</span>,
+      <span style="color:#f92672">&#34;items&#34;</span> : {
+        <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;object&#34;</span>,
+        <span style="color:#f92672">&#34;properties&#34;</span> : {
+
+			<span style="color:#f92672">&#34;date&#34;</span>: {
+				<span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>
+			},
+       		<span style="color:#f92672">&#34;originCity&#34;</span>: {
+				<span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;string&#34;</span>
+			},
+			<span style="color:#f92672">&#34;destinationCity&#34;</span>: {
+				<span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;string&#34;</span>
+			},
+			<span style="color:#f92672">&#34;airline&#34;</span>: {
+				<span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;string&#34;</span>
+			}
+          }
+        }
+      }
+  },
+  <span style="color:#f92672">&#34;title&#34;</span> : <span style="color:#e6db74">&#34;TripsFromCityResponse&#34;</span>
+}
+</code></pre></div><ol start="6">
+<li>Click <strong>Create model</strong></li>
+</ol>
+<h4 id="assign-the-tripsfromcityresponse-model-to-the-tripsfromcity-api-call">Assign the TripsFromCityResponse model to the <strong>/tripsfromcity</strong> API call</h4>
+<ol start="7">
+<li>Click the <strong>Resources</strong> link beneath <code>iDevelop - Trip Search API</code>.</li>
+<li>Click the <strong>GET</strong> method beneath <code>/tripsfromcity/{city}</code></li>
+<li>Click <strong>Method Response</strong></li>
+<li>In the <strong>/tripsfromcity/{city} - GET - Method Response</strong> panel, click the arrow next to <strong>HTTP Status</strong> to reveal the panel</li>
+<li>Under <strong>Response Body for 200</strong> click the <strong>pencil icon</strong> next to the <strong>Empty model</strong>.</li>
+<li>The field becomes a drop-down list. Select <strong>TripsFromCityResponse</strong> and click the <strong>grey tick</strong> to <strong>commit</strong> the change.</li>
+<li>From the <strong>Actions</strong> menu, select <code>Deploy API</code></li>
+<li>For <strong>Deployment stage</strong> select <code>prod</code> from the list and click <strong>Deploy</strong></li>
+<li>On the <strong>prod Stage Editor</strong> that appears, click the <strong>SDK Generation</strong> tab</li>
+<li>In the <strong>Platform</strong> drop-down list, select <strong>Java SDK</strong></li>
+<li>For <strong>Service name</strong> type <code>TripSearch</code></li>
+<li>For <strong>Java package name</strong> type <code>idevelop.api.sdk</code></li>
+</ol>
+<p><img src="/images/2/35.png?width=90pc" alt="API"></p>
+<ol start="19">
+<li>Click <strong>Generate SDK</strong>. The Java SDK will be generated and downloaded as a ZIP file.</li>
+<li><strong>Explode</strong> the downloaded ZIP file on your filesystem.</li>
+<li>In a terminal window, <code>cd</code> into the folder where the downloaded SDK has been exploded (typically, the directory is called generated-code) and issue the following command:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn install
+
+<span style="color:#75715e"># if you are using Eclipse IDE on Windows</span>
+%M2_HOME%<span style="color:#ae81ff">\b</span>in<span style="color:#ae81ff">\m</span>vn install
+</code></pre></div><p>This will <strong>compile</strong> and <strong>install</strong> the SDK in your local Maven repository and we will refer to it in the next steps.</p>
+<h4 id="build-a-java-client-application-that-consumes-the-api">Build a Java client application that consumes the API</h4>
+<ol start="22">
+<li>Download the source code bundle for a test application from <a href="https://workshops.devax.academy/monoliths-to-microservices/module6/files/TripSearchJavaClient.zip">TripSearchJavaClient.zip</a> and explode the zip file onto your filesystem.<br>
+If you’re using <strong>Cloud9</strong>, refer to the command below:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment
+curl -L https://workshops.devax.academy/monoliths-to-microservices/module6/files/TripSearchJavaClient.zip --output TripSearchJavaClient.zip
+unzip TripSearchJavaClient.zip
+</code></pre></div>
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		TripSearchJavaClient ource code bundle
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/2-spa/6-consume-api/_index.files/TripSearchJavaClient.zip" >
+						TripSearchJavaClient.zip
+					</a>
+					(8 ko)
+				</li>
+			
+		
+	
+	<div>
+	
+</section>
+
+
+<ol start="23">
+<li>If you’re using Eclipse IDE, use the <strong>Open projects from filesystem location</strong> menu and browse to the filesystem location where you exploded the <strong>TripSearchJavaClient</strong> source code. Open the project.<br>
+If you’re using <strong>Cloud9</strong>, refer to the command below.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment/TripSearchJavaClient
+mvn install
+
+<span style="color:#75715e"># if you are using Eclipse IDE on Windows</span>
+%M2_HOME%<span style="color:#ae81ff">\b</span>in<span style="color:#ae81ff">\m</span>vn install
+</code></pre></div><ol start="24">
+<li>Run the project. It will use the <strong>TripSearch API</strong> to call <code>/tripsfromcity</code> and search for trips with destination <code>Melbourne</code>. You will see an output like this:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Got <span style="color:#ae81ff">2</span> items in 91ms
+Got <span style="color:#ae81ff">2</span> items in 91ms
+Got <span style="color:#ae81ff">2</span> items in 90ms
+.
+.
+.
+Got <span style="color:#ae81ff">2</span> items in 90ms
+</code></pre></div><p>The example API consumer will time how long each call to the API takes, and display the results. It will make a maximum of 100 calls as quickly as it can.</p>
+<p>If we had many of these clients consuming the API rapidly, we could overwhelm the provisioned infrastructure, so we need some way of throttling calls. We can use <strong>Usage Plans</strong> to do this.</p>
+<ol start="25">
+<li>On the <strong>API Gateway console</strong>, click <strong>Usage Plans</strong> beneath the <strong>APIs</strong> navigator panel.</li>
+<li>Click <strong>Create</strong> to create a new <strong>Usage Plan</strong></li>
+<li>For <strong>Name</strong> type <code>LabPlan</code></li>
+<li>Under <strong>Throttling</strong>, for <strong>Rate</strong> type <code>1</code></li>
+<li>For <strong>Burst</strong> type <code>1</code></li>
+<li>Under <strong>Quota</strong> type <code>1000</code> per month</li>
+</ol>
+<p><img src="/images/2/36.png?width=90pc" alt="API"></p>
+<ol start="31">
+<li>Click <strong>Next</strong></li>
+<li>Click <strong>Add API Stage</strong></li>
+<li>In the <strong>API</strong> drop-down list, select <code>iDevelop - Trip Search API</code></li>
+<li>In the <strong>Stage</strong> drop-down list, select <strong>prod</strong></li>
+<li>Click the <strong>grey tick</strong> icon to commit the changes</li>
+<li>Click <strong>Next</strong></li>
+<li>Click <strong>Create API Key and add to Usage Plan</strong></li>
+<li>In the dialog that appears, for <strong>Name</strong> type <code>SDKClient</code></li>
+<li>Click <strong>Save</strong></li>
+<li>Click <strong>Done</strong>. A new API key will be created and associated with the usage Plan.</li>
+<li>Click the <strong>iDevelop - Trip Search API</strong> link beneath <strong>APIs</strong> on the left of the <strong>API Gateway console</strong>.</li>
+<li>Click the <strong>GET</strong> method beneath <code>/tripsfromcity/{city}</code></li>
+<li>Click <strong>Method Request</strong></li>
+<li>Under <strong>Settings</strong>, for <strong>API Key Required</strong>, click the <strong>pencil edit</strong> icon, and choose <code>true</code> from the list.</li>
+</ol>
+<p><img src="/images/2/37.png?width=90pc" alt="API"></p>
+<ol start="45">
+<li>Click the <strong>grey tick</strong> icon to <strong>commit</strong> the change</li>
+<li>From the <strong>Actions</strong> menu, select <strong>Deploy API</strong></li>
+<li>Choose the <strong>prod</strong> stage and click <strong>Deploy</strong> to deploy the changes</li>
+</ol>
+<h4 id="regenerate-the-client-sdk-and-install-on-your-development-machine">Regenerate the client SDK and install on your development machine</h4>
+<ol start="48">
+<li>In the <strong>prod Stage Editor</strong>, click the <strong>SDK Generation</strong> tab</li>
+<li>For <strong>Platform</strong>, choose <strong>Java SDK</strong></li>
+<li>For <strong>Service name</strong> type <code>TripSearch</code></li>
+<li>For <strong>Java package name</strong> type <code>idevelop.api.sdk</code></li>
+</ol>
+<p><img src="/images/2/38.png?width=90pc" alt="API"></p>
+<ol start="52">
+<li>Click <strong>Generate SDK</strong>. The Java SDK will be generated and downloaded as a ZIP file.</li>
+<li><strong>Explode</strong> the downloaded ZIP file on your filesystem.</li>
+<li>In a terminal window, <code>cd</code> into the folder where the downloaded SDK has been exploded (typically, the directory is called generated-code) and issue the following command:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn install
+</code></pre></div><p>This will <strong>compile</strong> and <strong>install</strong> the SDK in your local Maven repository, overwriting the previous version. In the following steps, you will use this SDK artefact by referencing it in a client application POM file.</p>
+<h4 id="test-the-newly-generated-sdk-with-the-java-client-app">Test the newly generated SDK with the Java client app</h4>
+<p>In the IDE, re-run the application without making any changes. Since you have set the <code>/tripsfromcity/{GET}</code> endpoint to require an <strong>API Key</strong>, but have not actually set an API in the client application, you will see a <strong>Forbidden error</strong> in the console.</p>
+<h4 id="set-the-api-key-in-the-client-code-and-re-run-the-api-consumer-application-with-throttling-enabled">Set the API Key in the client code and re-run the API consumer application with throttling enabled</h4>
+<ol start="55">
+<li>The provided client source code needs to be updated to set the <strong>API Key</strong> in order to successfully call the <code>/tripsfromcity/{GET}</code> method.</li>
+<li>On the <strong>AWS API Gateway Console</strong>, click the <strong>API Keys</strong> tab</li>
+<li>Click the <strong>SDKClient</strong> link</li>
+<li>Click the <strong>Show</strong> link next to <strong>API Key</strong> to reveal the <strong>auto-generated API key</strong>. <strong>Copy</strong> the value into your clipboard.</li>
+<li>In the <strong>IDE</strong>, in the <code>/src/main/java/idevelop/api/tripsearch/sdk/app/App.java</code> file, <strong>paste</strong> in the API Key in your clipboard, in the <code>API_KEY</code> definition, replacing the <code>&lt;REPLACE_WITH_API_KEY&gt;</code> placeholder.</li>
+<li>In the same file, locate the <strong>commented out</strong> call to <code>apiKey(API_KEY)</code> in the <strong>TripSearch builder</strong> call. You may have to run a <code>Maven Update</code> on the project to pick up the <code>.apiKey</code> as we updated the jar in the last step and Eclipse may not have picked it up. Now that you have <strong>required an API Key</strong> in the API Gateway call, the SDK created for you will contain a call to allow the key to be set. If you have no API Key requirements, the code generator does not emit this functionality so in the provided code, it is commented out. You need to enable the call in the client code to allow the API Key to be set correctly.</li>
+<li>Re-run the application in the IDE. Notice that the calls will now succeed, but, you will now periodically start receiving errors requesting you slow down the call-rate. This is because we set a <strong>maximum call-rate</strong> of <strong>1 call per second per API key</strong>. You will see output like this:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Got <span style="color:#ae81ff">2</span> items in 97ms
+Got <span style="color:#ae81ff">2</span> items in 125ms
+Too Many Requests - waiting <span style="color:#ae81ff">1</span> second...
+.
+.
+.
+</code></pre></div><ol start="62">
+<li>As an experiment, edit the <code>API_KEY</code> you have set in the <strong>App class</strong> (for example, add a period at the end) which will cause it to be invalid. Re-run the app and notice that you now receive a <strong>Forbidden</strong> message. This is because you set the API Key as required for calls to the <code>/tripsfromcity</code> call.</li>
+<li>Experiment with the <strong>Rate and Burst</strong> settings in the <strong>Usage Plan</strong> to see how they affect the client app calling the API.</li>
+</ol>
+
+<div class="notices note" ><p>Note that you <strong>do not need</strong> to re-deploy the API nor re-create the SDK if you change the settings in the <strong>Usage Plan</strong>.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/2-spa/5-setup-spa/" title="Setup the SPA Webpage"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/3-aaa/" title="Configure AAA" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1622721957"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622721957"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622721957"></script>
+    <script src="/js/jquery.sticky.js?1622721957"></script>
+    <script src="/js/featherlight.min.js?1622721957"></script>
+    <script src="/js/highlight.pack.js?1622721957"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622721957"></script>
+    <script src="/js/learn.js?1622721957"></script>
+    <script src="/js/hugo-learn.js?1622721957"></script>
+
+    <link href="/mermaid/mermaid.css?1622721957" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622721957"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

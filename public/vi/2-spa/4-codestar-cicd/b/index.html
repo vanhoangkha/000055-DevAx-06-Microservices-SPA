@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Dùng AWS Cloud9 :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</title>
+
+    
+    <link href="/css/nucleus.css?1622721957" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622721957" rel="stylesheet">
+    <link href="/css/hybrid.css?1622721957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622721957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622721957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622721957" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622721957" rel="stylesheet">
+    <link href="/css/theme.css?1622721957" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622721957" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1622721957" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1622721957"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/2-spa/4-codestar-cicd/b/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1622721957"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622721957"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1622721957"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/">
+          <b>1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Chuẩn bị môi trường
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/2-remote-env-config-cli/" title="Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/" title="Ứng dụng Đơn trang (SPA)" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/2-spa/">
+          <b>2. </b>Ứng dụng Đơn trang (SPA)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/">
+          <b>2.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/2-build-deploy/" title="Serverless Microservices" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/2-build-deploy/">
+          <b>2.2. </b>Serverless Microservices
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/3-api-gateway/" title="Tạo và Cung cấp API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/3-api-gateway/">
+          <b>2.3. </b>Tạo và Cung cấp API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/" title="Triển khai API với CodeStar và CI/CD" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/">
+          <b>2.4. </b>Triển khai API với CodeStar và CI/CD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/5-setup-spa/" title="Thiết lập trang SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/5-setup-spa/">
+          <b>2.5. </b>Thiết lập trang SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/6-consume-api/" title="Sử dụng API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/6-consume-api/">
+          <b>2.6. </b>Sử dụng API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/" title="Cấu hình AAA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/">
+          <b>3. </b>Cấu hình AAA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/1-cognito/" title="Xác thực cho SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/1-cognito/">
+          <b>3.1. </b>Xác thực cho SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/2-microservice-authen/" title="Xác thực cho Microservice" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/2-microservice-authen/">
+          <b>3.2. </b>Xác thực cho Microservice
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/3-deploy-test/" title="Triển khai và Kiểm thử" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/3-deploy-test/">
+          <b>3.3. </b>Triển khai và Kiểm thử
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/4-signup-signin/" title="Đăng ký và Đăng nhập Người dùng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/4-signup-signin/">
+          <b>3.4. </b>Đăng ký và Đăng nhập Người dùng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-xray/" title="Hiệu năng Ứng dụng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-xray/">
+          <b>4. </b>Hiệu năng Ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-challenge/" title="Bài tập nâng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-challenge/">
+          <b>5. </b>Bài tập nâng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-conclusion/" title="Tổng kết" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-conclusion/">
+          <b>6. </b>Tổng kết
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-resources/" title="Tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-resources/">
+          <b>7. </b>Tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-spa/4-codestar-cicd/b/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-spa/4-codestar-cicd/b/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Creating an Authenticated Single Page Application (SPA)</a> > <a href='/vi/2-spa/'>Ứng dụng Đơn trang (SPA)</a> > <a href='/vi/2-spa/4-codestar-cicd/'>Triển khai API với CodeStar và CI/CD</a> > Dùng AWS Cloud9
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Dùng AWS Cloud9
+            </h1>
+          
+
+        
+
+
+
+	<p>Dịch vụ vi mô tiếp theo mà chúng ta cần cho ứng dụng không máy chủ <strong>TravelBuddy</strong> của chúng ta là <strong>FlightSpecials API</strong>. Chúng ta đã xem <strong>FlightSpecials</strong> trước đây trong các phần trước, vì vậy nó sẽ quen thuộc với bạn. Nó hoạt động giống như <strong>HotelSpecials API</strong> ở chỗ nó phải được triển khai tích hợp với VPC để nó có thể kết nối với cơ sở dữ liệu MySQL để truy vấn dữ liệu. Thay vì đóng gói và triển khai microservice này theo cách thủ công, chúng ta sẽ sử dụng CodeStar để xây dựng CI/CD pipeline đầy đủ cho chúng ta, như chúng ta đã làm trong các bài thực hành trước đây. Vì vậy, do bạn đã tạo CI/CD pipeline bằng AWS CodeStar một vài lần, nên chúng ta sẽ không cung cấp cho bạn hướng dẫn từng bước đầy đủ. Nếu bạn cần trợ giúp, hãy tham khảo các tài liệu về cách hoàn thành các tác vụ cần thiết để tạo một dự án CodeStar mới và triển khai mã <strong>FlightSpecials</strong> trên ứng dụng mẫu do CodeStar cung cấp.</p>
+<p><strong>Nội dung</strong></p>
+<ul>
+<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-cicd-pipeline-v%E1%BB%9Bi-aws-codestar">Tạo một CI/CD pipeline với AWS CodeStar</a></li>
+<li><a href="#c%E1%BA%ADp-nh%E1%BA%ADt-c%C3%A1c-th%C3%B4ng-s%E1%BB%91-trong-cloudformation-template">Cập nhật các thông số trong CloudFormation template</a></li>
+<li><a href="#c%E1%BA%ADp-nh%E1%BA%ADt-aws-region-trong-t%E1%BA%ADp-tin-%C4%91%E1%BB%8Bnh-ngh%C4%A9a-api-swaggeryml">Cập nhật AWS region trong tập tin định nghĩa API <code>swagger.yml</code></a></li>
+<li><a href="#t%E1%BA%A1o-codestar-project">Tạo CodeStar Project</a></li>
+<li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-codecommit-tr%C3%AAn-aws-cloud9">Thiết lập CodeCommit trên AWS Cloud9</a></li>
+<li><a href="#ki%E1%BB%83m-tra-c%C3%A1c-thay-%C4%91%E1%BB%95i-%C4%91%C6%B0a-v%C3%A0o-qu%E1%BA%A3n-l%C3%BD-m%C3%A3-ngu%E1%BB%93n-%C4%91%E1%BB%83-k%C3%ADch-ho%E1%BA%A1t-qu%C3%A1-tr%C3%ACnh-tri%E1%BB%83n-khai">Kiểm tra các thay đổi đưa vào quản lý mã nguồn để kích hoạt quá trình triển khai</a></li>
+<li><a href="#ki%E1%BB%83m-th%E1%BB%AD-api-flightspecials">Kiểm thử API FlightSpecials</a></li>
+</ul>
+<h4 id="tạo-một-cicd-pipeline-với-aws-codestar">Tạo một CI/CD pipeline với AWS CodeStar</h4>
+<ol>
+<li>Tạo một project <strong>AWS CodeStar Web Service</strong> mới với mục tiêu là <strong>Java</strong> trên <strong>AWS Lambda</strong>. Đặt tên cho project là <code>FlightSpecialsAPI</code>.<br>
+Bạn có thể tham khảo thêm tại <a href="https://docs.aws.amazon.com/codestar/latest/userguide/how-to-create-project.html">Tài liệu CodeStar</a>.</li>
+<li>Tạo một project <strong>AWS CodeStar</strong> từ <strong>Cloud9 IDE</strong>.
+<a href="https://docs.aws.amazon.com/codestar/latest/userguide/setting-up-ide-ec.html">Xem thêm tài liệu</a> nếu bạn cần tham khảo.<br>
+Nếu sử dụng <strong>Cloud9</strong>, hãy nhớ thêm <code>git config helpers</code>.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment
+aws codestar create-project --generate-cli-skeleton | tee template.yml
+</code></pre></div><p>This will create a <code>template.yml</code> file with the base skeleton. It requires details the following details to be updated. You can think of this as an overlay to create your CodeStar project, which will use the toolchain and zip file for your creation of the codestar project</p>
+<ul>
+<li>S3 bucket name and key: This is the details for codestar deployment on where to grab the build for the pipeline.</li>
+<li>Destination: This is the name of the codecommit repository or github repository, we are only using codecommit, but you can adapt this if you need to grab from your github repo.</li>
+<li>Toolchain: this is a cloudformation template which sets up the required toolchain elements. It is the same as what has been done for you in eclipse, and will will create the following resources.
+<ul>
+<li>CodeCommit - s3bucket and policies to store the artifact</li>
+<li>CodeCommit event - codecommit change occurs to action a new build</li>
+<li>CodeBuild project - to build based off of the buildspec.yml</li>
+<li>CodePipeline - project pipeline which will action all the required phases</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>Tải về và mở tập tin <a href="https://workshops.devax.academy/monoliths-to-microservices/module6/files/toolchain.yml">toolchain.yml</a></li>
+</ol>
+<p>Chúng ta cần thay đổi các chi tiết cho tập tin toolchain.yml để trỏ đến đúng docker container sẽ được sử dụng. Docker container có tất cả các yêu cầu được xây dựng sẵn dựa trên các yêu cầu khác nhau. Trong trang web này, hãy tìm cái phù hợp với yêu cầu JAVA 1.8, maven của chúng ta. <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html">https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html</a></p>
+<p>Trong <code>toolchain.yml</code> tìm docker container hiện tại sẽ trông như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">  CodeBuildProject:
+    DependsOn:
+    - CodeBuildPolicy
+    Properties:
+      Artifacts:
+        <span style="color:#66d9ef">Packaging</span>: zip
+        <span style="color:#66d9ef">Type</span>: codepipeline
+      Cache:
+        <span style="color:#66d9ef">Type</span>: S3
+        <span style="color:#66d9ef">Location</span>: !Sub <span style="color:#e6db74">&#39;${S3Bucket}/codebuildcache&#39;</span>
+      <span style="color:#66d9ef">Description</span>: !Sub <span style="color:#e6db74">&#34;AWS CodeStar created CodeBuild Project for ${ProjectId}&#34;</span>
+      Environment:
+        <span style="color:#66d9ef">ComputeType</span>: small
+        <span style="color:#75715e"># This environment variable informs AWS CodeBuild where it can retrieve your code artifact.</span>
+        <span style="color:#75715e"># You can specify any other environment variables your buildspec.yml is looking for.</span>
+        EnvironmentVariables:
+        - <span style="color:#66d9ef">Name</span>: S3_BUCKET
+          <span style="color:#66d9ef">Value</span>: !Ref <span style="color:#e6db74">&#39;S3Bucket&#39;</span>
+        <span style="color:#75715e"># Replace this Docker image if necessary: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html</span>
+        <span style="color:#66d9ef">Image</span>: aws/codebuild/eb-nodejs<span style="color:#ae81ff">-6.10.0</span>-amazonlinux<span style="color:#ae81ff">-64</span>:<span style="color:#ae81ff">4.0.0</span>
+        <span style="color:#66d9ef">Type</span>: LINUX_CONTAINER
+</code></pre></div><ol start="4">
+<li>Thay đổi hình ảnh thành phiên bản bạn cần cho java.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws codebuild list-curated-environment-images
+</code></pre></div><ol start="5">
+<li>Bạn cũng có thể làm điều này bằng cách truy vấn <strong>json</strong> payload:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws codebuild list-curated-environment-images --query <span style="color:#e6db74">&#34;platforms[].languages[?language==&#39;JAVA&#39;].images&#34;</span>
+</code></pre></div><ol start="6">
+<li>Thay thế cái mới nhất trong <strong>toolchain.yml</strong>: <code>Image:aws/codebuild/eb-java-8-amazonlinux-64:2.4.3-1.0.0</code></li>
+</ol>
+<p>Hãy nhớ thay đổi những điều này khi các phiên bản mới hơn được phát hành để đảm bảo rằng bạn đang sử dụng phiên bản mới nhất.</p>
+<p>Phần khác cần xem lại là cách bộ nhớ đệm và <code>buildspec</code> hoạt động. Lưu ý thành phần bộ nhớ cache:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">      Cache:
+        <span style="color:#66d9ef">Type</span>: S3
+        <span style="color:#66d9ef">Location</span>: !Sub <span style="color:#e6db74">&#39;${S3Bucket}/codebuildcache&#39;</span>
+</code></pre></div><p>Đây là thiết lập cho một S3 bucket, được sử dụng trong thiết lập cho tập tin <code>buildspec.yml</code> được hiển thị bên dưới:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">cache:
+  paths:
+    - <span style="color:#e6db74">&#39;/root/.m2/**/*&#39;</span>
+</code></pre></div><ol start="7">
+<li>Bạn cũng cần cung cấp service role bắt buộc cho template.yml mà bạn đã tạo. Để lấy ví dụ về điều này, bạn có thể làm như sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws codestar create-project help
+
+<span style="color:#75715e"># check the examples to get the service role :</span> 
+<span style="color:#e6db74">&#34;roleArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::123456789012:role/service-role/aws-codestar-service-role&#34;</span>
+</code></pre></div><ol start="8">
+<li>Tải về mã nguồn của <a href="https://workshops.devax.academy/monoliths-to-microservices/module6/files/FlightSpecials.zip">FlightSpecials</a> và giải nén trong môi trường làm việc của bạn</li>
+</ol>
+
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Mã nguồn FlightSpecials
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/2-spa/4-codestar-cicd/b/_index.vi.files/FlightSpecials.zip" >
+						FlightSpecials.zip
+					</a>
+					(18 ko)
+				</li>
+			
+		
+	
+	<div>
+	
+</section>
+
+
+<h4 id="cập-nhật-các-thông-số-trong-cloudformation-template">Cập nhật các thông số trong CloudFormation template</h4>
+<ol start="9">
+<li>Chỉnh sửa tập tin <code>FlightSpecials/template_cloud9.yml</code> và thay thế chúng bằng các giá trị được tìm thấy trong <strong>Cloudformation Outputs</strong>:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">Mục để thay thế</th>
+<th align="center">Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><!-- raw HTML omitted --></td>
+<td align="center">Mạng con đầu tiên cho cơ sở dữ liệu MySQL</td>
+</tr>
+<tr>
+<td align="center"><!-- raw HTML omitted --></td>
+<td align="center">Mạng con thứ hai cho cơ sở dữ liệu MySQL</td>
+</tr>
+<tr>
+<td align="center"><!-- raw HTML omitted --></td>
+<td align="center">Security group cho cơ sở dữ liệu MySQL</td>
+</tr>
+<tr>
+<td align="center"><!-- raw HTML omitted --></td>
+<td align="center">MySQL database endpoint</td>
+</tr>
+</tbody>
+</table>
+<p>Khi bạn đã cập nhật xong các giá trị, mục <strong>VPCConfig</strong> sẽ trông tương tự như sau (với các giá trị khác nhau):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">VpcConfig:
+  SecurityGroupIds:
+    - sg-858e61e3
+  SubnetIds:
+    - subnet-3c989d4a
+    - subnet-a04255c4
+Environment:
+  Variables:
+    <span style="color:#66d9ef">JDBC_CONNECTION_STRING</span>: jdbc:mysql://qlxx5jzrxxxby.cig0rzmdedgf.ap-northeast<span style="color:#ae81ff">-1.</span>rds.amazonaws.com:<span style="color:#ae81ff">3306</span>/travelbuddy?useSSL=<span style="color:#66d9ef">false</span><span style="color:#75715e">&amp;serverTimezone=UTC&amp;autoReconnect=true</span>
+    <span style="color:#66d9ef">JDBC_UID</span>: root
+    <span style="color:#66d9ef">JDBC_PWD</span>: labpassword
+</code></pre></div><h4 id="cập-nhật-aws-region-trong-tập-tin-định-nghĩa-api-swaggeryml">Cập nhật AWS region trong tập tin định nghĩa API <code>swagger.yml</code></h4>
+<p>Tập tin <code>swagger.yml</code> được cung cấp trong gói zip là định nghĩa cho API sẽ cung cấp microservice thông qua Amazon API Gateway. Nó cần được cập nhật thông tin chi tiết về AWS Account ID trong bài thực hành của bạn và Region AWS mục tiêu trước khi bạn có thể triển khai dịch vụ vi mô của mình.</p>
+<ol start="10">
+<li>Trong <strong>Cloud9 IDE</strong>, tìm tập tin <code>swagger.yml</code> và mở ra trong trình soạn thảo văn bản.</li>
+<li>Tìm kiếm <code>REPLACE_AWS_REGION</code> và thay thế nó bằng khu vực bạn đang sử dụng(VD: <code>ap-northeast-1</code>)</li>
+<li>Tìm kiếm <code>REPLACE_AWS_ACCOUNTID</code> và thay thế nó bằng AWS Account Id. Bạn có thể tìm thấy AWS Account ID của mình trong trang tổng quan của bài thực hành.</li>
+<li>Lưu tập tin.</li>
+<li>Khi gói tập tin zip được sử dụng trong codedeploy, bạn cần phải gói từ thư mục nguồn. Để làm điều này, hãy chạy như sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment/FlightSpecials
+zip -r ../FlightSpecials.zip *
+</code></pre></div><ol start="15">
+<li>Nén tập tin <code>FlightSpecials.zip</code> với các cập nhật.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment
+rm FlightSpecials.zip
+cd FlightSpecials
+zip -r FlightSpecials.zip *
+adding: buildspec.yml <span style="color:#f92672">(</span>deflated 53%<span style="color:#f92672">)</span>
+  adding: copy_files.sh <span style="color:#f92672">(</span>deflated 63%<span style="color:#f92672">)</span>
+  adding: pom.xml <span style="color:#f92672">(</span>deflated 75%<span style="color:#f92672">)</span>
+  adding: src/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/java/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/lambda/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/lambda/test/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/lambda/test/TestContext.java <span style="color:#f92672">(</span>deflated 76%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/lambda/test/TestUtils.java <span style="color:#f92672">(</span>deflated 79%<span style="color:#f92672">)</span>
+  adding: src/test/java/devlounge/lambda/test/LambdaFunctionHandlerTest.java <span style="color:#f92672">(</span>deflated 57%<span style="color:#f92672">)</span>
+  adding: src/main/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/main/java/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/model/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/model/FlightSpecial.java <span style="color:#f92672">(</span>deflated 73%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/model/LambdaResult.java <span style="color:#f92672">(</span>deflated 62%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/lambda/ <span style="color:#f92672">(</span>stored 0%<span style="color:#f92672">)</span>
+  adding: src/main/java/devlounge/lambda/FlightSpecialsHandler.java <span style="color:#f92672">(</span>deflated 65%<span style="color:#f92672">)</span>
+  adding: swagger.yml <span style="color:#f92672">(</span>deflated 68%<span style="color:#f92672">)</span>
+  adding: template-configuration.json <span style="color:#f92672">(</span>deflated 18%<span style="color:#f92672">)</span>
+  adding: template.yml <span style="color:#f92672">(</span>deflated 65%<span style="color:#f92672">)</span>
+</code></pre></div>
+<div class="notices note" ><p>Lưu ý rằng thư mục <strong>FlightSpecials</strong> hiện đã bị bỏ qua, điều này rất quan trọng để bắt buộc chỉ có mã nguồn ở đó.</p>
+</div>
+
+
+<div class="notices note" ><p>Lưu ý rằng cấu trúc thư mục ở đây là ** THỰC SỰ ** quan trọng: <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-cli-upload-source-code.html">https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-cli-upload-source-code.html</a></p>
+</div>
+
+<h4 id="tạo-codestar-project">Tạo CodeStar Project</h4>
+<ol start="16">
+<li>Sao chép mã vào <strong>FlightSpecials</strong>. Bucket thực hành của bạn sẽ trông giống như thế này <code>mod-9c10d0af24f74a4a-s3bucketlambdacode-vsuckr33vysr</code></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws s3 cp FlightSpecials.zip s3://&lt;Lambdabucket&gt;
+</code></pre></div><ol start="17">
+<li>Sao chép tập tin <code>toolchain.yml</code> vào <strong>Lamdba bucket</strong></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws s3 cp toolchain.yml s3://&lt;Lambdabucket&gt;
+</code></pre></div><ol start="18">
+<li>Tạo codepipeline template cho <strong>flightspecials</strong>, sẽ giống như sau:</li>
+</ol>
+<p>Thay đổi <strong>XXX</strong> bằng tài khoản của bạn bên dưới để template hoạt động.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;flightspecials&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;flightspecials&#34;</span>,
+    <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;flight specials java8 example using ci/cd&#34;</span>,
+    <span style="color:#f92672">&#34;sourceCode&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;source&#34;</span>: {
+                <span style="color:#f92672">&#34;s3&#34;</span>: {
+                    <span style="color:#f92672">&#34;bucketName&#34;</span>: <span style="color:#e6db74">&#34;&lt;Lambdabucket&gt;&#34;</span>,
+                    <span style="color:#f92672">&#34;bucketKey&#34;</span>: <span style="color:#e6db74">&#34;FlightSpecials.zip&#34;</span>
+                }
+            },
+            <span style="color:#f92672">&#34;destination&#34;</span>: {
+                <span style="color:#f92672">&#34;codeCommit&#34;</span>: {
+                    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;flightspecials&#34;</span>
+                }
+            }
+        }
+    ],
+    <span style="color:#f92672">&#34;toolchain&#34;</span>: {
+        <span style="color:#f92672">&#34;source&#34;</span>: {
+            <span style="color:#f92672">&#34;s3&#34;</span>: {
+                <span style="color:#f92672">&#34;bucketName&#34;</span>: <span style="color:#e6db74">&#34;&lt;Lambdabucket&gt;&#34;</span>,
+                <span style="color:#f92672">&#34;bucketKey&#34;</span>: <span style="color:#e6db74">&#34;toolchain.yml&#34;</span>
+            }
+        },
+        <span style="color:#f92672">&#34;roleArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::XXX:role/service-role/aws-codestar-service-role&#34;</span>,
+        <span style="color:#f92672">&#34;stackParameters&#34;</span>: {
+            <span style="color:#f92672">&#34;ProjectId&#34;</span>: <span style="color:#e6db74">&#34;flightspecials&#34;</span>
+        }
+    }
+}
+</code></pre></div><ol start="19">
+<li>Tạo project <strong>AWS Codestar</strong>:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">aws</span> <span style="color:#960050;background-color:#1e0010">codestar</span> <span style="color:#960050;background-color:#1e0010">create-project</span> <span style="color:#960050;background-color:#1e0010">--cli-input-json</span> <span style="color:#960050;background-color:#1e0010">file://template.json</span>
+{
+    <span style="color:#f92672">&#34;arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:codestar:ap-northeast-1:436753246579:project/flightspecials&#34;</span>
+}
+</code></pre></div><p>Bây giờ hãy kiểm tra thông tin CloudFormation đã hoàn thành, repo CodeCommit đã tạo và bản build đầu tiên đã được khởi động.</p>
+<p>Nếu bất kỳ lỗi nào trong số này không thành công, hãy xem các lỗi. Bạn sẽ cần xóa s3 bucket đã tạo và tạo lại nếu có bất kỳ sự cố nào. Nếu bạn đang thay đổi bất kỳ mã nào cho <code>FlightSpecials.zip</code> và hãy nhớ tải lên bucket.</p>
+<p>Để kiểm tra hoạt động : <code>aws codestar describe-project --id flightspecials</code></p>
+<h4 id="thiết-lập-codecommit-trên-aws-cloud9">Thiết lập CodeCommit trên AWS Cloud9</h4>
+<p>Sau khi tạo xong, bạn cần thiết lập git repo cần thiết cho codecommit mà bạn đã định cấu hình trước đó.</p>
+<ol start="20">
+<li>Di chuyển tập tin zip ban đầu, vì đây chỉ là tệp tải lên lần đầu tiên, sau đó thiết lập helper class cần thiết và tải về repository của bạn.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mv FlightSpecials FlightSpecials_orig
+git config --global credential.helper <span style="color:#e6db74">&#39;!aws codecommit credential-helper $@&#39;</span>
+git config --global credential.UseHttpPath true
+git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/flightspecials
+cd flightspecials
+</code></pre></div><p><strong>Cấp quyền cho CloudFormation để tạo IAM role</strong></p>
+<p>Là một phần của việc thiết lập microservice của chúng ta, chúng ta sẽ chỉ định IAM Role mới cho hàm Lambda của chúng ta để cho phép nó thực hiện các tác vụ khác nhau. Khi <strong>CodeStar</strong> tạo project, nó đã tạo một IAM Role cấp cho CloudFormation vừa đủ quyền để triển khai dịch vụ <strong>Hello World example</strong>. Các quyền này không đủ cho các yêu cầu nâng cao hơn của chúng ta. Vì vậy, chúng ta cần điều chỉnh các chính sách được chỉ định cho <strong>CloudFormation role</strong>, để mở rộng các quyền đó.</p>
+<ol start="21">
+<li>Truy cập <strong>AWS IAM Console</strong> trên trình duyệt.</li>
+<li>Chọn <strong>Roles</strong> ở thanh điều hướng bên trái.</li>
+<li>Trong ô <strong>Filter</strong> nhập <code>CodeStarWorker-flightspecialsa-CloudFormation</code> để tìm đúng <strong>IAM Role</strong>.</li>
+</ol>
+
+<div class="notices note" ><p>Nếu bạn không thể tìm thấy role, có thể do còn quá sớm - CodeStar vẫn đang trong quy trình cấp phát và có thể chưa tạo role. Kiểm tra tiến trình cung cấp trong CodeStar dashboard.</p>
+</div>
+
+<ol start="24">
+<li>Chọn vào role để mở bảng thông tin chi tiết.</li>
+<li>Chọn <strong>Attach Policy</strong>, trong ô <strong>Filter</strong> nhập <code>idevelop</code> để chọn các chính sách có sẵn. Chọn chính sách <code>idevelopCodeStarCloudFormationPolicy</code> trong danh sách. Chính sách này đã được tạo cho bạn bởi quá trình thiết lập bài thực hành và có các quyền được chỉ định cho nó để cho phép CloudFormation làm việc thay mặt chúng ta khi tạo role thực thi Lambda.</li>
+<li>Chọn chính sách được liệt kê và nhấp vào <strong>Attach Policy</strong></li>
+</ol>
+<h4 id="kiểm-tra-các-thay-đổi-đưa-vào-quản-lý-mã-nguồn-để-kích-hoạt-quá-trình-triển-khai">Kiểm tra các thay đổi đưa vào quản lý mã nguồn để kích hoạt quá trình triển khai</h4>
+<ol start="27">
+<li>Bây giờ bạn đã hoàn tất cập nhật tập tin, bạn cần thêm các tập tin đã thay đổi vào <code>new-implementation</code> git branch và xác nhận các thay đổi. Bạn có thể dùng Cloud9 IDE:
+- Thực thi <code>git status</code> để kiểm tra lại các thay đổi về code.
+- Thực thi <code>git add .</code> để thêm vào các tập tin đã thay đổi.
+- Thực thi <code>git commit -m &quot;Baseline implementation&quot;</code> xác nhận các thay đổi và cung cấp một thông báo
+- Thực thi <code>git checkout master</code> để chuyển trở lại master branch
+- Bây giờ hợp nhất các thay đổi cho triển khai mới của bạn vào nhánh chính bằng cách phát hành <code>git merge new-implementation</code>
+- Đẩy các thay đổi lên <strong>CodeCommit</strong>.</li>
+</ol>
+<p>Sẽ mất một vài phút để đẩy mã và bắt đầu triển khai. Kiểm tra mã nguồn và các template sẽ kích hoạt quá trình xây dựng và triển khai thực hiện mới. AWS CodePipeline hiện sẽ sử dụng CloudFormation để triển khai các tài nguyên sau:</p>
+<p>Trong khi bạn có chút thời gian, hãy dành vài phút để khám phá <code>buildspec.yml</code>, <code>swagger.yml</code> và <code>template.yml</code> các tệp xác định Amazon API Gateway, hàm AWS Lambda và quá trình build/deploy thông qua AWS CodeBuild. Bạn sẽ nhận thấy rằng tập tin <code>builspec.yml</code> sử dụng cùng một lệnh AWS CLI để đóng gói triển khai mà bạn đã sử dụng khi đóng gói <strong>HotelSpecials API</strong> theo cách thủ công trước đó</p>
+
+<div class="notices warning" ><p>Đừng thực thi lệnh bên dưới, chúng chỉ để bạn tham khảo thêm.</p>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn package shade:shade
+aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
+</code></pre></div><p>Tập tin <code>template.yml</code> sử dụng <strong>Serverless Application Model (SAM)</strong> chuyển đổi để xác định API REST, trái ngược với cách chúng ta tiếp cận điều này trong <strong>HotelSpecials API</strong></p>
+<p>Ví dụ: Trong <strong>HotelSpecials</strong>, <strong>CloudFormation template</strong> đã sử dụng CloudFormation chuẩn để xác định API REST để nó có thể rõ ràng về định nghĩa API và bao gồm <code>swagger</code>. Ví dụ <strong>FlightSpecials</strong> sử dụng cách tiếp cận khai báo nhiều hơn và để lại thông tin chi tiết cho SAM. Bạn có thể tự do kết hợp CloudFormation và SAM trong cùng một template, như bạn có thể thấy từ các ví dụ này.</p>
+
+<div class="notices note" ><p>Lưu ý rằng biến môi trường <code>$S3_BUCKET</code> được CodeBuild tự động thay thế khi bước xây dựng được thực hiện và được thay thế bằng S3 bucket mà CodeStar đã cung cấp khi thiết lập dự án.</p>
+</div>
+
+<h4 id="kiểm-thử-api-flightspecials">Kiểm thử API FlightSpecials</h4>
+<p>Bạn có thể kiểm tra <strong>trạng thái</strong> của việc triển khai thay đổi mã nguồn thông qua đường dẫn trên CodeStar project dashboard. Khi quá trình triển khai đã hoàn tất thông qua CI/CD pipeline, bạn đã sẵn sàng để kiểm tra API.</p>
+<ol start="28">
+<li>Truy cập <strong>API Gateway console</strong> trên trình duyệt và vào <strong>APIs</strong>, chọn <code>iDevelop - Flight Specials API</code> để tiết lộ các tài nguyên cho API.</li>
+<li>Chọn vào <strong>Stages</strong> ở dưới <strong>iDevelop - Flight Specials API</strong>.</li>
+<li>Mở rộng <strong>prod</strong> trong danh sách <strong>Stages</strong> .</li>
+<li>Chọn vào method <strong>GET</strong></li>
+<li>Chọn vào <strong>Invoke URL</strong> trong bảng <strong>prod - GET - /flightspecials</strong>. Sau một lúc khi hàm Lambda được khởi tạo, bạn sẽ thấy kết quả JSON của việc truy vấn cơ sở dữ liệu MySQL từ hàm Lambda. Ví dụ:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;succeeded&#34;</span>: <span style="color:#66d9ef">true</span>,
+	<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+	<span style="color:#f92672">&#34;errorCode&#34;</span>: <span style="color:#ae81ff">0</span>,
+	<span style="color:#f92672">&#34;data&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+            <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;London to Prague&#34;</span>,
+            <span style="color:#f92672">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;Jewel of the East&#34;</span>,
+            <span style="color:#f92672">&#34;cost&#34;</span>: <span style="color:#ae81ff">93</span>,
+            <span style="color:#f92672">&#34;expiryDate&#34;</span>: <span style="color:#ae81ff">1504072439813</span>
+        }, 
+        {
+            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+            <span style="color:#f92672">&#34;header&#34;</span>: <span style="color:#e6db74">&#34;Paris to London&#34;</span>,
+            <span style="color:#f92672">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;Weekend getaway!&#34;</span>,
+            <span style="color:#f92672">&#34;cost&#34;</span>: <span style="color:#ae81ff">182</span>,
+            <span style="color:#f92672">&#34;expiryDate&#34;</span>: <span style="color:#ae81ff">1504074888702</span>
+        }
+    ]
+}
+</code></pre></div><p>Nếu bạn thấy một JSON payload không có lỗi, bạn đã triển khai thành công một API và hỗ trợ hàm Lambda truy vấn cơ sở dữ liệu MySQL. Lưu ý rằng việc triển khai nhanh hơn và dễ dàng hơn mà không cần bất kỳ sự can thiệp thủ công nào và bạn thậm chí không phải tương tác với AWS CLI hoặc Bảng điều khiển? Mọi thứ được thúc đẩy bởi quá trình đăng ký kiểm soát nguồn.</p>
+<p>Bây giờ bạn đã sẵn sàng tích hợp các API này với website <strong>TravelBuddy</strong>.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/2-spa/4-codestar-cicd/a/" title="Dùng Eclipse"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/2-spa/5-setup-spa/" title="Thiết lập trang SPA" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1622721958"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622721958"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622721958"></script>
+    <script src="/js/jquery.sticky.js?1622721958"></script>
+    <script src="/js/featherlight.min.js?1622721958"></script>
+    <script src="/js/highlight.pack.js?1622721958"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622721958"></script>
+    <script src="/js/learn.js?1622721958"></script>
+    <script src="/js/hugo-learn.js?1622721958"></script>
+
+    <link href="/mermaid/mermaid.css?1622721958" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622721958"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xác thực cho Microservice on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</title>
+    <link>/vi/3-aaa/2-microservice-authen/</link>
+    <description>Recent content in Xác thực cho Microservice on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jan 1970 00:33:41 +0000</lastBuildDate>
+    
+	<atom:link href="/vi/3-aaa/2-microservice-authen/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

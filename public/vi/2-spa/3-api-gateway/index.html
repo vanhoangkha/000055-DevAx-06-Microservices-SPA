@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Tạo và Cung cấp API :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</title>
+
+    
+    <link href="/css/nucleus.css?1622721957" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622721957" rel="stylesheet">
+    <link href="/css/hybrid.css?1622721957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622721957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622721957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622721957" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622721957" rel="stylesheet">
+    <link href="/css/theme.css?1622721957" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622721957" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1622721957" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1622721957"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/2-spa/3-api-gateway/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1622721957"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622721957"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1622721957"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/">
+          <b>1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Chuẩn bị môi trường
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/2-remote-env-config-cli/" title="Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/" title="Ứng dụng Đơn trang (SPA)" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/2-spa/">
+          <b>2. </b>Ứng dụng Đơn trang (SPA)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/">
+          <b>2.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/2-build-deploy/" title="Serverless Microservices" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/2-build-deploy/">
+          <b>2.2. </b>Serverless Microservices
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/3-api-gateway/" title="Tạo và Cung cấp API" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/2-spa/3-api-gateway/">
+          <b>2.3. </b>Tạo và Cung cấp API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/" title="Triển khai API với CodeStar và CI/CD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/">
+          <b>2.4. </b>Triển khai API với CodeStar và CI/CD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/5-setup-spa/" title="Thiết lập trang SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/5-setup-spa/">
+          <b>2.5. </b>Thiết lập trang SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/6-consume-api/" title="Sử dụng API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/6-consume-api/">
+          <b>2.6. </b>Sử dụng API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/" title="Cấu hình AAA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/">
+          <b>3. </b>Cấu hình AAA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/1-cognito/" title="Xác thực cho SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/1-cognito/">
+          <b>3.1. </b>Xác thực cho SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/2-microservice-authen/" title="Xác thực cho Microservice" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/2-microservice-authen/">
+          <b>3.2. </b>Xác thực cho Microservice
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/3-deploy-test/" title="Triển khai và Kiểm thử" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/3-deploy-test/">
+          <b>3.3. </b>Triển khai và Kiểm thử
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/4-signup-signin/" title="Đăng ký và Đăng nhập Người dùng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/4-signup-signin/">
+          <b>3.4. </b>Đăng ký và Đăng nhập Người dùng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-xray/" title="Hiệu năng Ứng dụng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-xray/">
+          <b>4. </b>Hiệu năng Ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-challenge/" title="Bài tập nâng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-challenge/">
+          <b>5. </b>Bài tập nâng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-conclusion/" title="Tổng kết" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-conclusion/">
+          <b>6. </b>Tổng kết
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-resources/" title="Tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-resources/">
+          <b>7. </b>Tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-spa/3-api-gateway/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-spa/3-api-gateway/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Creating an Authenticated Single Page Application (SPA)</a> > <a href='/vi/2-spa/'>Ứng dụng Đơn trang (SPA)</a> > Tạo và Cung cấp API
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Tạo và Cung cấp API
+            </h1>
+          
+
+        
+
+
+
+	<p><strong>Tạo và Cung cấp API với Amazon API Gateway</strong></p>
+<p>Hiện tại, bạn đã tạo xong các hàm Lambda, đã đến lúc tạo và triển khai thủ công API Gateway sẽ cung cấp microservice dưới dạng API.</p>
+<p><strong>Nội dung</strong></p>
+<ul>
+<li><a href="#cung-c%E1%BA%A5p-tripsfromcity-restful-api-endpoint">Cung cấp <strong>/tripsfromcity</strong> RESTful API endpoint</a></li>
+<li><a href="#cung-c%E1%BA%A5p-tripstocity-restful-api-endpoint">Cung cấp <strong>/tripstocity</strong> RESTful API endpoint</a></li>
+<li><a href="#tri%E1%BB%83n-khai-api-v%C3%A0-ki%E1%BB%83m-th%E1%BB%AD">Triển khai API và Kiểm thử</a></li>
+<li><a href="#exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</a></li>
+<li><a href="#ki%E1%BB%83m-th%E1%BB%AD-hotelspecials-api">Kiểm thử HotelSpecials API</a></li>
+</ul>
+<ol>
+<li>Truy cập <strong>AWS API Gateway console</strong> thông qua menu <strong>Services</strong> và tìm <code>api</code> trong thanh tìm kiếm. Nhấn <strong>Enter</strong>.</li>
+<li>Chọn <strong>Get Started</strong> nếu xuất hiện.</li>
+<li>Đi đến <strong>Create REST API</strong> và chọn <strong>Build</strong>. Chắc rằng bạn <strong>không</strong> chọn lựa chọn có từ &ldquo;<strong>Private</strong>&quot;.</li>
+</ol>
+<p><img src="/images/2/6.png?width=90pc" alt="API Gateway"></p>
+<ol start="4">
+<li>Ở màn hình kế tiếp, chọn <strong>OK</strong>. Chắc rằng bạn lựa chọn <strong>New API</strong> :</li>
+</ol>
+<p><img src="/images/2/7.png?width=90pc" alt="API Gateway"></p>
+<ol start="5">
+<li>Ở <strong>API Name</strong> nhập <code>iDevelop - Trip Search API</code></li>
+<li>Ở <strong>Description</strong> nhập <strong>Allows searching ở trips from/to cities</strong></li>
+<li>Chọn <strong>Create API</strong>.</li>
+</ol>
+<p><img src="/images/2/9.png?width=90pc" alt="API Gateway"></p>
+<ol start="8">
+<li>API sẽ được tạo và chỉ có đường dẫn <strong>root</strong>. Chọn vào đường dẫn gốc <strong>/</strong> và chọn <strong>Actions</strong> để xem menu. Chọn <strong>Create Resource</strong>.</li>
+</ol>
+<p><img src="/images/2/10.png?width=90pc" alt="API Gateway"></p>
+<ol start="9">
+<li>Trong <strong>New Child Resource</strong>, ở <strong>Resource Name</strong> nhập <code>trips</code></li>
+<li>Ở <strong>Resource Path</strong> nhập <code>trips</code></li>
+<li>Đánh dấu vào <strong>Enable API Gateway CORS</strong></li>
+<li>Chọn <strong>Create Resource</strong></li>
+</ol>
+<p><img src="/images/2/11.png?width=90pc" alt="API Gateway"></p>
+<ol start="13">
+<li>Resource <strong>/trips</strong> sẽ được tạo. Chọn vào đường dẫn <strong>/trips</strong>, sau đó chọn  <strong>Actions</strong> và chọn <strong>Create Method</strong>.</li>
+</ol>
+<p><img src="/images/2/12.png?width=90pc" alt="API Gateway"></p>
+<ol start="14">
+<li>Trong danh sách liệt kê xuất hiện, chọn <strong>GET</strong></li>
+</ol>
+<p><img src="/images/2/13.png?width=90pc" alt="API Gateway"></p>
+<ol start="15">
+<li>Chọn <strong>dấu tick</strong> bên cạnh để xác nhận lưu thiết lập.</li>
+<li>Bảng <strong>/trips - GET - Setup</strong> sẽ xuất hiện. Ở <strong>Lambda Region</strong> chọn <code>ap-northeast-1</code> (hoặc region của bạn)</li>
+<li>Ở <strong>Lambda Function</strong>, nhập <code>idevelop</code> để thấy các hàm đang có trong region và chọn <code>idevelopTripSearchFull</code>.</li>
+</ol>
+<p><img src="/images/2/14.png?width=90pc" alt="API Gateway"></p>
+<ol start="18">
+<li>Chọn <strong>Save</strong>.</li>
+<li>Trong hộp thoại xuất hiện sau khi phần quyền cho Lambda, chọn <strong>OK</strong>.</li>
+<li>Khi method được tạo, bạn sẽ thấy bảng <strong>Method Execution</strong>:</li>
+</ol>
+<p><img src="/images/2/15.png?width=90pc" alt="API Gateway"></p>
+<p>Để kiểm tra hàm Lambda được gọi bởi API, chọn nút <strong>Test</strong>.</p>
+<ol start="21">
+<li>Trong bảng <strong>Method Test</strong>, kéo xuống để thấy nút <strong>Test</strong>.</li>
+</ol>
+<p><img src="/images/2/16.png?width=90pc" alt="API Gateway"></p>
+<ol start="22">
+<li>Chọn nút <strong>Test</strong>. Sau một vài phút để hàm Lambda khởi chạy và thực thi, bạn sẽ thấy kết quả tương tự như sau:</li>
+</ol>
+<p><img src="/images/2/17.png?width=90pc" alt="API Gateway"></p>
+
+<div class="notices note" ><p>Lưu ý rằng dữ liệu bạn thấy sẽ khác vì nó được tạo ngẫu nhiên bởi quá trình thiết lập bài thực hành.</p>
+</div>
+
+<ol start="23">
+<li>Để cho phép truy cập từ trình duyệt, bạn cần bật CORS - Cross-origin scripting.
+Chọn vào <strong>/trips</strong> và từ menu <strong>Actions</strong>, chọn <strong>Enable CORS</strong>.</li>
+<li>Chọn <strong>Enable CORS and replace existing CORS headers</strong>.</li>
+<li>Trong hộp thoại xuất hiện, chọn <strong>Yes, replace existing values</strong>. Khi các mục liệt kê có <strong>dấu tick xanh</strong>, bạn có thể tiếp tục các bước kế. Sẽ mất một ít thời gian để hoàn thành.</li>
+</ol>
+<h4 id="cung-cấp-tripsfromcity-restful-api-endpoint">Cung cấp <strong>/tripsfromcity</strong> RESTful API endpoint</h4>
+<p>Đường dẫn đầu tiên mà chúng ta cung cấp khá đơn giản - /trips sẽ lấy tất cả các chuyến đi trong hệ thống.</p>
+<p>Nhưng chúng ta biết việc triển khai mã nguồn của chúng ta cho phép chúng ta chỉ định một bộ lọc để truy vấn ở các chuyến đi <strong>xuất phát</strong> từ một thành phố cụ thể hoặc có <strong>điểm đến</strong> cụ thể. Vì vậy chúng ta muốn hiển thị chức năng này cho người dùng API của mình. Đầu tiên, chúng ta sẽ hiển thị đường dẫn <strong>/tripfromcity</strong>.</p>
+<ol start="26">
+<li>Chọn vàp <strong>/</strong> trong cây <strong>Resources</strong></li>
+<li>Từ menu <strong>Actions</strong> chọn <strong>Create Resource</strong></li>
+<li>Ở <strong>Resource Name</strong> nhập <code>tripsfromcity</code></li>
+<li>Chọn vào <strong>Enable API Gateway CORS</strong></li>
+<li>Chọn <strong>Create Resource</strong></li>
+<li>Lệnh gọi của chúng ta vào hàm Lambda yêu cầu thông số <strong>city</strong>. Chúng ta sẽ đi theo tiêu chuẩn ở RESTful interface và chuyển tham số này vào dưới dạng tham số truyền trên URL. Chọn vào <strong>/tripsfromcity</strong>, từ menu <strong>Actions</strong>, chọn <strong>Create Resource</strong></li>
+<li>Ở <strong>Resource Name</strong> nhập <code>{city}</code></li>
+<li>Ở <strong>Resource Path</strong>, xóa nội dung mặc định và nhập <code>{city}</code></li>
+<li>Chọn <strong>Create Resource</strong></li>
+<li>Chọn vào <strong>/{city}</strong>, từ menu <strong>Actions</strong>, chọn <strong>Create Method</strong></li>
+<li>Trong danh sách liệt kê, chọn <strong>GET</strong></li>
+<li>Chọn <strong>dấu tick xám</strong> bên cạnh để xác nhận lưu thiết lập.</li>
+<li>Bảng <strong>/tripsfromcity/{city} - GET - Setup</strong> sẽ xuất hiện. Ở <strong>Lambda Region</strong> chọn <code>ap-northeast-1</code> (hoặc region của bạn)</li>
+<li>Ở <strong>Lambda Function</strong>, nhập <code>idevelop</code> để thấy các hàm đang có trong region và chọn <code>idevelopTripSearchFromCity</code></li>
+<li>Chọn <strong>Save</strong></li>
+<li>Trong hộp thoại xuất hiện sau khi phần quyền cho Lambda, chọn <strong>OK</strong>.</li>
+<li>Khi method được tạo, bạn sẽ thấy bảng <strong>Method Execution</strong> như bước trước tạo resource <strong>/trips</strong>. Chúng ta không thể tiếp tục thực hiện kiểm thử gọi đến API bởi vì chúng ta cần biến đổi yêu cầu thông qua API Gateway nhằm lấy được thông tin {city} được truyền qua hàm Lambda chính xác.</li>
+</ol>
+<p><strong>devlounge.lambda.FindTripsFromCityHandler</strong> handler cần thấy được thông số truyền vào từ yêu cầu như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;payload&#34;</span> : 
+	{
+        <span style="color:#f92672">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;Melbourne&#34;</span>
+    }
+}
+</code></pre></div>
+<div class="notices note" ><p>Điều này sẽ khiến hàm Lambda tìm kiếm DynamoDB ở tất cả các chuyến đi xuất phát từ Melbourne. Chúng ta cần thêm một <strong>Body Mapping Template</strong> cho method này ở API Gateway nhằm chuyển đổi thông số cho đúng theo yêu cầu.</p>
+</div>
+
+<ol start="43">
+<li>Trong bảng <strong>/tripsfromcity/{city} - GET - Method Execution</strong>, chọn <strong>Integration Request</strong></li>
+<li>Kéo xuống <strong>Mapping Templates</strong> và mở rộng mục bằng cách chọn vào dấu tam giác.</li>
+<li>Chọn lựa chọn <strong>When there are no templates defined (recommended)</strong></li>
+<li>Chọn <strong>Add mapping template</strong></li>
+<li>Ở <strong>Content-Type</strong> nhập <code>application/json</code> và chọn <strong>dấu tick xám</strong> để lưu lựa chọn</li>
+<li>Kéo xuống nữa để thấy khung nhập liệu. Nhập vào template sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;payload&#34;</span> : {
+        <span style="color:#f92672">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;$input.params(&#39;city&#39;)&#34;</span>
+    }
+}
+</code></pre></div><ol start="49">
+<li>Chọn <strong>Save</strong>.</li>
+</ol>
+<p>Template này sẽ lấy tham số <code>{city}</code> từ URL và thêm nó vào JSON payload và gửi đến hàm Lambda giống như hàm Lambda mong đợi.</p>
+<p><img src="/images/2/18.png?width=90pc" alt="API Gateway"></p>
+
+<div class="notices note" ><p>Schema được định nghĩa ở đây cho hàm Lambda này là hoàn toàn có thể tùy chỉnh và trong ứng dụng của bạn, bạn có thể sử dụng một mô hình hoàn toàn khác. Mẫu ánh xạ cung cấp cho bạn sự linh hoạt để chuyển đổi dữ liệu đến một cách nhanh chóng thông qua API Gateway endpoint.</p>
+</div>
+
+<ol start="50">
+<li>Bây giờ chúng ta đã có thể kiểm thử. Chọn <strong>Method Execution</strong> và quay về bảng <strong>Method Execution</strong>.</li>
+<li>Chọn <strong>Test</strong> để hiện bảng Test.</li>
+<li>Ở mục <strong>Path</strong>, ở thông số <strong>{city}</strong>, nhập <code>Melbourne</code></li>
+<li>Chọn <strong>Test</strong>.</li>
+</ol>
+<p>API Gateway sẽ thực hiện lệnh gọi vào hàm Lambda, truyền giá trị Melbourne vào Body Mapping Template mà bạn đã xác định, chèn tham số tìm kiếm Melbourne vào JSON payload được gửi đến hàm Lambda. Điều này sẽ khiến handler sử dụng JSON và thực hiện tìm kiếm trong bảng DynamoDB và trả về kết quả. Bạn sẽ thấy một kết quả tương tự như sau:</p>
+<p><img src="/images/2/19.png?width=90pc" alt="API Gateway"></p>
+<ol start="54">
+<li>Để cho phép truy cập từ trình duyệt, bạn cần bật CORS - Cross-origin scripting.
+Chọn vào <strong>/tripsfromcity/{city}</strong> và từ menu <strong>Actions</strong>, chọn <strong>Enable CORS</strong>.</li>
+<li>Chọn <strong>Enable CORS and replace existing CORS headers</strong>.</li>
+<li>Trong hộp thoại xuất hiện, chọn <strong>Yes, replace existing values</strong>. Khi các mục liệt kê có <strong>dấu tick xanh</strong>, bạn có thể tiếp tục các bước kế. Sẽ mất một ít thời gian để hoàn thành.</li>
+</ol>
+<h4 id="cung-cấp-tripstocity-restful-api-endpoint">Cung cấp <strong>/tripstocity</strong> RESTful API endpoint</h4>
+<p>Kế đến, chúng ta sẽ cung cấp Resource cuối cùng - <strong>Trips API</strong>, <strong>/tripstocity</strong>:</p>
+<ol start="57">
+<li>Chọn vàp <strong>/</strong> trong cây <strong>Resources</strong></li>
+<li>Từ menu <strong>Actions</strong> chọn <strong>Create Resource</strong></li>
+<li>Ở <strong>Resource Name</strong> nhập <code>tripstocity</code></li>
+<li>Chọn vào <strong>Enable API Gateway CORS</strong></li>
+<li>Chọn <strong>Create Resource</strong></li>
+<li>Lệnh gọi của chúng ta vào hàm Lambda yêu cầu thông số <strong>city</strong>. Chúng ta sẽ đi theo tiêu chuẩn ở RESTful interface và chuyển tham số này vào dưới dạng tham số truyền trên URL. Chọn vào <strong>/tripstocity</strong>, từ menu <strong>Actions</strong>, chọn <strong>Create Resource</strong></li>
+<li>Ở <strong>Resource Name</strong> nhập <code>{city}</code></li>
+<li>Ở <strong>Resource Path</strong>, xóa nội dung mặc định và nhập <code>{city}</code></li>
+<li>Check the <strong>Enable API Gateway CORS</strong> checkbox</li>
+<li>Chọn <strong>Create Resource</strong></li>
+<li>Chọn vào <strong>/{city}</strong>, từ menu <strong>Actions</strong>, chọn <strong>Create Method</strong></li>
+<li>Trong danh sách liệt kê, chọn <strong>GET</strong></li>
+<li>Chọn <strong>dấu tick xám</strong> bên cạnh để xác nhận lưu thiết lập.</li>
+<li>Bảng <strong>/tripstocity/{city} - GET - Setup</strong> sẽ xuất hiện. Ở <strong>Lambda Region</strong> chọn <code>ap-northeast-1</code> (hoặc region của bạn)</li>
+<li>Ở <strong>Lambda Function</strong>, nhập <code>idevelop</code> để thấy các hàm đang có trong region và chọn <code>idevelopTripSearchToCity</code></li>
+<li>Chọn <strong>Save</strong></li>
+<li>Trong hộp thoại xuất hiện sau khi phần quyền cho Lambda, chọn <strong>OK</strong>.</li>
+<li>Khi method được tạo, bạn sẽ thấy bảng <strong>Method Execution</strong> như bước trước tạo resource <strong>/trips</strong>. Chúng ta không thể tiếp tục thực hiện kiểm thử gọi đến API bởi vì chúng ta cần biến đổi yêu cầu thông qua API Gateway nhằm lấy được thông tin {city} được truyền qua hàm Lambda chính xác.</li>
+</ol>
+<p><strong>devlounge.lambda.FindTripsToCityHandler</strong> handler cần thấy được thông số truyền vào từ yêu cầu như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;payload&#34;</span> : 
+	{
+        <span style="color:#f92672">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;Melbourne&#34;</span>
+    }
+}
+</code></pre></div>
+<div class="notices note" ><p>Điều này sẽ khiến hàm Lambda tìm kiếm DynamoDB ở tất cả các chuyến đi xuất phát từ Melbourne. Chúng ta cần thêm một <strong>Body Mapping Template</strong> cho method này ở API Gateway nhằm chuyển đổi thông số cho đúng theo yêu cầu.</p>
+</div>
+
+<ol start="75">
+<li>Trong bảng <strong>/tripstocity/{city} - GET - Method Execution</strong>, chọn <strong>Integration Request</strong></li>
+<li>Kéo xuống <strong>Mapping Templates</strong> và mở rộng mục bằng cách chọn vào dấu tam giác.</li>
+<li>Chọn lựa chọn <strong>When there are no templates defined (recommended)</strong></li>
+<li>Chọn <strong>Add mapping template</strong></li>
+<li>Ở <strong>Content-Type</strong> nhập <code>application/json</code> và chọn <strong>dấu tick xám</strong> để lưu lựa chọn</li>
+<li>Kéo xuống nữa để thấy khung nhập liệu. Nhập vào template sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;payload&#34;</span> : {
+        <span style="color:#f92672">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;$input.params(&#39;city&#39;)&#34;</span>
+    }
+}
+</code></pre></div><ol start="81">
+<li>Chọn <strong>Save</strong></li>
+</ol>
+<p>Template này sẽ lấy tham số <code>{city}</code> từ URL và thêm nó vào JSON payload và gửi đến hàm Lambda giống như hàm Lambda mong đợi.</p>
+<ol start="82">
+<li>Kiểm thử gọi đến API <strong>/tripstocity</strong> để chắc chắn nó đã hoạt động.</li>
+</ol>
+<p><img src="/images/2/20.png?width=90pc" alt="API Gateway"></p>
+<ol start="83">
+<li>Để cho phép truy cập từ trình duyệt, bạn cần bật CORS - Cross-origin scripting.
+Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</strong>, chọn <strong>Enable CORS</strong>.</li>
+<li>Chọn <strong>Enable CORS and replace existing CORS headers</strong></li>
+<li>Trong hộp thoại xuất hiện, chọn <strong>Yes, replace existing values</strong>. Khi các mục liệt kê có <strong>dấu tick xanh</strong>, bạn có thể tiếp tục các bước kế. Sẽ mất một ít thời gian để hoàn thành.</li>
+</ol>
+<p>Nếu đã hoàn thành đến đây, bạn sẽ có một cây Resource nhìn tương tự như thế này:</p>
+<p><img src="/images/2/21.png?width=90pc" alt="API Gateway"></p>
+<h4 id="triển-khai-api-và-kiểm-thử">Triển khai API và Kiểm thử</h4>
+<ol start="86">
+<li>Bây giờ bạn chắc chắn rằng các microservices đang hoạt động bình thường, bạn đã sẵn sàng triển khai API và kiểm tra nó từ endpoint công khai. Chọn vàp <strong>/</strong> của API và chọn nút <strong>Actions</strong>.</li>
+<li>Chọn <strong>Deploy API</strong></li>
+</ol>
+<p><img src="/images/2/22.png?width=90pc" alt="API Gateway"></p>
+<ol start="88">
+<li>Trong hộp thoại <strong>Deploy API</strong> xuất hiện, ở <strong>Deployment stage</strong> chọn <code>[New Stage]</code> để tạo một stage mới.</li>
+<li>Ở <strong>Stage name</strong> nhập <code>prod</code></li>
+<li>Ở <strong>Stage description</strong> nhập <code>Trips API</code></li>
+<li>Ở <strong>Deployment description</strong> nhập <code>Initial deployment</code></li>
+<li>Chọn <strong>Deploy</strong></li>
+</ol>
+<p><img src="/images/2/23.png?width=90pc" alt="API Gateway"></p>
+<p>Stage mới tên <strong>prod</strong> sẽ được tạo và bạn sẽ thấy <strong>prod Stage Editor</strong></p>
+<p><img src="/images/2/24.png?width=90pc" alt="API Gateway"></p>
+<ol start="93">
+<li>Chọn đường dẫn <strong>Invoke URL</strong>. Một cửa sổ mới sẽ mở ra và truy cập đến địa chỉ đó. Bạn sẽ thấy một thông báo lỗi nêu rõ <code>{&quot;message&quot;:&quot;Missing Authentication Token&quot;}</code>. Điều này là do không có trình xử lý ở đường dẫn gốc của stage - bạn chỉ có các resources/methods được xác định bên dưới các đường dẫn <strong>/trips, /tripsfromcity</strong> và <strong>/tripstocity</strong>. Chỉnh sửa URL trong thanh URL của trình duyệt và  thêm <strong>/trips</strong> rồi nhấn <strong>Enter</strong>. Trang sẽ làm mới và sau đó hiển thị tất cả các chuyến đi có sẵn dưới dạng JSON. Đầu ra sẽ tương tự như sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;succeeded&#34;</span>: <span style="color:#66d9ef">true</span>,
+	<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+	<span style="color:#f92672">&#34;errorCode&#34;</span>: <span style="color:#ae81ff">0</span>,
+	<span style="color:#f92672">&#34;data&#34;</span>: [{
+		<span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#ae81ff">1511866019000</span>,
+		<span style="color:#f92672">&#34;originCity&#34;</span>: <span style="color:#e6db74">&#34;Dallas&#34;</span>,
+		<span style="color:#f92672">&#34;destinationCity&#34;</span>: <span style="color:#e6db74">&#34;Santigo de Chile&#34;</span>,
+		<span style="color:#f92672">&#34;airline&#34;</span>: <span style="color:#e6db74">&#34;Qantas&#34;</span>
+	}, {
+		<span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#ae81ff">1514831014000</span>,
+		<span style="color:#f92672">&#34;originCity&#34;</span>: <span style="color:#e6db74">&#34;London&#34;</span>,
+		<span style="color:#f92672">&#34;destinationCity&#34;</span>: <span style="color:#e6db74">&#34;Melbourne&#34;</span>,
+		<span style="color:#f92672">&#34;airline&#34;</span>: <span style="color:#e6db74">&#34;Qantas&#34;</span>
+	}]
+}
+</code></pre></div><ol start="94">
+<li>Kiểm tra hai cái method còn lại <strong>/tripsfromcity</strong> và <strong>/tripstocity</strong> theo cách tương tự, nhưng lần này, bạn cần cung cấp thành phố để tìm kiếm. Ví dụ, sử dụng <code>/tripsfromcity/Melbourne</code> để tìm kiếm tất cả các chuyến đi khởi hành từ Melbourne.</li>
+</ol>
+<p>Nếu dữ liệu có vẻ đúng và không có lỗi, bạn đã sẵn sàng chuyển sang bài tập tiếp theo.</p>
+<h4 id="exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</h4>
+<p>Trong các bước trước đó, bạn đã triển khai và cấu hình vi microservice <strong>TripSearch</strong> theo cách <strong>thủ công</strong>, bao gồm các hàm Lambda và API Gateway resource. Bạn sẽ nhận thấy rằng có khá nhiều bước cần làm và thực hiện việc này theo cách thủ công rất tốn thời gian và dễ xảy ra lỗi. Trong bước này, bạn sẽ sử dụng AWS CLI và CloudFormation/SAM để triển khai microservice <strong>HotelSearch</strong>, thay vì triển khai thủ công các tài nguyên.</p>
+<p>Bằng cách sử dụng CloudFormation/SAM, nhiều bước thủ công sẽ được thực hiện cho bạn, sắp xếp quy trình triển khai. Bạn vẫn sẽ phải kích hoạt quy trình theo cách thủ công, nhưng việc triển khai thực tế sẽ được tự động hóa.</p>
+<p><strong>HotelSpecials</strong> microservice cần truy cập vào cơ sở dữ liệu MySQL để truy xuất dữ liệu về các dữ liệu đặc biệt của khách sạn. Môi trường bài thực hành đã tự động triển khai và tạo cơ sở dữ liệu cho bạn và chi tiết kết nối được cung cấp trong <strong>CloudFormation Outputs</strong> với hướng dẫn bên dưới về nơi cập nhật các thông số trong template mà bạn sẽ sử dụng để triển khai microservice. Cơ sở dữ liệu MySQL đã được triển khai bằng Amazon RDS và không thể truy cập công khai vì nó được khởi chạy trong một mạng con riêng tư. Do đó, để hàm Lambda để có thể kết nối với cơ sở dữ liệu, hàm Lambda cũng sẽ cần được triển khai thành một mạng con riêng bằng cách kích hoạt VPC Integration. Tập tin <code>template.yml</code> được cung cấp có tất cả các thiết lập cần thiết để thực hiện việc này, bạn chỉ cần cập nhật các thông số theo hướng dẫn bên dưới.</p>
+<ol start="95">
+<li>Môi trường bài thực hành đã tạo một S3 bucket cho bạn để lưu trữ phần mềm triển khai cho hàm Lambda ở microservice HotelSpecials. Đầu tiên, bạn cần kiểm tra và xây dựng gói triển khai.</li>
+</ol>
+<p>Tải xuống gói mã nguồn từ <a href="https://workshops.devax.academy/monoliths-to-microservices/module6/files/HotelSpecials.zip">HotelSpecials.zip</a> và giải nén trên máy bạn.</p>
+
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		HotelSpecials source code bundle
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/2-spa/3-api-gateway/_index.vi.files/HotelSpecials.zip" >
+						HotelSpecials.zip
+					</a>
+					(35 ko)
+				</li>
+			
+		
+	
+	<div>
+	
+</section>
+
+
+<ol start="96">
+<li>Trong cửa số lệnh, <code>cd</code> vào vị trí giải nén mã nguồn <strong>HotelSpecials</strong> và xây dựng các thành phần triển khai bằng lệnh sau:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn package shade:shade
+</code></pre></div><p>Phần mềm xây dựng xong (JAR file) sẽ được lưu tại <code>./target/hotelspecials-1.0.0.jar</code></p>
+<ol start="97">
+<li>Tìm tập tin <code>template.yml</code> trong thư mục mã nguồn <strong>HotelSpecials</strong> và mở nó trong trình soạn thảo văn bản như Eclipse. <strong>Tìm và thay thế</strong> các thông số sau với thông tin lấy từ <strong>CloudFormation Outputs</strong>:</li>
+</ol>
+<ul>
+<li>&lt;DatabaseSecurityGroup&gt;</li>
+<li>&lt;DatabaseSubnet1&gt;</li>
+<li>&lt;DatabaseSubnet2&gt;</li>
+<li>&lt;RDSEndpoint&gt;</li>
+</ul>
+<p>Lưu tập tin <code>template.yml</code> sau khi đã thay đổi.</p>
+<ol start="98">
+<li>Sử dụng AWS CLI để đóng gói hàm Lambda (từ thành phần triển khai bạn vừa tạo). Chạy lệnh sau từ cửa sổ dòng lệnh:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws cloudformation package --template template.yml --s3-bucket &lt;S3BucketLambdaCode&gt; --output-template template-export.yml
+</code></pre></div>
+<div class="notices note" ><p>Thay giá trị trong <strong>Cloudformation Outputs</strong> bằng giá trị của  <strong>S3BucketLambdaCodeBucketName</strong>. <strong>Không</strong> thêm ký tự *<em>&lt;</em>* và **&gt;**.</p>
+</div>
+
+<p>Lệnh sẽ tải lên các artifact vào S3 bucket, sau đó cập nhật con trỏ <code>template.yml</code> thành artifact trên S3 và ghi ra một mẫu mới có kèm theo bản cập nhật này vào một tệp có tên <code>template-export.yml</code>.</p>
+
+<div class="notices tip" ><p>Sẽ mất một hoặc hai phút để hoàn tất quá trình tải lên artifact.</p>
+</div>
+
+<ol start="99">
+<li>Sử dụng <strong>AWS CLI</strong> để tạo và triển khai <strong>CloudFormation Change Set</strong>:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws cloudformation deploy --template-file template-export.yml --stack-name HotelSpecialsAPI --capabilities CAPABILITY_IAM
+</code></pre></div><ol start="100">
+<li>Trong web browser, mở <strong>CloudFormation console</strong>. Bạn sẽ thấy một kết quả như thế này:</li>
+</ol>
+<p><img src="/images/2/25.png?width=90pc" alt="API Gateway"></p>
+<p>Điều này cho thấy rằng <strong>CloudFormation Change Set</strong> đã được tạo. Lệnh bạn đã đưa ra sẽ tạo Change Set và sau đó tự động thực hiện Change Set, vì vậy nếu bạn làm mới lại stack, bạn sẽ thấy:</p>
+<p><img src="/images/2/26.png?width=90pc" alt="API Gateway"></p>
+<p>Điều này cho thấy rằng Change Set đang được áp dụng cho CloudFormation stack có tên <strong>HotelSpecialsAPI</strong></p>
+<p>Sẽ mất một vài phút để hoàn tất quá trình thực thi. Nếu bạn làm mới, cuối cùng bạn sẽ thấy:</p>
+<p><img src="/images/2/27.png?width=90pc" alt="API Gateway"></p>
+<ol start="101">
+<li>
+<p>Chọn <strong>HotelSpecialsAPI</strong> stack để đánh dấu, chọn <strong>Events</strong> và xem lại các bước mà CloudFormation template đã áp dụng cho môi trường của bạn. Chúng sẽ khớp với các tài nguyên và hành động trong tập tin <code>template-output.yml</code>.</p>
+</li>
+<li>
+<p>Khi Change Set đã được thực thi, <strong>HotelSpecials API</strong> của bạn đã được triển khai. Mở <strong>API Gateway console</strong> trong trình duyệt và trong <strong>APIs</strong>, chọn liên kết <strong>iDevelop - Hotel Specials API</strong> để hiển thị các tài nguyên trong API:</p>
+</li>
+</ol>
+<p><img src="/images/2/28.png?width=90pc" alt="API Gateway"></p>
+
+<div class="notices note" ><p>Lưu ý rằng một phương thức <strong>GET</strong> duy nhất được xác định, theo mẫu CloudFormation template <code>template.yml</code> mà bạn đã triển khai.</p>
+</div>
+
+<ol start="103">
+<li>Chọn vào <strong>GET</strong> method ở <strong>/hotelspecials</strong> để thấy bảng <strong>/hotelspecials - GET - Method Execution</strong>. Chọn <strong>Integration Request</strong></li>
+</ol>
+<p><img src="/images/2/29.png?width=90pc" alt="API Gateway"></p>
+<ol start="104">
+<li>Bảng <strong>Integration Request</strong> sẽ xuất hiện. <strong>Lambda Function</strong> xác định rõ:</li>
+</ol>
+<p><img src="/images/2/30.png?width=90pc" alt="API Gateway"></p>
+<p>The specified value is not a Lambda function, but instead, is a <strong>Stage Variable</strong> that will be replaced at runtime by API Gateway. Therefore, in order for this API call to succeed, the <strong>Stage</strong> in API Gateway must have defined a value for the <code>envHotelSpecials</code> stage variable.</p>
+<p>Giá trị được chỉ định không phải là một hàm Lambda, mà thay vào đó, là một <strong>Stage Variable</strong> sẽ được thay thế trong thời gian chạy bằng API Gateway. Do đó, để lệnh gọi API này thành công, <strong>Stage</strong> trong API Gateway phải xác định một giá trị cho <strong>Stage Variable</strong> <code>envHotelSpecials</code>.</p>
+<p>Chọn vào <strong>Stages</strong> bên dưới <strong>iDevelop - Hotel Specials API</strong>:</p>
+<p><img src="/images/2/31.png?width=90pc" alt="API Gateway"></p>
+<ol start="105">
+<li>Chọn vào đường dẫn <strong>prod</strong></li>
+</ol>
+<p><img src="/images/2/32.png?width=90pc" alt="API Gateway"></p>
+<ol start="106">
+<li>Trong <strong>prod Stage Editor</strong> chọn <strong>Stage Variables</strong></li>
+</ol>
+<p><img src="/images/2/33.png?width=90pc" alt="API Gateway"></p>
+
+<div class="notices note" ><p>Lưu ý rằng một biến duy nhất được xác định - <code>envHotelSpecials</code> - tương quan với tên biến giai đoạn mà phương thức <strong>GET</strong> đã mong đợi. Giá trị của biến là <strong>GetHotelSpecials</strong> là tên của hàm Lambda mà mẫu được tạo bằng cách sử dụng tập tin JAR mà bạn đã tạo và tải lên trong quá trình đóng gói/triển khai.</p>
+</div>
+
+<p>Việc sử dụng các biến giai đoạn cung cấp cho bạn mức độ chuyển hướng trong thời gian chạy và cả khi thiết kế các CloudFormation/SAM templates của bạn. Bạn có thể cập nhật giá trị của biến giai đoạn bất kỳ lúc nào mà không cần phải triển khai lại API.</p>
+<h4 id="kiểm-thử-hotelspecials-api">Kiểm thử HotelSpecials API</h4>
+<p>Bây giờ bạn đã sẵn sàng để kiểm tra HotelSpecials API.</p>
+<ol start="107">
+<li>Mở rộng <strong>prod</strong> trong <strong>Stages</strong> để xem cấu trúc.</li>
+<li>Chọn vào method <strong>GET</strong></li>
+<li>Chọn vào <strong>Invoke URL</strong> trong bảng <strong>prod - GET - /hotelspecials</strong>. Sau một khoảng thời gian, hàm Lambda khởi tạo, bạn sẽ thấy kết quả JSON truy xuất dữ liệu từ cơ sở dữ liệu MySQL về từ hàm Lambda.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;succeeded&#34;</span>: <span style="color:#66d9ef">true</span>,
+	<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+	<span style="color:#f92672">&#34;errorCode&#34;</span>: <span style="color:#ae81ff">0</span>,
+	<span style="color:#f92672">&#34;data&#34;</span>: [{
+		<span style="color:#f92672">&#34;hotel&#34;</span>: <span style="color:#e6db74">&#34;Sommerset Hotel&#34;</span>,
+		<span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Minimum stay 3 nights&#34;</span>,
+		<span style="color:#f92672">&#34;cost&#34;</span>: <span style="color:#ae81ff">474</span>,
+		<span style="color:#f92672">&#34;expiryDate&#34;</span>: <span style="color:#ae81ff">1504064184038</span>,
+		<span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;Sydney&#34;</span>,
+		<span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>
+	}, {
+		<span style="color:#f92672">&#34;hotel&#34;</span>: <span style="color:#e6db74">&#34;Freedmom Apartments&#34;</span>,
+		<span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Pets allowed!&#34;</span>,
+		<span style="color:#f92672">&#34;cost&#34;</span>: <span style="color:#ae81ff">501</span>,
+		<span style="color:#f92672">&#34;expiryDate&#34;</span>: <span style="color:#ae81ff">1504068564781</span>,
+		<span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;Sydney&#34;</span>,
+		<span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>
+	}]
+}
+</code></pre></div><p>Nếu bạn thấy một kết quả JSON không có lỗi, bạn đã triển khai thành công một API và hỗ trợ hàm Lambda truy vấn cơ sở dữ liệu mySQL.</p>
+<p>Chú ý rằng chúng nhanh hơn và dễ hơn việc triển khai thủ công như thế nào?</p>
+<p>Đó là sức mạnh của tự động hóa. Trong bài tập tiếp theo, chúng ta sẽ thực hiện bước này xa hơn, sử dụng phương pháp tiếp cận CI/CD pipeline (hiện đã phổ biến) để triển khai API tiếp theo của chúng ta.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/2-spa/2-build-deploy/" title="Serverless Microservices"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/2-spa/4-codestar-cicd/" title="Triển khai API với CodeStar và CI/CD" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1622721957"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622721957"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622721957"></script>
+    <script src="/js/jquery.sticky.js?1622721957"></script>
+    <script src="/js/featherlight.min.js?1622721957"></script>
+    <script src="/js/highlight.pack.js?1622721957"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622721957"></script>
+    <script src="/js/learn.js?1622721957"></script>
+    <script src="/js/hugo-learn.js?1622721957"></script>
+
+    <link href="/mermaid/mermaid.css?1622721957" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622721957"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
