@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ứng dụng Đơn trang (SPA) on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</title>
+    <title>Ứng dụng Đơn trang (SPA) on DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
     <link>/vi/2-spa/</link>
-    <description>Recent content in Ứng dụng Đơn trang (SPA) on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)</description>
+    <description>Recent content in Ứng dụng Đơn trang (SPA) on DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate>
-    
-	<atom:link href="/vi/2-spa/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate><atom:link href="/vi/2-spa/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

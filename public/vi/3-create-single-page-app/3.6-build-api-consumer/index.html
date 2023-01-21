@@ -1,0 +1,2863 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Tạo một Client để sử dụng API :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
+
+    
+    <link href="/css/nucleus.css?1674309799" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674309799" rel="stylesheet">
+    <link href="/css/hybrid.css?1674309799" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674309799" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674309799" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674309799" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674309799" rel="stylesheet">
+    <link href="/css/theme.css?1674309799" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674309799" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1674309799" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1674309799"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/3-create-single-page-app/3.6-build-api-consumer/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1674309799"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674309799"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1674309799"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/">
+          <b>1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Chuẩn bị môi trường
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/2-remote-env-config-cli/" title="Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-introduction/">
+          <b>1. </b>Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/" title="Ứng dụng Đơn trang (SPA)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/">
+          <b>2. </b>Ứng dụng Đơn trang (SPA)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/">
+          <b>2.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/1-prerequisites/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/1-prerequisites/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/2-build-deploy/" title="Serverless Microservices" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/2-build-deploy/">
+          <b>2.2. </b>Serverless Microservices
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/3-api-gateway/" title="Tạo và Cung cấp API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/3-api-gateway/">
+          <b>2.3. </b>Tạo và Cung cấp API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/" title="Triển khai API với CodeStar và CI/CD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/">
+          <b>2.4. </b>Triển khai API với CodeStar và CI/CD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/4-codestar-cicd/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/4-codestar-cicd/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/5-setup-spa/" title="Thiết lập trang SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/5-setup-spa/">
+          <b>2.5. </b>Thiết lập trang SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-spa/6-consume-api/" title="Sử dụng API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-spa/6-consume-api/">
+          <b>2.6. </b>Sử dụng API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/" title="Chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/">
+          <b>2. </b>Chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.1-createkeypair/" title="Tạo Key Pair" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.1-createkeypair/">
+          <b>2.1. </b>Tạo Key Pair
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.2-createstack/" title="Tạo CloudFormation stack" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.2-createstack/">
+          <b>2.2. </b>Tạo CloudFormation stack
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.3-connectvirtualmachine/" title="Kết nối Windows instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.3-connectvirtualmachine/">
+          <b>2.3. </b>Kết nối Windows instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/" title="Cấu hình AAA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/">
+          <b>3. </b>Cấu hình AAA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/1-cognito/" title="Xác thực cho SPA" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/1-cognito/">
+          <b>3.1. </b>Xác thực cho SPA
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/2-microservice-authen/" title="Xác thực cho Microservice" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/2-microservice-authen/">
+          <b>3.2. </b>Xác thực cho Microservice
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/3-deploy-test/" title="Triển khai và Kiểm thử" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/3-deploy-test/">
+          <b>3.3. </b>Triển khai và Kiểm thử
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-aaa/4-signup-signin/" title="Đăng ký và Đăng nhập Người dùng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-aaa/4-signup-signin/">
+          <b>3.4. </b>Đăng ký và Đăng nhập Người dùng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/" title="Tạo Single Page Application" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/">
+          <b>3. </b>Tạo Single Page Application
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.1-create-dynamodb-table/" title="Tạo DynamoDB Table" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.1-create-dynamodb-table/">
+          <b>3.1. </b>Tạo DynamoDB Table
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/" title="Xây dựng và triển khai Serverless Microservice thủ công" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/">
+          <b>3.2. </b>Xây dựng và triển khai Serverless Microservice thủ công
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.3-create-api-with-api-gateway/" title="Tạo và Cung cấp API với Amazon API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.3-create-api-with-api-gateway/">
+          <b>3.3. </b>Tạo và Cung cấp API với Amazon API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.4-deploy-api-with-codestar/" title="Triển khai API với Codestar và CI/CD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.4-deploy-api-with-codestar/">
+          <b>3.4. </b>Triển khai API với Codestar và CI/CD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.5-setup-single-page-app-website/" title="Thiết lập trang SPA " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.5-setup-single-page-app-website/">
+          <b>3.5. </b>Thiết lập trang SPA 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-create-single-page-app/3.6-build-api-consumer/" title="Tạo một Client để sử dụng API" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/vi/3-create-single-page-app/3.6-build-api-consumer/">
+          <b>3.6. </b>Tạo một Client để sử dụng API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-xray/" title="Hiệu năng Ứng dụng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-xray/">
+          <b>4. </b>Hiệu năng Ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-configure-aaa/" title="Cấu hình Authentication, Authorization và Accounting (AAA)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-configure-aaa/">
+          <b>4. </b>Cấu hình Authentication, Authorization và Accounting (AAA)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-configure-aaa/4.1-add-authentication-with-cognito/" title="Thêm Xác thực vào SPA sử dụng Amazon Cognito User Pools" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-configure-aaa/4.1-add-authentication-with-cognito/">
+          <b>4.1. </b>Thêm Xác thực vào SPA sử dụng Amazon Cognito User Pools
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-configure-aaa/4.2-setup-authentication/" title="Thiết lập Xác thực cho Microservice" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-configure-aaa/4.2-setup-authentication/">
+          <b>4.2. </b>Thiết lập Xác thực cho Microservice
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-configure-aaa/4.3-deploy-and-test/" title="Triển khai và Kiểm thử" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-configure-aaa/4.3-deploy-and-test/">
+          <b>4.3. </b>Triển khai và Kiểm thử
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-configure-aaa/4.4-add-new-user-signup_signin/" title="Đăng ký người dùng mới và đăng nhập" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-configure-aaa/4.4-add-new-user-signup_signin/">
+          <b>4.4. </b>Đăng ký người dùng mới và đăng nhập
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-challenge/" title="Bài tập nâng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-challenge/">
+          <b>5. </b>Bài tập nâng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-tracing-application-performance-with-xray/" title="Theo dõi Hiệu năng Ứng dụng với AWS X-Ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-tracing-application-performance-with-xray/">
+          <b>5. </b>Theo dõi Hiệu năng Ứng dụng với AWS X-Ray
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-conclusion/" title="Tổng kết" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-conclusion/">
+          <b>6. </b>Tổng kết
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-challenge/" title="Bài tập nâng cao " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-challenge/">
+          <b>6. </b>Bài tập nâng cao 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-resources/" title="Tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-resources/">
+          <b>7. </b>Tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-cleanup/">
+          <b>7. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/3-create-single-page-app/3.6-build-api-consumer/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/3-create-single-page-app/3.6-build-api-consumer/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7831159&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>21-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Tạo một Ứng dụng Đơn trang (SPA) được xác thực</a> > <a href='/vi/3-create-single-page-app/'>Tạo Single Page Application</a> > Tạo một Client để sử dụng API
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Tạo một Client để sử dụng API
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="tạo-một-client-để-sử-dụng-api">Tạo một Client để sử dụng API</h4>
+<p>Bây giờ bạn có một mô hình hoạt động của trang web đang chạy như một SPA gọi dữ liệu thông qua RESTful API được lưu trữ trên AWS Lambda và cung cấp từ Amazon API Gateway. Các nguồn cấp dữ liệu này được coi là công khai vì người dùng không cần đăng nhập và cung cấp thông tin đăng nhập cho lệnh gọi tới API. Trong bài tập này, bạn sẽ xem xét cách bạn có thể yêu cầu xác thực để thực hiện lệnh gọi API và việc sử dụng Khóa API để thực thi điều chỉnh tốc độ cuộc gọi và quản lý hạn ngạch. Để chứng minh, bạn sẽ sử dụng một ứng dụng Java client, để chỉ ra cách bạn có thể sử dụng các Java SDK được tạo tự động trong các ứng dụng của bạn.</p>
+<h4 id="tạo-response-model-cho-tripsearch-api">Tạo Response Model cho TripSearch API</h4>
+<p>Để trình tạo SDK có thể tạo các lớp thích hợp cho một ngôn ngữ mạnh như Java (đối lập với Javascript), chúng ta cần cho API Gateway biết hình dạng hoặc schema của các đối tượng yêu cầu/phản hồi trông như thế nào. Trong <strong>TripSearch API</strong>, bạn đang sử dụng phương thức <strong>GET</strong> cho mỗi lệnh gọi API. Do đó, không có schema nào cho các yêu cầu gửi đến vì tham số <strong>city</strong> được truyền như một phần của URL. Thay vào đó, nếu bạn thay đổi phương thức thành <strong>POST</strong>, bạn sẽ cần truyền tham số thành phố trong tải trọng <strong>body</strong> và sẽ cần tạo một mô hình cho schema đối tượng này cho trình tạo mã để tạo một lớp Java để bạn sử dụng.</p>
+<p>Dữ liệu kết quả từ các lệnh gọi API được trả về trong body của phản hồi. Để trình tạo mã có thể tạo một lớp thích hợp để đại diện cho phản hồi này, chúng ta cần tạo một mô hình phản hồi và đặt nó làm mô hình phản hồi phương thức.</p>
+<ol>
+<li>Truy cập <a href="https://console.aws.amazon.com/apigateway/home"><strong>AWS API Gateway console</strong></a></li>
+</ol>
+<ul>
+<li>Nhập <strong>iDevelop - Trip Search API</strong> vào ô tìm kiếm và nhấn <strong>Enter</strong></li>
+<li>Click <strong>iDevelop - Trip Search API</strong> 
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-001.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="2">
+<li>Click <strong>Models</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Create</strong></li>
+<li>Tại mục <strong>Model name</strong> nhập <code>TripsFromCityResponse</code></li>
+<li>Tại mục <strong>Content-type</strong> nhập <code>application/json</code></li>
+<li>Tại mục <strong>Model schema</strong> nhập</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;type&#34;: &#34;object&#34;,
+  &#34;properties&#34;: {
+    &#34;succeeded&#34;: {
+      &#34;type&#34;: &#34;boolean&#34;
+    },
+    &#34;errorMessage&#34;: {
+      &#34;type&#34;: &#34;string&#34;
+    },
+    &#34;errorType&#34;: {
+      &#34;type&#34;: &#34;number&#34;
+    },
+    &#34;data&#34;: {
+      &#34;type&#34;: &#34;array&#34;,
+      &#34;items&#34;: {
+        &#34;type&#34;: &#34;object&#34;,
+        &#34;properties&#34;: {
+          &#34;date&#34;: {
+            &#34;type&#34;: &#34;number&#34;
+          },
+          &#34;originCity&#34;: {
+            &#34;type&#34;: &#34;string&#34;
+          },
+          &#34;destinationCity&#34;: {
+            &#34;type&#34;: &#34;string&#34;
+          },
+          &#34;airline&#34;: {
+            &#34;type&#34;: &#34;string&#34;
+          }
+        }
+      }
+    }
+  },
+  &#34;title&#34;: &#34;TripsFromCityResponse&#34;
+}
+</code></pre><ul>
+<li>Click <strong>Create model</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-002.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<h4 id="gán-tripsfromcityresponse-model-cho-api-tripsfromcity">Gán TripsFromCityResponse model cho API <strong>/tripsfromcity</strong></h4>
+<ol start="3">
+<li>Click <strong>Resources</strong></li>
+</ol>
+<ul>
+<li>Chọn <strong>GET</strong> trong <strong>/tripsfromcity/{city}</strong></li>
+<li>Click <strong>Method Response</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-003.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="4">
+<li>Trong bảng <strong>/tripsfromcity/{city} - GET - Method Response</strong> chọn icon tam giác cạnh <strong>HTTP Status</strong></li>
+</ol>
+<ul>
+<li>Ở mục <strong>Response Body for 200</strong> click biểu tượng bút chì kế bên <strong>Empty model</strong>.
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-004.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="5">
+<li>Trường sẽ trở thành một danh sách thả xuống. Chọn <strong>TripsFromCityResponse</strong></li>
+</ol>
+<ul>
+<li>Click vào dấu tích màu xám
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-005.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="6">
+<li>Click <strong>Actions</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Deploy API</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-006.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="7">
+<li>Tại mục <strong>Deployment stage</strong>, chọn <strong>prod</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Deploy</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-007.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="8">
+<li>Trong mục <strong>prod Stage Editor</strong> xuất hiện, click <strong>SDK Generation</strong></li>
+</ol>
+<ul>
+<li>Tại mục <strong>Platform</strong>, chọn <strong>Java SDK</strong></li>
+<li>Tại mục <strong>Service name</strong>, nhập <code>TripSearch</code></li>
+<li>Tại mục <strong>Java package name</strong>, nhập <code>idevelop.api.sdk</code></li>
+<li>Click <strong>Generate SDK</strong>. Java SDK sẽ được tạo và tải xuống dưới dạng tệp ZIP.
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-008.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="9">
+<li>Giải nén tệp ZIP đã tải xuống trong bước 8</li>
+</ol>
+<ul>
+<li>Mở <strong>Command Prompt</strong> và chuyển đường dẫn đến mã nguồn vừa giải nén (thư mục được gọi là <strong>generated-code</strong>)</li>
+<li>Chạy lệnh dưới đây</li>
+</ul>
+<pre tabindex="0"><code>mvn install
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-009.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API">
+Việc này sẽ biên dịch và cài đặt SDK trong kho lưu trữ Maven cục bộ của bạn và chúng tôi sẽ đề cập đến nó trong các bước tiếp theo.</p>
+<h4 id="tạo-một-ứng-dụng-client-java-sử-dụng-api">Tạo một ứng dụng client Java sử dụng API</h4>
+
+<section class="attachments orange">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		TripSearchJavaClient Project
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			
+				<li>
+					<a href="/3-create-single-page-app/3.6-build-api-consumer/_index.vi.files/TripSearchJavaClient.zip" >
+						TripSearchJavaClient.zip
+					</a>
+					(8 KB)
+				</li>
+			
+		
+	
+	<div>
+	
+</section>
+
+
+<ol start="10">
+<li>Tải file <strong>TripSearchJavaClient.zip</strong> và giải nén</li>
+<li>Trong Eclipse IDE, mở froject đã giải nén trong bước 10</li>
+</ol>
+<ul>
+<li>Mở file <strong>pom.xml</strong></li>
+<li>Thay nội dung file <strong>pom.xml</strong> bằng nội dung dưới đây</li>
+</ul>
+<pre tabindex="0"><code>&lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
+  xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&#34;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;idevelop.api.tripsearch.sdk.app&lt;/groupId&gt;
+  &lt;artifactId&gt;TripSearch-sdkClient&lt;/artifactId&gt;
+  &lt;packaging&gt;jar&lt;/packaging&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+  &lt;name&gt;TripSearch-sdkClient&lt;/name&gt;
+  &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+      &lt;properties&gt;
+      &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+      &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+  &lt;/properties&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;3.8.1&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;idevelop.api.sdk&lt;/groupId&gt;
+        &lt;artifactId&gt;TripSearch&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.2.4&lt;/version&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;shade&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+              &lt;transformers&gt;
+                &lt;transformer implementation=&#34;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&#34;&gt;
+                  &lt;mainClass&gt;idevelop.api.tripsearch.sdk.app.App&lt;/mainClass&gt;
+                &lt;/transformer&gt;
+              &lt;/transformers&gt;
+            &lt;/configuration&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-010.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API">
+12. Trong <strong>Command Prompt</strong>, chuyển đường dẫn đến mã nguồn giải nén trong bước 10</p>
+<ul>
+<li>Chạy lệnh dưới đây</li>
+</ul>
+<pre tabindex="0"><code>mvn package
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-011.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API">
+13. Chạy câu lệnh dưới đây để chạy project</p>
+<pre tabindex="0"><code>java -jar target/TripSearch-sdkClient-1.0-SNAPSHOT.jar
+</code></pre><ul>
+<li>Chúng ta sẽ thấy được kết quả.
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-012.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<p><strong>API consumer</strong> sẽ tính thời gian mỗi lần gọi tới API mất bao lâu và hiển thị kết quả. Nó sẽ thực hiện tối đa 100 lần gọi nhanh nhất có thể.</p>
+<p>Nếu chúng ta có nhiều người dùng sử dụng API liên tục. Chúng ta có thể vượt quá cơ sở hạ tầng được cung cấp, vì vậy chúng ta cần một vài cách để điều tiết các lần gọi API. Chúng ta có thể sử dụng <strong>Usage Plans</strong> để làm việc này.</p>
+<ol start="14">
+<li>Truy cập <a href="https://console.aws.amazon.com/apigateway/home"><strong>AWS API Gateway console</strong></a></li>
+</ol>
+<ul>
+<li>Nhập <strong>iDevelop - Trip Search API</strong> vào ô tìm kiếm và nhấn <strong>Enter</strong></li>
+<li>Click <strong>iDevelop - Trip Search API</strong> 
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-013.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="15">
+<li>Click <strong>Usage Plans</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Create</strong></li>
+<li>Tại mục <strong>Name</strong>, nhập <code>LabPlan</code></li>
+<li>Tại mục <strong>Rate</strong>, nhập <code>1</code></li>
+<li>Tại mục <strong>Burst</strong>, nhập <code>1</code></li>
+<li>Tại mục <strong>Quota</strong>, điền <code>1000</code> mỗi tháng</li>
+<li>Click <strong>Next</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-014.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="16">
+<li>Click <strong>Add API Stage</strong></li>
+</ol>
+<ul>
+<li>Trong danh sách <strong>API</strong>, chọn <strong>iDevelop - Trip Search API</strong></li>
+<li>Trong danh sách <strong>Stage</strong>, chọn <strong>prod</strong></li>
+<li>Click dấu tích màu xám</li>
+<li>Click <strong>Next</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-015.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="17">
+<li>CLick <strong>Create API Key and add to Usage Plan</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-016.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+<li>Trong hộp thoại xuất hiện, tại mục <strong>Name</strong> điển <code>SDKClient</code></li>
+</ol>
+<ul>
+<li>Click <strong>Save</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-017.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="19">
+<li>Click <strong>Done</strong>, một <strong>API key</strong> được tạo và được liên kết với Usage Plan
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-018.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+<li>Click <strong>iDevelop - Trip Search API</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-019.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+<li>Chọn <strong>GET</strong> trong <strong>/tripsfromcity/{city}</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Method Request</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-020.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="22">
+<li>Tại mục <strong>API Key Required</strong>, click biểu tượng bút chì
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-021.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+<li>Chọn <strong>True</strong></li>
+</ol>
+<ul>
+<li>Click dấu tích màu nâu để xác nhận
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-022.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="24">
+<li>Click <strong>Actions</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Deploy API</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-023.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="25">
+<li>Trong hộp thoại hiện lên:</li>
+</ol>
+<ul>
+<li>Tại mục <strong>Deployment stage</strong>, chọn <strong>prod</strong></li>
+<li>Click <strong>Deploy</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-024.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="26">
+<li>Trong mục <strong>prod Stage Editor</strong> xuất hiện, click <strong>SDK Generation</strong></li>
+</ol>
+<ul>
+<li>Tại mục <strong>Platform</strong>, chọn <strong>Java SDK</strong></li>
+<li>Tại mục <strong>Service name</strong>, nhập <code>TripSearch</code></li>
+<li>Tại mục <strong>Java package name</strong>, nhập <code>idevelop.api.sdk</code></li>
+<li>Click <strong>Generate SDK</strong>. Java SDK sẽ được tạo và tải xuống dưới dạng tệp ZIP.
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-025.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="27">
+<li>Giải nén tệp ZIP đã tải xuống trong bước 26</li>
+</ol>
+<ul>
+<li>Mở <strong>Command Prompt</strong> và chuyển đường dẫn đến mã nguồn vừa giải nén (thư mục được gọi là <strong>generated-code</strong>)</li>
+<li>Chạy lệnh dưới đây</li>
+</ul>
+<pre tabindex="0"><code>mvn install
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-026.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API"></p>
+<p>Việc này sẽ biên dịch và cài đặt SDK trong kho lưu trữ Maven cục bộ của bạn và ghi đè lên phiên bản trước.</p>
+<h4 id="kiểm-thử-sdk-vừa-tạo-mới-với-ứng-dụng-client-java">Kiểm thử SDK vừa tạo mới với Ứng dụng Client Java</h4>
+<ol start="28">
+<li>Trong <strong>Command Prompt</strong>, chuyển đường dẫn đến mã nguồn giải nén trong bước 10</li>
+</ol>
+<ul>
+<li>Chạy câu lệnh dưới đây để chạy ứng dụng</li>
+</ul>
+<pre tabindex="0"><code>java -jar target/TripSearch-sdkClient-1.0-SNAPSHOT.jar
+</code></pre><ul>
+<li>Vì chúng ta đã cài đặt <strong>/tripsfromcity/{GET} endpoint</strong> yêu cầu <strong>API Key</strong>, nhưng chúng ta chưa cài đặt <strong>API</strong> trong <strong>client application</strong>. Bạn sẽ thấy lỗi <strong>Forbidden</strong>.
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-027.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<h4 id="thiết-lập-api-key-trong-mã-nguồn-client-và-chạy-lại-ứng-dụng-sử-dụng-api-với-tính-năng-throttling">Thiết lập API key trong mã nguồn Client và chạy lại Ứng dụng sử dụng API với tính năng throttling</h4>
+<ol start="29">
+<li>Click <strong>API Keys</strong></li>
+</ol>
+<ul>
+<li>Click <strong>SDKClient</strong></li>
+<li>Tại mục <strong>API Key</strong>, click <strong>show</strong> để hiện ra <strong>auto-generated API key</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-028.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="30">
+<li>Lưu lại <strong>API key</strong> tại mục <strong>API key</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-029.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+<li>Trong Eclipse IDE, mở file có đường dẫn <strong>/src/main/java/idevelop/api/tripsearch/sdk/app/App.java</strong></li>
+</ol>
+<ul>
+<li>Thay <strong>&lt;REPLACE_WITH_API_KEY&gt;</strong> bằng <strong>API key</strong> đã lưu trong bước 30</li>
+<li>Bỏ comment tại dòng <strong>apiKey(API_KEY)</strong>. Bây giờ bạn đã có <strong>API Key</strong> trong lệnh gọi <strong>API Gateway</strong>, <strong>SDK</strong> được tạo cho bạn sẽ chứa lệnh gọi cho phép thiết lập khóa. Nếu bạn không có <strong>API Key</strong>, trình tạo mã không sử dụng hàm này, do vậy trong mã nguồn được cung cấp nó bị comment lại. Bạn cần bỏ comment trong mã nguồn được cung cấp để cho phép <strong>API Key</strong> được đặt chính xác.</li>
+<li>Lưu lại file
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-030.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="32">
+<li>Trong Eclipse IDE, nhấp chuột phải vào project <strong>TripSearch-sdkClient</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Maven</strong></li>
+<li>Click <strong>Update Project&hellip;</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-031.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="33">
+<li>Trong <strong>Command Prompt</strong>, chạy lệnh dưới đây</li>
+</ol>
+<pre tabindex="0"><code>mvn package
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-032.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API">
+34. Trong <strong>Command Prompt</strong>, chạy lệnh dưới đây</p>
+<pre tabindex="0"><code>java -jar target/TripSearch-sdkClient-1.0-SNAPSHOT.jar
+</code></pre><p><img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-033.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API">
+35. Bạn sẽ thấy kết quả
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-034.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API">
+36. Hãy thử thay đổi <strong>API_KEY</strong> chúng ta đã đặt vào <strong>App class</strong> trong bước 31. Chúng ta có thể thêm dấu <strong>.</strong> vào cuối của chuỗi <strong>API_KEY</strong>
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-035.png?featherlight=false&amp;width=90pc" alt="Build A Client To Consume The API">
+37. Trong <strong>Command Prompt</strong>, chạy lệnh dưới đây</p>
+<pre tabindex="0"><code>java -jar target/TripSearch-sdkClient-1.0-SNAPSHOT.jar
+</code></pre><ul>
+<li>Chúng ta sẽ thấy kết quả
+<img src="/images/3-create-single-page-app/3.6-build-api-consumer/build-api-consumer-036.png?featherlight=false&amp;width=60pc" alt="Build A Client To Consume The API"></li>
+</ul>
+<ol start="38">
+<li>Hãy thử nghiệm với <strong>Rate</strong> và <strong>Burst</strong> trong <strong>Usage Plan</strong> để xem chúng có ảnh hưởng như thế nào đến ứng dụng khách gọi API.
+
+<div class="notices note" ><p>Bạn không cần triển khai lại API cũng như không tạo lại SDK nếu bạn thay đổi cài đặt trong <strong>Usage Plan</strong>.</p>
+</div>
+</li>
+</ol>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/3-create-single-page-app/3.5-setup-single-page-app-website/" title="Thiết lập trang SPA "> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/4-xray/" title="Hiệu năng Ứng dụng" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1674309800"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674309800"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674309800"></script>
+    <script src="/js/jquery.sticky.js?1674309800"></script>
+    <script src="/js/featherlight.min.js?1674309800"></script>
+    <script src="/js/highlight.pack.js?1674309800"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674309800"></script>
+    <script src="/js/learn.js?1674309800"></script>
+    <script src="/js/hugo-learn.js?1674309800"></script>
+
+    <link href="/mermaid/mermaid.css?1674309800" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674309800"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

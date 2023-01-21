@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Add Authentication to the SPA using Amazon Cognito User Pools on DevAx - Monoliths to Microservices - Microservices-SPA</title>
+    <link>/4-configure-aaa/4.1-add-authentication-with-cognito/</link>
+    <description>Recent content in Add Authentication to the SPA using Amazon Cognito User Pools on DevAx - Monoliths to Microservices - Microservices-SPA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:40 +0700</lastBuildDate><atom:link href="/4-configure-aaa/4.1-add-authentication-with-cognito/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

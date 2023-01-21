@@ -18,7 +18,7 @@ home = [ "HTML", "RSS", "JSON"]
   
 [Languages]
 [Languages.en]
-title = "DevAx - Monoliths to Microservices - Creating an Authenticated Single Page Application (SPA)"
+title = "DevAx - Monoliths to Microservices - Microservices-SPA"
 weight = 1
 languageName = "English"
 
@@ -35,7 +35,7 @@ url = "https://www.facebook.com/groups/660548818043427/"
 weight = 20
 
 [Languages.vi]
-title = "DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Ứng dụng Xác thực Đơn trang (SPA)"
+title = "DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA"
 weight = 2
 languageName = "Tiếng Việt"
 
