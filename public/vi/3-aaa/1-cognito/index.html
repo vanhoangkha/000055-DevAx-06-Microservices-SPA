@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Xác thực cho SPA :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -794,7 +794,7 @@
   
     
     <li data-nav-id="/vi/3-aaa/1-cognito/" title="Xác thực cho SPA" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1648,12 +1648,12 @@
 <li>Chọn <strong>Manage your User Pools</strong></li>
 <li>Chọn <strong>TravelBuddy</strong></li>
 </ol>
-<p><img src="/images/3/1.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/3/1.png?width=90pc"></p>
 <ol start="5">
 <li>Trong bảng <strong>General Settings</strong>, tìm <strong>Pool Id</strong> và thay cho <code>REPLACE_WITH_COGNITO_USER_POOL</code> trong tập tin <code>webapp-configuration.js</code>.</li>
 <li>Chọn thiết lập <strong>App Client</strong> ở mục <strong>App integration</strong> trong thanh điều hướng bên trái trang <strong>Cognito User Pools</strong>. Tìm giá trị <code>ID</code> bên dưới mục App client <strong>TravelBuddyWebApp</strong> và sao chép chúng. Ví dụ:</li>
 </ol>
-<p><img src="/images/3/2.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/3/2.png?width=90pc"></p>
 <ol start="7">
 <li>Thay thế cho giá trị <code>REPLACE_WITH_COGNITO_USER_POOL_CLIENT_ID</code> trong tập tin <code>webapp-configuration.js</code> bằng giá trị của <strong>App client ID</strong>.</li>
 <li>Trong <strong>Cognito console</strong>, chọn <strong>Federated Identities</strong> ở thanh phía trên và chọn chuyển đổi <strong>Cognito Identity Pools manager</strong>.</li>
@@ -1662,7 +1662,7 @@
 <li>Trong mục <strong>Get AWS Credentials</strong> , ghi nhận lại <strong>Identity Pool ID</strong> xuất hiện trong đoạn mã ví dụ. Sao chép <strong>Identity Pool ID</strong> vào bộ nhớ đệm, chúng ta sẽ sử dụng giá trị này sau:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ap-northeast-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee
-</span></span></code></pre></div><p><img src="/images/3/3.png?width=90pc" alt="API"></p>
+</span></span></code></pre></div><p><img alt="API" src="/images/3/3.png?width=90pc"></p>
 <p>Chắc chắn rằng bạn đã sao chép luôn cả nội dung <strong>region</strong>.</p>
 <ol start="12">
 <li>Thay thế giá trị <code>REPLACE_WITH_COGNITO_IDENTITY_POOL_ID</code> trong tập tin <code>webapp-configuration.js</code> bằng giá trị của <strong>Identity Pool Id</strong>.</li>
@@ -2508,19 +2508,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

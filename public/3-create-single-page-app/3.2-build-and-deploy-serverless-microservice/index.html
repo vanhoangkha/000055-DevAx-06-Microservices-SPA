@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Manually Build And Deploy A Serverless Microservice :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -972,7 +972,7 @@
   
     
     <li data-nav-id="/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/" title="Manually Build And Deploy A Serverless Microservice" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1678,9 +1678,9 @@
 <pre tabindex="0"><code>set AWS_PROFILE=devaxacademy
 set DDB_TABLENAME_TRIPSECTOR=TravelBuddyTripSectors
 mvn test
-</code></pre><p><img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-001.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+</code></pre><p><img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-001.png?featherlight=false&width=60pc">
 3. You will see the following result:
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-002.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-002.png?featherlight=false&width=60pc">
 
 <div class="notices note" ><p>Note that the from and to city examples shown here, and the dates and times, will be different for your environment because they have been randomly generated.<br>
 You should see no errors emitted by the unit test, which confirms the source code is building and running as expected. If you see an error, investigate.</p>
@@ -1712,23 +1712,23 @@ You should see no errors emitted by the unit test, which confirms the source cod
 </code></pre><p>Without the agent being present, and the call to the Lambda function having the correct correlation Id context passed to it, the <strong>SegmentContextResolverChain</strong> cannot determine the AWS X-ray segment to attach the recorded metadata to, and throws an exception. The implementation we provide in the base class overrides this behaviour, to safely ignore this condition while testing on your development environment.</p>
 <ol start="4">
 <li>If the unit test run is succeeding, Execute the command <code>mvn package shade:shade</code> to build
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-003.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice"></li>
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-003.png?featherlight=false&width=60pc"></li>
 <li>It will take a few moments to complete the build. When the target JAR is built, whick is in the folder <strong>target</strong> of the project and whose name is <strong>tripsearch-1.0.0.jar</strong>
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-004.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice"></li>
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-004.png?featherlight=false&width=60pc"></li>
 <li>Go to <a href="https://console.aws.amazon.com/cloudformation/home"><strong>Amazon CloudFormation Console</strong></a>.</li>
 </ol>
 <ul>
 <li>Click <strong>Stacks</strong></li>
 <li>Type <code>DevAx-06</code> in the search bar and press <strong>Enter</strong></li>
 <li>Click <strong>DevAx-06</strong>
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-010.png?featherlight=false&amp;width=90pc" alt="Manually Build And Deploy A Serverless Microservice"></li>
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-010.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="7">
 <li>Click tab <strong>Outputs</strong></li>
 </ol>
 <ul>
 <li>Save the value <strong>LambdaRoleARN</strong> and <strong>S3BucketLambdaCodeBucketName</strong> to use in the next step
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-011.png?featherlight=false&amp;width=90pc" alt="Manually Build And Deploy A Serverless Microservice"></li>
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-011.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="8">
 <li>In <strong>Command Prompt</strong>, execute the below command</li>
@@ -1739,7 +1739,7 @@ You should see no errors emitted by the unit test, which confirms the source cod
 Replace <strong>&lt;YOUR_REGION&gt;</strong> by your <strong>Region</strong></p>
 </div>
 
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-005.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-005.png?featherlight=false&width=60pc">
 9. Execute the following command to create a new Lambda function from this deployment artefact</p>
 <pre tabindex="0"><code>aws lambda create-function --function-name idevelopTripSearchFull --runtime java8 --role &lt;LambdaRoleARN&gt; --handler devlounge.lambda.FindAllTripsHandler --code S3Bucket=&lt;S3BucketLambdaCodeBucketName&gt;,S3Key=tripsearch-1.0.0.jar --timeout 15 --description &#34;TravelBuddy TripSearch microservice - FindAllTrips&#34; --memory-size 1024 --region &lt;YOUR_REGION&gt;
 </code></pre><p>
@@ -1748,9 +1748,9 @@ Replace <strong>&lt;S3BucketLambdaCodeBucketName&gt;</strong> by the value <stro
 Replace <strong>&lt;YOUR_REGION&gt;</strong> by your <strong>Region</strong></p>
 </div>
 
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-006.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-006.png?featherlight=false&width=60pc">
 10. If successful, your new Lambda function will be created and you will see an output similar to the following:
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-007.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice"></p>
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-007.png?featherlight=false&width=60pc"></p>
 <h4 id="create-two-new-lambda-functions-using-the-same-deployment-artefact">Create two new Lambda functions using the same deployment artefact</h4>
 <p>The code that implements our TripSearch function has three handlers exposed - one for finding all trips; one for finding trips that originate from a given city; and one for finding trips that have a given city as the destination. We have exposed only one handler so far - the search for all trips. In this section, we will create two new Lambda functions, each exposing one of the two remaining handlers.</p>
 <ol start="11">
@@ -1763,7 +1763,7 @@ Replace <strong>&lt;S3BucketLambdaCodeBucketName&gt;</strong> by the value <stro
 Replace <strong>&lt;YOUR_REGION&gt;</strong> by your <strong>Region</strong></p>
 </div>
 
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-008.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-008.png?featherlight=false&width=60pc">
 12. Create the last Lambda function from the same deployment artefact, this time for <strong>FindTripsToCity</strong>. As per the previous step, we are exposing an additional handler, this time <strong>devlounge.lambda.FindTripsToCityHandler</strong>. Execute the following command:</p>
 <pre tabindex="0"><code>aws lambda create-function --function-name idevelopFindTripsToCity --runtime java8 --role &lt;LambdaRoleARN&gt; --handler devlounge.lambda.FindTripsToCityHandler --code S3Bucket=&lt;S3BucketLambdaCodeBucketName&gt;,S3Key=tripsearch-1.0.0.jar --timeout 15 --description &#34;TravelBuddy TripSearch microservice - FindTripsToCity&#34; --memory-size 1024 --region &lt;YOUR_REGION&gt;
 </code></pre><p>
@@ -1772,7 +1772,7 @@ Replace <strong>&lt;S3BucketLambdaCodeBucketName&gt;</strong> by the value <stro
 Replace <strong>&lt;YOUR_REGION&gt;</strong> by your <strong>Region</strong></p>
 </div>
 
-<img src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-009.png?featherlight=false&amp;width=60pc" alt="Manually Build And Deploy A Serverless Microservice">
+<img alt="Manually Build And Deploy A Serverless Microservice" src="/images/3-create-single-page-app/3.2-build-and-deploy-serverless-microservice/build-and-deploy-serverless-microservice-009.png?featherlight=false&width=60pc">
 
 <div class="notices note" ><p>Confirm that you receive a success response similar to the response when you successfully created the first Lambda function.</p>
 </div>
@@ -2599,19 +2599,19 @@ Replace <strong>&lt;YOUR_REGION&gt;</strong> by your <strong>Region</strong></p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

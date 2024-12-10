@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thiết lập Xác thực cho Microservice :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804545" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804545" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804545" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804545" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804545" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804545" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804545" rel="stylesheet">
+    <link href="/css/theme.css?1733804545" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804545" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804545" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804545"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804545"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804545"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804545"></script>
 
     
   </div>
@@ -1204,7 +1204,7 @@
   
     
     <li data-nav-id="/vi/4-configure-aaa/4.2-setup-authentication/" title="Thiết lập Xác thực cho Microservice" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1638,7 +1638,7 @@
 <ul>
 <li>Nhập <code>iDevelop - Trip Search API</code> vào ô tìm kiếm</li>
 <li>Click <strong>iDevelop - Trip Search API</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-001.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-001.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>Click <strong>Gateway Responses</strong></li>
@@ -1646,7 +1646,7 @@
 <ul>
 <li>Chọn <strong>Unauthorized</strong></li>
 <li>Click <strong>Edit</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-002.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="4">
 <li>Để ứng dụng web của chúng ta có thể nhận được trạng thái <strong>unauthorized (401)</strong>, chúng ta cần thêm <strong>CORS headers</strong> vào phản hồi. Nếu không có header, trình duyệt sẽ không có quyền nhận trạng thái 401. Chúng ta đã bật CORS cho phản hồi trạng thái 200 khi chúng ta thiết lập các API Gateway endpoint trước đó. Nhưng chúng ta cần cho phép trả lại trạng thái 401 một cách rõ ràng.</li>
@@ -1658,7 +1658,7 @@
 <li>Trong cột <strong>Response header</strong> của <strong>Response Header</strong> thứ 2, nhập <code>Access-Control-Allow-Headers</code></li>
 <li>Cột <strong>Value</strong>, nhập <code>'*'</code></li>
 <li>Click <strong>Save</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-003.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-003.png?featherlight=false&width=90pc"></li>
 </ul>
 <h4 id="tạo-một-authorizer-sử-dụng-cognito-user-pool">Tạo một Authorizer sử dụng Cognito User Pool</h4>
 <p><strong>API Gateway</strong> tích hợp chặt chẽ với <strong>Cognito</strong> cho xác thực. Bạn chỉ cần khai báo <strong>Cognito User Pool</strong> là một <strong>authorizer</strong> cho API của bạn.</p>
@@ -1672,7 +1672,7 @@
 <li>Tại mục <strong>Cognito User Pool</strong>, chọn <strong>TravelBuddy</strong></li>
 <li>Tại mục <strong>Token Source</strong>, nhập <code>Authorization</code></li>
 <li>Click <strong>Create</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-005.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-005.png?featherlight=false&width=90pc"></li>
 </ul>
 <h4 id="mở-yêu-cầu-xác-thực-cho-microservice-trips">Mở yêu cầu xác thực cho microservice <strong>/trips</strong></h4>
 <ol start="6">
@@ -1681,16 +1681,16 @@
 <ul>
 <li>Chọn method <strong>GET</strong> trong <strong>/trips</strong></li>
 <li>Click <strong>Method Request</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-006.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-006.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="7">
 <li>Tại mục <strong>Authorization</strong>, click biểu tượng bút chì
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-007.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-007.png?featherlight=false&width=90pc"></li>
 <li>Chọn <strong>TravelBuddy</strong>.Đây là authoriser mà chúng ta đã tạo ở bước trước và liên kết đến <strong>Cognito User Pool</strong> chúng ta đang sử dụng cho cơ sở dữ liệu người dùng. Nếu nó không xuất hiện, hãy thử làm mới trình duyệt của bạn.</li>
 </ol>
 <ul>
 <li>Click dấu tích xám để lưu lại
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-008.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-008.png?featherlight=false&width=90pc"></li>
 </ul>
 
 
@@ -2514,19 +2514,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

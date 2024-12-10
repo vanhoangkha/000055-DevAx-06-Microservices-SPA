@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Dùng AWS Cloud9 :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -389,7 +389,7 @@
   
     
     <li data-nav-id="/vi/2-spa/1-prerequisites/b/" title="Dùng AWS Cloud9" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1640,10 +1640,10 @@
 <p>Trong phần thực hành này, bạn sẽ sử dụng AWS Cloud9. AWS Cloud9 là một môi trường phát triển tích hợp dựa trên cloud (IDE) cho phép bạn viết, chạy và gỡ lỗi chỉ bằng một trình duyệt. Nó bao gồm một trình soạn thảo mã, trình gỡ lỗi và thiết bị đầu cuối. Cloud9 được đóng gói sẵn với các công cụ cần thiết cho các ngôn ngữ lập trình phổ biến, bao gồm JavaScript, Python, PHP, v.v., vì vậy bạn không cần phải cài đặt tệp hoặc định cấu hình máy phát triển của mình để bắt đầu các dự án mới. Vì Cloud9 IDE của bạn ở trên cloud, nên bạn có thể làm việc trên các dự án của mình từ văn phòng, nhà riêng hoặc bất cứ nơi nào bằng máy có kết nối internet. Cloud9 cũng cung cấp trải nghiệm đồng nhất trong việc phát triển các ứng dụng serverless cho phép bạn dễ dàng xác định tài nguyên, gỡ lỗi và chuyển đổi giữa thực thi local và remote của các ứng dụng serverless. Với Cloud9, bạn có thể nhanh chóng chia sẻ môi trường phát triển với nhóm của mình, cho phép bạn ghép nối chương trình và theo dõi đầu vào của nhau trong thời gian thực.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#s%E1%BB%AD-d%E1%BB%A5ng-aws-cloud9-l%C3%A0m-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-ph%C3%A1t-tri%E1%BB%83n-%E1%BB%A9ng-d%E1%BB%A5ng-t%C3%ADch-h%E1%BB%A3p">Sử dụng AWS Cloud9 làm môi trường Phát triển ứng dụng tích hợp</a></li>
-<li><a href="#c%C3%A0i-%C4%91%E1%BA%B7t-sam-cli">Cài đặt SAM CLI</a></li>
-<li><a href="#c%C3%A0i-%C4%91%E1%BA%B7t-maven">Cài đặt maven</a></li>
-<li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-dynamodb">Thiết lập DynamoDB</a></li>
+<li><a href="/vi/2-spa/1-prerequisites/b/#sử-dụng-aws-cloud9-làm-môi-trường-phát-triển-ứng-dụng-tích-hợp">Sử dụng AWS Cloud9 làm môi trường Phát triển ứng dụng tích hợp</a></li>
+<li><a href="/vi/2-spa/1-prerequisites/b/#cài-đặt-sam-cli">Cài đặt SAM CLI</a></li>
+<li><a href="/vi/2-spa/1-prerequisites/b/#cài-đặt-maven">Cài đặt maven</a></li>
+<li><a href="/vi/2-spa/1-prerequisites/b/#thiết-lập-dynamodb">Thiết lập DynamoDB</a></li>
 </ul>
 <ol>
 <li>
@@ -1666,15 +1666,15 @@
 <p>Sẽ mất một vài phút để tiến hành khởi tạo</p>
 </li>
 </ol>
-<p><img src="/images/2/1.png?width=90pc" alt="Cloud9"></p>
+<p><img alt="Cloud9" src="/images/2/1.png?width=90pc"></p>
 <pre><code>Và bạn sẽ được chuyển vào giao diện **AWS Cloud9**.
 </code></pre>
-<p><img src="/images/2/2.png?width=90pc" alt="Cloud9"></p>
+<p><img alt="Cloud9" src="/images/2/2.png?width=90pc"></p>
 <ol start="7">
 <li>Bắt đầu với việc tìm hiểu giao diện của Cloud9, Cloud9 cung cấp cho bạn một giao diện console để làm việc và bạn có thể gỡ lỗi và thiết lập lambda ở vùng bên tai phải. Kiểm tra xem các lambda function đã có trong tài khoản và xem xét chúng.</li>
 <li>Double click vào <strong>CreateGitCredsFunction</strong> và import chúng vào IDE. Bạn có thấy gì trong IDE không?</li>
 </ol>
-<p><img src="/images/2/3.png?width=90pc" alt="Cloud9"></p>
+<p><img alt="Cloud9" src="/images/2/3.png?width=90pc"></p>
 <pre><code>Bây giờ chúng ta cần thiết lập phiên bản JAVA cần thiết là 1.8 và thay đổi các thông số bắt buộc trên IDE. Chúng ta sẽ sử dụng Amazon Corretto, một distro miễn phí, multiplatform, production-ready của OpenJDK. Corretto đi kèm với long-term support sẽ có các cải tiến về hiệu suất và các bản sửa lỗi bảo mật.
 </code></pre>
 <ol start="9">
@@ -1712,7 +1712,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo alternatives --config java <span style="color:#75715e">#enter the number for corretto 8</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo alternatives --config javac <span style="color:#75715e">#enter the number for corretto 8</span>
 </span></span></code></pre></div><p>Bạn sẽ thấy một cái gì đó tương tự như sau:</p>
-<p><img src="/images/2/4.png?width=90pc" alt="Cloud9"></p>
+<p><img alt="Cloud9" src="/images/2/4.png?width=90pc"></p>
 <h4 id="thiết-lập-dynamodb">Thiết lập DynamoDB</h4>
 <p>Chúng ta sẽ cần thực hiện đưa dữ liệu vào trong DynamoDB table, các thông tin này sẽ được sử dụng xuyên suốt bài thực hành. Dữ liệu này sẽ được sử dụng để tính toán các chuyến đi giữa các thành phố với nhau.</p>
 <ol start="14">
@@ -1750,11 +1750,11 @@
 <li>Thực thi câu lệnh sau trong <strong>AWS Cloud9 terminal</strong>.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash populate_tripsector.sh &lt;AWS_REGION&gt;
-</span></span></code></pre></div><p><img src="/images/2/kinesisconsumerproducerapparch.png?width=90pc" alt="Kinesis"></p>
+</span></span></code></pre></div><p><img alt="Kinesis" src="/images/2/kinesisconsumerproducerapparch.png?width=90pc"></p>
 <ol start="16">
 <li>Mở dịch vụ <strong>DynamoDB</strong> trong <strong>AWS Console</strong> và kiểm tra table <strong>TravelBuddyTripSectors</strong>. Hãy chắc chắn rằng đã có <strong>50 bản ghi</strong> được thêm vào trong table.</li>
 </ol>
-<p><img src="/images/2/5.png?width=90pc" alt="DynamoDB"></p>
+<p><img alt="DynamoDB" src="/images/2/5.png?width=90pc"></p>
 
 
 
@@ -2578,19 +2578,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Dùng AWS Cloud9 :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -541,7 +541,7 @@
   
     
     <li data-nav-id="/vi/2-spa/4-codestar-cicd/b/" title="Dùng AWS Cloud9" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1639,13 +1639,13 @@
 	<p>Dịch vụ vi mô tiếp theo mà chúng ta cần cho ứng dụng không máy chủ <strong>TravelBuddy</strong> của chúng ta là <strong>FlightSpecials API</strong>. Chúng ta đã xem <strong>FlightSpecials</strong> trước đây trong các phần trước, vì vậy nó sẽ quen thuộc với bạn. Nó hoạt động giống như <strong>HotelSpecials API</strong> ở chỗ nó phải được triển khai tích hợp với VPC để nó có thể kết nối với cơ sở dữ liệu MySQL để truy vấn dữ liệu. Thay vì đóng gói và triển khai microservice này theo cách thủ công, chúng ta sẽ sử dụng CodeStar để xây dựng CI/CD pipeline đầy đủ cho chúng ta, như chúng ta đã làm trong các bài thực hành trước đây. Vì vậy, do bạn đã tạo CI/CD pipeline bằng AWS CodeStar một vài lần, nên chúng ta sẽ không cung cấp cho bạn hướng dẫn từng bước đầy đủ. Nếu bạn cần trợ giúp, hãy tham khảo các tài liệu về cách hoàn thành các tác vụ cần thiết để tạo một dự án CodeStar mới và triển khai mã <strong>FlightSpecials</strong> trên ứng dụng mẫu do CodeStar cung cấp.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-cicd-pipeline-v%E1%BB%9Bi-aws-codestar">Tạo một CI/CD pipeline với AWS CodeStar</a></li>
-<li><a href="#c%E1%BA%ADp-nh%E1%BA%ADt-c%C3%A1c-th%C3%B4ng-s%E1%BB%91-trong-cloudformation-template">Cập nhật các thông số trong CloudFormation template</a></li>
-<li><a href="#c%E1%BA%ADp-nh%E1%BA%ADt-aws-region-trong-t%E1%BA%ADp-tin-%C4%91%E1%BB%8Bnh-ngh%C4%A9a-api-swaggeryml">Cập nhật AWS region trong tập tin định nghĩa API <code>swagger.yml</code></a></li>
-<li><a href="#t%E1%BA%A1o-codestar-project">Tạo CodeStar Project</a></li>
-<li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-codecommit-tr%C3%AAn-aws-cloud9">Thiết lập CodeCommit trên AWS Cloud9</a></li>
-<li><a href="#ki%E1%BB%83m-tra-c%C3%A1c-thay-%C4%91%E1%BB%95i-%C4%91%C6%B0a-v%C3%A0o-qu%E1%BA%A3n-l%C3%BD-m%C3%A3-ngu%E1%BB%93n-%C4%91%E1%BB%83-k%C3%ADch-ho%E1%BA%A1t-qu%C3%A1-tr%C3%ACnh-tri%E1%BB%83n-khai">Kiểm tra các thay đổi đưa vào quản lý mã nguồn để kích hoạt quá trình triển khai</a></li>
-<li><a href="#ki%E1%BB%83m-th%E1%BB%AD-api-flightspecials">Kiểm thử API FlightSpecials</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#tạo-một-cicd-pipeline-với-aws-codestar">Tạo một CI/CD pipeline với AWS CodeStar</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#cập-nhật-các-thông-số-trong-cloudformation-template">Cập nhật các thông số trong CloudFormation template</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#cập-nhật-aws-region-trong-tập-tin-định-nghĩa-api-swaggeryml">Cập nhật AWS region trong tập tin định nghĩa API <code>swagger.yml</code></a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#tạo-codestar-project">Tạo CodeStar Project</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#thiết-lập-codecommit-trên-aws-cloud9">Thiết lập CodeCommit trên AWS Cloud9</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#kiểm-tra-các-thay-đổi-đưa-vào-quản-lý-mã-nguồn-để-kích-hoạt-quá-trình-triển-khai">Kiểm tra các thay đổi đưa vào quản lý mã nguồn để kích hoạt quá trình triển khai</a></li>
+<li><a href="/vi/2-spa/4-codestar-cicd/b/#kiểm-thử-api-flightspecials">Kiểm thử API FlightSpecials</a></li>
 </ul>
 <h4 id="tạo-một-cicd-pipeline-với-aws-codestar">Tạo một CI/CD pipeline với AWS CodeStar</h4>
 <ol>
@@ -2808,19 +2808,19 @@ Nếu sử dụng <strong>Cloud9</strong>, hãy nhớ thêm <code>git config hel
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

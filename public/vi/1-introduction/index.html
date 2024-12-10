@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Giới thiệu :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -273,7 +273,7 @@
   
     
     <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1628,7 +1628,7 @@
 <p>Trong bài thực hành này, chúng ta sẽ lặp lại quá trình triển khai <strong>TravelBuddy monolithic</strong> và chuyển nó sang kiến trúc <strong>serverless/serviceful</strong> với <strong>microservices</strong>. Trong những bài thực hành trước, chúng ta đã tìm hiểu về các <strong>serverless concepts</strong>, ví dụ như <strong>AWS Lambda</strong> và <strong>Amazon API Gateway</strong>, nhưng trong bài thực hành này, chúng ta sẽ xem xét lại về nguyên tắc khối (monolith) của chúng ta, chuyển sang mô hình hoàn toàn không máy chủ (serverless model) và kết hợp xác thực và cấp quyền bằng <strong>Amazon Cognito</strong>.</p>
 <p>Bạn sẽ thực hiện nhiều cách tiếp cận khác nhau khi triển khai các <strong>Lambda functions</strong> tạo nên các <strong>microservice</strong>, từ triển khai thủ công đến triển khai tự động CI/CD để đảm bảo bạn hiểu rõ về từng phần của kiến trúc và cách đơn giản hóa sự tự động hóa cơ sở hạ tầng và hợp lý hóa việc triển khai.</p>
 <p>Tổng quan kiến trúc chúng ta xây dựng như sau:</p>
-<p><img src="/images/1-introduction/0.png?featherlight=false&amp;width=50pc" alt="Architecture"></p>
+<p><img alt="Architecture" src="/images/1-introduction/0.png?featherlight=false&width=50pc"></p>
 <h4 id="amazon-cognito">Amazon Cognito</h4>
 <p><strong>Amazon Cognito</strong> cho phép bạn bổ sung tính năng đăng ký, đăng nhập và kiểm soát truy cập người dùng vào trang web và ứng dụng di động một cách nhanh chóng và dễ dàng. Amazon Cognito có quy mô lên tới hàng triệu người dùng và hỗ trợ đăng nhập thông qua các nhà cung cấp danh tính mạng xã hội như Apple, Facebook, Google và Amazon, cũng như các nhà cung cấp danh tính doanh nghiệp thông qua SAML 2.0 và OpenID Connect.</p>
 <p><a href="https://aws.amazon.com/cognito/">Click vào đây để biết thêm thông tin về <strong>Amazon Cognito</strong></a></p>
@@ -1660,7 +1660,7 @@
 <li>Elastic Beanstalk CLI</li>
 </ul>
 <p>Tất cả các tài nguyên cần thiết để bắt đầu lab này đã được cung cấp và thiết lập cho bạn. Nếu chạy trong tài khoản của riêng bạn, hãy sử dụng mẫu CloudFormation này Sơ đồ sau mô tả các tài nguyên đã được triển khai trong tài khoản AWS của bạn.</p>
-<p><img src="/images/1-introduction/architecture.png?featherlight=false&amp;width=50pc" alt="Architecture"></p>
+<p><img alt="Architecture" src="/images/1-introduction/architecture.png?featherlight=false&width=50pc"></p>
 
 
 
@@ -2479,19 +2479,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

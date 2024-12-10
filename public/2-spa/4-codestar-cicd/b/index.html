@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>AWS Cloud9 Environment :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -541,7 +541,7 @@
   
     
     <li data-nav-id="/2-spa/4-codestar-cicd/b/" title="AWS Cloud9 Environment" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1639,13 +1639,13 @@
 	<p>The next microservice we need for our <strong>TravelBuddy serverless application</strong> is the <strong>FlightSpecials API</strong>. We have seen <strong>FlightSpecials</strong> before in this course, so it should be familiar to you. It functions the same way as the <strong>HotelSpecials API</strong> in that it must be deployed with VPC integration so it can connect to the MySQL database to query for data. Instead of manually packaging and deploying this microservice, we will use CodeStar to build out a full CI/CD pipeline for us, as we have done in previous labs. So, since you have created CI/CD pipelines using AWS CodeStar a few times now, we are not going to provide you with full step-by-step instructions. If you need help, ask a Lab Assistant how to complete the tasks required to create a new CodeStar project and deploy the <strong>FlightSpecials</strong> code over the sample application provided by CodeStar.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#create-a-cicd-pipeline-with-aws-codestar">Create a CI/CD pipeline with AWS CodeStar</a></li>
-<li><a href="#update-placeholder-parameters-in-the-cloudformation-template">Update placeholder parameters in the CloudFormation template</a></li>
-<li><a href="#update-the-target-aws-region-in-the-swaggeryml-api-definition-file">Update the target AWS region in the swagger.yml API definition file</a></li>
-<li><a href="#create-codestar-project">Create CodeStar Project</a></li>
-<li><a href="#aws-cloud9-setup-codecommit">AWS Cloud9 setup codecommit</a></li>
-<li><a href="#check-changes-into-source-control-to-trigger-a-deploy">Check changes into source control to trigger a deploy</a></li>
-<li><a href="#test-the-flightspecials-api">Test the FlightSpecials API</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#create-a-cicd-pipeline-with-aws-codestar">Create a CI/CD pipeline with AWS CodeStar</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#update-placeholder-parameters-in-the-cloudformation-template">Update placeholder parameters in the CloudFormation template</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#update-the-target-aws-region-in-the-swaggeryml-api-definition-file">Update the target AWS region in the swagger.yml API definition file</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#create-codestar-project">Create CodeStar Project</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#aws-cloud9-setup-codecommit">AWS Cloud9 setup codecommit</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#check-changes-into-source-control-to-trigger-a-deploy">Check changes into source control to trigger a deploy</a></li>
+<li><a href="/2-spa/4-codestar-cicd/b/#test-the-flightspecials-api">Test the FlightSpecials API</a></li>
 </ul>
 <h4 id="create-a-cicd-pipeline-with-aws-codestar">Create a CI/CD pipeline with AWS CodeStar</h4>
 <ol>
@@ -2811,19 +2811,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

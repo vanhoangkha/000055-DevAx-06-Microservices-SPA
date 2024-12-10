@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Hiệu năng Ứng dụng :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804545" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804545" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804545" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804545" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804545" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804545" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804545" rel="stylesheet">
+    <link href="/css/theme.css?1733804545" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804545" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804545" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804545"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804545"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804545"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804545"></script>
 
     
   </div>
@@ -1119,7 +1119,7 @@
   
     
     <li data-nav-id="/vi/4-xray/" title="Hiệu năng Ứng dụng" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1621,43 +1621,43 @@
 <ol>
 <li>Trong <strong>AWS Lambda Console</strong>, chọn vào Lambda function <strong>idevelopTripSearchFull</strong>. Chọn <strong>Configuration</strong> và chọn bảng <strong>Monitoring and operations tools</strong>. Chọn nút <strong>Edit</strong> vầ kích hoạt <strong>Active tracing</strong> trong mục <strong>AWS X-Ray</strong>. Chọn <strong>Save</strong>.</li>
 </ol>
-<p><img src="/images/4/1.png?width=90pc" alt="Xray"></p>
-<p><img src="/images/4/2.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/1.png?width=90pc"></p>
+<p><img alt="Xray" src="/images/4/2.png?width=90pc"></p>
 <ol start="2">
 <li>Chuyển qua trang <strong>TravelBuddy SPA</strong> mà chúng ta đã host trên S3. Đăng nhập vào ứng dụng nếu chưa đăng nhập.</li>
 <li>Chọn <strong>Go!</strong> mà không nhập vào địa điểm, kích hoạt hàm Lambda <strong>idevelopTripSearchFull</strong>. Sẽ mất một vài giây để hoàn thành.</li>
 </ol>
-<p><img src="/images/4/3.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/3.png?width=90pc"></p>
 <ol start="4">
 <li>Sau khi hộp thoại hiển thị các bản ghi, quay lại <strong>AWS console</strong>, tìm <code>X-ray</code> trên thanh tìm kiếm. Chọn vào <strong>X-ray item</strong> trong danh sách ở <strong>AWS X-ray console</strong>.</li>
 <li>Trong trang <strong>AWS X-Ray</strong>, chọn <strong>Get started</strong> và chọn <strong>Cancel</strong>.</li>
 </ol>
-<p><img src="/images/4/4.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/4.png?width=90pc"></p>
 <ol start="6">
 <li>Chọn <strong>Service map</strong> ở bảng bên trái.</li>
 <li>Bạn sẽ thấy <strong>Service map</strong> tương tự như sau:</li>
 </ol>
-<p><img src="/images/4/5.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/5.png?width=90pc"></p>
 
-<div class="notices tip" ><p><img src="/images/4/6.png?width=90pc" alt="Xray">
+<div class="notices tip" ><p><img alt="Xray" src="/images/4/6.png?width=90pc">
 Bây giờ, đã có thể xem Service map trực tiếp từ Lambda console.</p>
 </div>
 
 <ol start="8">
 <li>Chọn vào vòng tròn xanh đầu tiên thể hiện cho việc gọi vào hàm Lambda. Bảng &ldquo;Details&rdquo; sẽ xuất hiện hiển thị thông tin về thời gian phản hồi, phân bổ phản hồi và thời gian thực thi.</li>
 </ol>
-<p><img src="/images/4/7.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/7.png?width=90pc"></p>
 <ol start="9">
 <li>Chọn <strong>View Traces</strong>, ở dưới cùng bảng <strong>Service details</strong>.</li>
 <li>Trong <strong>Traces list</strong> Chọn đối tượng đầu tiên hiển thị</li>
 <li>Bảng <strong>Traces details</strong> sẽ xuất hiện. Bạn sẽ có thể thấy được timeline của nhiều hành động và thời gian thực thi chúng, ví dụ:</li>
 </ol>
-<p><img src="/images/4/8.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/images/4/8.png?width=90pc"></p>
 <p>Tại đây, bạn có thể thấy rằng việc gọi đến đã diễn ra trong 5 sec, 1.3 sec cho việc scan trong bảng <strong>TravelBuddyTripSectors DynamoDB</strong>.</p>
 <ol start="12">
 <li>Bật tính năng theo dõi chủ động trên các hàm Lambda khác đã được tạo như một phần của bài thực hành này: <strong>idevelopTripSearchFull</strong>, <strong>idevelopTripSearchFromCity</strong>, <strong>idevelopTripSearchToCity</strong> và <strong>GetHotelSpecials</strong>. Bạn có thể thực hiện việc này theo cách thủ công bằng console. Tuy nhiên, lưu ý rằng hàm được tạo thông qua tự động hóa có tên bắt đầu bằng <strong>awscodestar</strong> sẽ bị ghi đè cấu hình nếu bạn triển khai lại mã.</li>
 </ol>
-<p>Xem thêm <a href="../5-challenge/"><strong>Bài tập nâng cao</strong></a></p>
+<p>Xem thêm <a href="/vi/5-challenge/"><strong>Bài tập nâng cao</strong></a></p>
 
 
 
@@ -2476,19 +2476,19 @@ Bây giờ, đã có thể xem Service map trực tiếp từ Lambda console.</p
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

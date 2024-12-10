@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create and Expose the API :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -454,7 +454,7 @@
   
     
     <li data-nav-id="/2-spa/3-api-gateway/" title="Create and Expose the API" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1634,69 +1634,69 @@
 <p>Now that you have created the Lambda functions, it is time to manually create the API Gateway deployment that will expose the microservice as an API.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#expose-the-tripsfromcity-restful-api-endpoint">Expose the <strong>/tripsfromcity</strong> RESTful API endpoint</a></li>
-<li><a href="#expose-the-tripstocity-restful-api-endpoint">Expose the <strong>/tripstocity</strong> RESTful API endpoint</a></li>
-<li><a href="#deploy-the-api-and-test">Deploy the API and test</a></li>
-<li><a href="#exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</a></li>
-<li><a href="#test-the-hotelspecials-api">Test the HotelSpecials API</a></li>
+<li><a href="/2-spa/3-api-gateway/#expose-the-tripsfromcity-restful-api-endpoint">Expose the <strong>/tripsfromcity</strong> RESTful API endpoint</a></li>
+<li><a href="/2-spa/3-api-gateway/#expose-the-tripstocity-restful-api-endpoint">Expose the <strong>/tripstocity</strong> RESTful API endpoint</a></li>
+<li><a href="/2-spa/3-api-gateway/#deploy-the-api-and-test">Deploy the API and test</a></li>
+<li><a href="/2-spa/3-api-gateway/#exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</a></li>
+<li><a href="/2-spa/3-api-gateway/#test-the-hotelspecials-api">Test the HotelSpecials API</a></li>
 </ul>
 <ol>
 <li>Open the <strong>AWS API Gateway console</strong> by clicking <strong>Services</strong> and typing <code>api</code> in the filter box. Press <strong>Enter</strong>.</li>
 <li>Click <strong>Get Started</strong> if shown.</li>
 <li>Go to create REST API and click <strong>Build</strong>. Make sure <strong>not</strong> to click the option with the word &ldquo;<strong>Private</strong>&rdquo;.</li>
 </ol>
-<p><img src="/images/2/6.png?width=90pc" alt="API Gateway"></p>
-<p><img src="/images/2/7.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/6.png?width=90pc"></p>
+<p><img alt="API Gateway" src="/images/2/7.png?width=90pc"></p>
 <ol start="4">
 <li>If a new screen comes up, click <strong>OK</strong>. Make sure you have <strong>New API</strong> radio button <strong>selected</strong>:</li>
 </ol>
-<p><img src="/images/2/8.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/8.png?width=90pc"></p>
 <ol start="5">
 <li>For <strong>API Name</strong> type <code>iDevelop - Trip Search API</code></li>
 <li>For <strong>Description</strong> type <strong>Allows searching for trips from/to cities</strong></li>
 <li>Click <strong>Create API</strong>.</li>
 </ol>
-<p><img src="/images/2/9.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/9.png?width=90pc"></p>
 <ol start="8">
 <li>The API will be created, and have a <strong>root</strong> path element and nothing else. Click on the <strong>/</strong> root path element and then click <strong>Actions</strong> to reveal the menu. Click <strong>Create Resource</strong>.</li>
 </ol>
-<p><img src="/images/2/10.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/10.png?width=90pc"></p>
 <ol start="9">
 <li>In the <strong>New Child Resource</strong> panel, for <strong>Resource Name</strong> type <code>trips</code></li>
 <li>For <strong>Resource Path</strong> type <code>trips</code></li>
 <li>Check the <strong>Enable API Gateway CORS</strong> checkbox</li>
 <li>Click <strong>Create Resource</strong></li>
 </ol>
-<p><img src="/images/2/11.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/11.png?width=90pc"></p>
 <ol start="13">
 <li>The <strong>/trips</strong> resource will be created. Click on the <strong>/trips</strong> link, then click the <strong>Actions</strong> button and choose <strong>Create Method</strong>.</li>
 </ol>
-<p><img src="/images/2/12.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/12.png?width=90pc"></p>
 <ol start="14">
 <li>In the dropdown list that appears, choose <strong>GET</strong></li>
 </ol>
-<p><img src="/images/2/13.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/13.png?width=90pc"></p>
 <ol start="15">
 <li>Click the grey tick next to the dropdown list to commit the change.</li>
 <li>The <strong>/trips - GET - Setup</strong> panel will appear. For <strong>Lambda Region</strong> select <code>ap-northeast-1</code> (or your region)</li>
 <li>In the <strong>Lambda Function</strong> field, type <code>idevelop</code> to reveal the available functions in the region and select <code>idevelopTripSearchFull</code>.</li>
 </ol>
-<p><img src="/images/2/14.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/14.png?width=90pc"></p>
 <ol start="18">
 <li>Click <strong>Save</strong>.</li>
 <li>In the dialog that appears regarding adding permissions to Lambda, click <strong>OK</strong>.</li>
 <li>When the method is created, you will see the <strong>Method Execution</strong> panel:</li>
 </ol>
-<p><img src="/images/2/15.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/15.png?width=90pc"></p>
 <p>To test that the Lambda function is being called from the API, click the <strong>Test</strong> button.</p>
 <ol start="21">
 <li>In the <strong>Method Test</strong> panel, scroll down to reveal the <strong>Test</strong> button.</li>
 </ol>
-<p><img src="/images/2/16.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/16.png?width=90pc"></p>
 <ol start="22">
 <li>Click the <strong>Test</strong> button. After a moment or two for the Lambda function to initialise and execute, you should see an output similar to this:</li>
 </ol>
-<p><img src="/images/2/17.png?width=90pc" alt="API Gateway">
+<p><img alt="API Gateway" src="/images/2/17.png?width=90pc">
 
 <div class="notices note" ><p>Note that the data you see will be different because it is randomly generated by the lab setup process.</p>
 </div>
@@ -1755,7 +1755,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <p>This template will take the parameter <code>{city}</code> from the URL and add it into a JSON payload that is sent to the Lambda function, as a property of the <strong>payload</strong> object, just as the Lambda function expects.</p>
-<p><img src="/images/2/18.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/18.png?width=90pc"></p>
 
 <div class="notices note" ><p>The schema defined here for this Lambda function is completely arbitrary, and in your own application you could use a completely different model. The mapping template gives you the flexibility to transform the inbound data on-the-fly through the API Gateway endpoint.</p>
 </div>
@@ -1767,7 +1767,7 @@
 <li>Click <strong>Test</strong></li>
 </ol>
 <p>API Gateway will make the call into the Lambda function, passing the value Melbourne into the Body Mapping Template you have defined, which will insert the search parameter Melbourne into the JSON payload that is sent to the Lambda function. This will cause the function handler to consume the JSON and execute a search in the DynamoDB table, and return the results. You will see a result similar to this:</p>
-<p><img src="/images/2/19.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/19.png?width=90pc"></p>
 <ol start="54">
 <li>To allow access from a web browser, you need to enable <strong>CORS - Cross-origin scripting</strong>. Click on the <strong>/tripsfromcity/{city}</strong> node and from the <strong>Actions</strong> menu, select <strong>Enable CORS</strong>.</li>
 <li>Click <strong>Enable CORS and replace existing CORS headers</strong></li>
@@ -1826,20 +1826,20 @@
 <ol start="82">
 <li>Test the <strong>/tripstocity</strong> API call to confirm it is functioning as expected.</li>
 </ol>
-<p><img src="/images/2/20.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/20.png?width=90pc"></p>
 <ol start="83">
 <li>To allow access from a web browser, you need to enable CORS - Cross-origin scripting. Click on the <strong>/tripstocity/{city}</strong> node and from the <strong>Actions</strong> menu, select <strong>Enable CORS</strong>.</li>
 <li>Click <strong>Enable CORS and replace existing CORS headers</strong></li>
 <li>On the dialog that appears, click <strong>Yes, replace existing values</strong>. When each of the listed items have a green tick against them, you can move on to the next section. This will only take a moment.</li>
 </ol>
 <p>If you have completed the steps above as described, you will have a resources tree that looks like this:</p>
-<p><img src="/images/2/21.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/21.png?width=90pc"></p>
 <h4 id="deploy-the-api-and-test">Deploy the API and test</h4>
 <ol start="86">
 <li>Now that you have confirmed that the microservices are functioning correctly, you are ready to deploy the API and test it from the publicly available endpoint. Click the <strong>/</strong> root element of the API and click the <strong>Actions</strong> button.</li>
 <li>Select <strong>Deploy API</strong></li>
 </ol>
-<p><img src="/images/2/22.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/22.png?width=90pc"></p>
 <ol start="88">
 <li>In the <strong>Deploy API</strong> dialog that appears, for <strong>Deployment stage</strong> choose <code>[New Stage]</code> to create a new deployment stage.</li>
 <li>For <strong>Stage name</strong> type <code>prod</code></li>
@@ -1847,9 +1847,9 @@
 <li>For <strong>Deployment description</strong> type <code>Initial deployment</code></li>
 <li>Click <strong>Deploy</strong></li>
 </ol>
-<p><img src="/images/2/23.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/23.png?width=90pc"></p>
 <p>The new stage <strong>prod</strong> will be created and you will see the <strong>prod Stage Editor</strong></p>
-<p><img src="/images/2/24.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/24.png?width=90pc"></p>
 <ol start="93">
 <li>Click the <strong>Invoke URL</strong> link. A new window will open and hit the stage endpoint. You will see an error message stating <code>{&quot;message&quot;:&quot;Missing Authentication Token&quot;}</code>. This is because there is no handler for the root of the stage - you have only defined resources/methods beneath the <strong>/trips, /tripsfromcity</strong> and <strong>/tripstocity</strong> paths. Edit the URL in the URL bar of the browser and append <strong>/trips</strong> then press <strong>Enter</strong>. The page will refresh, and then display all of the available trips as JSON. The output will be similar to this:</li>
 </ol>
@@ -1944,12 +1944,12 @@
 </span></span></code></pre></div><ol start="100">
 <li>In the web browser, open the <strong>CloudFormation console</strong>. You should see an output like this:</li>
 </ol>
-<p><img src="/images/2/25.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/25.png?width=90pc"></p>
 <p>This indicates that the <strong>CloudFormation Change Set</strong> has been created. The command you issued will create the Change Set and then automatically execute the Change Set, so if you refresh the stack list again, you will see:</p>
-<p><img src="/images/2/26.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/26.png?width=90pc"></p>
 <p>This indicates that the Change Set is being applied to the CloudFormation stack named <strong>HotelSpecialsAPI</strong></p>
 <p>It will take a few moments to complete the execution. If you refresh, you will eventually see:</p>
-<p><img src="/images/2/27.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/27.png?width=90pc"></p>
 <ol start="101">
 <li>
 <p>Click the <strong>HotelSpecialsAPI</strong> stack’s check box to highlight it, click the <strong>Events</strong> tab and review the steps that the CloudFormation template has applied to your environment. These will match the resources and actions in the <code>template-output.yml</code> file.</p>
@@ -1958,27 +1958,27 @@
 <p>When the Change Set has been executed, your <strong>HotelSpecials API</strong> has been deployed. Open the <strong>API Gateway console</strong> in the browser and under <strong>APIs</strong>, click the <strong>iDevelop - Hotel Specials API</strong> link to reveal the resources for the API:</p>
 </li>
 </ol>
-<p><img src="/images/2/28.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/28.png?width=90pc"></p>
 <p>Note that a single <strong>GET</strong> method is defined, as per the <code>template.yml</code> CloudFormation template you deployed.</p>
 <ol start="103">
 <li>Click on the <strong>GET</strong> method beneath <strong>/hotelspecials</strong> to reveal the <strong>/hotelspecials - GET - Method Execution</strong> panel. Click <strong>Integration Request</strong></li>
 </ol>
-<p><img src="/images/2/29.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/29.png?width=90pc"></p>
 <ol start="104">
 <li>The <strong>Integration Request</strong> panel will be shown. Note the <strong>Lambda Function</strong> specified:</li>
 </ol>
-<p><img src="/images/2/30.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/30.png?width=90pc"></p>
 <p>The specified value is not a Lambda function, but instead, is a <strong>Stage Variable</strong> that will be replaced at runtime by API Gateway. Therefore, in order for this API call to succeed, the <strong>Stage</strong> in API Gateway must have defined a value for the <code>envHotelSpecials</code> stage variable.</p>
 <p>Click on the <strong>Stages</strong> link beneath the <strong>iDevelop - Hotel Specials API</strong> on the left:</p>
-<p><img src="/images/2/31.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/31.png?width=90pc"></p>
 <ol start="105">
 <li>Click on the <strong>prod</strong> stage link</li>
 </ol>
-<p><img src="/images/2/32.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/32.png?width=90pc"></p>
 <ol start="106">
 <li>In the <strong>prod Stage Editor</strong> click the <strong>Stage Variables</strong> tab</li>
 </ol>
-<p><img src="/images/2/33.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/33.png?width=90pc"></p>
 
 <div class="notices note" ><p>Note that a single variable is defined - <code>envHotelSpecials</code> - which correlates to the stage variable name the <strong>GET</strong> method was expecting. The value of the variable is <strong>GetHotelSpecials</strong> which is the name of the Lambda function that the template created using the JAR file you built and uploaded during the package/deploy process.</p>
 </div>
@@ -2836,19 +2836,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Microservice Authentication :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -1204,7 +1204,7 @@
   
     
     <li data-nav-id="/4-configure-aaa/4.2-setup-authentication/" title="Microservice Authentication" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1638,7 +1638,7 @@
 <ul>
 <li>Type <code>iDevelop - Trip Search API</code> to the search bar</li>
 <li>Click <strong>iDevelop - Trip Search API</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-001.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-001.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>Click <strong>Gateway Responses</strong></li>
@@ -1646,7 +1646,7 @@
 <ul>
 <li>Select <strong>Unauthorized</strong></li>
 <li>Click <strong>Edit</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-002.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="4">
 <li>In order for our web application to be able to receive the <strong>unauthorized 401</strong> status, we need to add <strong>CORS headers</strong> to the response. Without the headers, the browser will not have permission to receive the 401 status. We have already enabled CORS for status 200 responses when we set up the API Gateway endpoints earlier. But we need to explicitly allow for status 401 to be returned.</li>
@@ -1658,7 +1658,7 @@
 <li>In the <strong>Response header</strong> column of the second <strong>Response Header</strong>, type <code>Access-Control-Allow-Headers</code></li>
 <li>In the <strong>Value</strong> column, type <code>'*'</code></li>
 <li>Click <strong>Save</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-003.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-003.png?featherlight=false&width=90pc"></li>
 </ul>
 <h4 id="create-an-authorizer-that-uses-the-cognito-user-pool">Create an Authorizer that uses the Cognito User Pool</h4>
 <p>API Gateway integrates tightly with Cognito for authorization. You simply need to declare your Cognito User Pool as an authorizer for your API.</p>
@@ -1672,7 +1672,7 @@
 <li>In the <strong>Cognito User Pool</strong> section, select <strong>TravelBuddy</strong></li>
 <li>In the <strong>Token Source</strong> section, type <code>Authorization</code></li>
 <li>Click <strong>Create</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-005.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-005.png?featherlight=false&width=90pc"></li>
 </ul>
 <h4 id="mark-the-trips-microservices-to-require-authentication">Mark the /trips microservices to require authentication</h4>
 <ol start="6">
@@ -1681,16 +1681,16 @@
 <ul>
 <li>Click the GET method beneath /trips</li>
 <li>Click <strong>Method Request</strong>
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-006.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-006.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="7">
 <li>In the <strong>Authorization</strong> section, click the pencil icon
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-007.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-007.png?featherlight=false&width=90pc"></li>
 <li>Select <strong>TravelBuddy</strong>. This is the authoriser we created in the previous step, and links to the Cognito User Pool we are using for our user database. If it does not appear, try refreshing your browser.</li>
 </ol>
 <ul>
 <li>Click the grey tick next to the field to save the change.
-<img src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-008.png?featherlight=false&amp;width=90pc" alt="Microservice Authentication"></li>
+<img alt="Microservice Authentication" src="/images/4-configure-aaa/4.2-setup-authentication/setup-authentication-008.png?featherlight=false&width=90pc"></li>
 </ul>
 
 
@@ -2514,19 +2514,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

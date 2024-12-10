@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Xác thực cho Microservice :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -822,7 +822,7 @@
   
     
     <li data-nav-id="/vi/3-aaa/2-microservice-authen/" title="Xác thực cho Microservice" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1634,9 +1634,9 @@
 <p>Ngay bây giờ, nếu bạn nhấp vào nút **Go!**trên trang web và không nhập thành phố để lọc, bạn sẽ thấy một hộp thoại với tất cả các chuyến đi có sẵn. Chúng ta muốn thay đổi hành vi này để bạn phải đăng nhập để có thể tìm kiếm tất cả các chuyến đi mà không cần bộ lọc. Đây chỉ là một ví dụ để chứng minh cách chúng ta có thể giới hạn các lệnh gọi API nhất định cho chỉ những người dùng được xác thực.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#c%E1%BA%ADp-nh%E1%BA%ADt-aws-api-gateway">Cập nhật AWS API Gateway</a></li>
-<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-authorizer-s%E1%BB%AD-d%E1%BB%A5ng-cognito-user-pool">Tạo một Authorizer sử dụng Cognito User Pool</a></li>
-<li><a href="#m%E1%BB%9F-y%C3%AAu-c%E1%BA%A7u-x%C3%A1c-th%E1%BB%B1c-cho-microservice-trips">Mở yêu cầu xác thực cho microservice <strong>/trips</strong></a></li>
+<li><a href="/vi/3-aaa/2-microservice-authen/#cập-nhật-aws-api-gateway">Cập nhật AWS API Gateway</a></li>
+<li><a href="/vi/3-aaa/2-microservice-authen/#tạo-một-authorizer-sử-dụng-cognito-user-pool">Tạo một Authorizer sử dụng Cognito User Pool</a></li>
+<li><a href="/vi/3-aaa/2-microservice-authen/#mở-yêu-cầu-xác-thực-cho-microservice-trips">Mở yêu cầu xác thực cho microservice <strong>/trips</strong></a></li>
 </ul>
 <h4 id="cập-nhật-aws-api-gateway">Cập nhật AWS API Gateway</h4>
 <ol>
@@ -1668,7 +1668,7 @@
 <div class="notices warning" ><p>Bạn phải thêm các dấu nháy đơn xung quanh giá trị tĩnh như được hiển thị ở trên. Không thêm * bởi chính nó, hãy bao quanh nó bằng các dấu ngoặc kép như được hiển thị. Đảm bảo rằng không có khoảng trắng sau tên tiêu đề nếu bạn sao chép/dán từ các cloudformation của bài thực hành.</p>
 </div>
 
-<p><img src="/images/3/4.png?width=90pc" alt="microservices"></p>
+<p><img alt="microservices" src="/images/3/4.png?width=90pc"></p>
 <ol start="5">
 <li>Chọn nút <strong>Save</strong> trong bảng <code>401</code> để lưu thiết lập.</li>
 </ol>
@@ -1690,7 +1690,7 @@
 <li>Chọn <strong>Method Request</strong></li>
 <li>Chọn <strong>biểu tượng bút chì</strong> ở cạnh mục <strong>Authorization</strong> từ menu hiển thị, chọn <code>TravelBuddy</code>. Đây là authoriser mà chúng ta đã tạo ở bước trước và liên kết đến <strong>Cognito User Pool</strong> chúng ta đang sử dụng cho cơ sở dữ liệu người dùng. Nếu nó không xuất hiện, hãy thử làm mới trình duyệt của bạn.</li>
 </ol>
-<p><img src="/images/3/5.png?width=90pc" alt="microservices"></p>
+<p><img alt="microservices" src="/images/3/5.png?width=90pc"></p>
 <ol start="17">
 <li>Chọn <strong>dấu tick xám</strong> ở cạnh giá trị để lưu thiết lập.</li>
 </ol>
@@ -2516,19 +2516,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

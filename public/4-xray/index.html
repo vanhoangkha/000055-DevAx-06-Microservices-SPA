@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Application Performance :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -1119,7 +1119,7 @@
   
     
     <li data-nav-id="/4-xray/" title="Application Performance" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1621,43 +1621,43 @@
 <ol>
 <li>In the AWS Lambda Console, click on the Lambda function <strong>idevelopTripSearchFull</strong>. Select the <strong>Configuration</strong> tab then select the <strong>Monitoring and operations tools</strong> panel. Click the <strong>Edit</strong> button then enable the <strong>Active tracing</strong> in the <strong>AWS X-Ray</strong> section. Click <strong>Save</strong>.</li>
 </ol>
-<p><img src="/static/images/4/1.png?width=90pc" alt="Xray"></p>
-<p><img src="/static/images/4/2.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/1.png?width=90pc"></p>
+<p><img alt="Xray" src="/static/images/4/2.png?width=90pc"></p>
 <ol start="2">
 <li>Switch over to the <strong>TravelBuddy SPA webpage</strong> that you have hosted in the S3 bucket. Sign in to the application if you are not already signed in.</li>
 <li>Click the <strong>Go!</strong> button without any text entered, to invoke the <strong>idevelopTripSearchFull</strong> Lambda function. It will take a moment to complete because you have changed the configuration for the Lambda function so it will be a cold start.</li>
 </ol>
-<p><img src="/static/images/4/3.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/3.png?width=90pc"></p>
 <ol start="4">
 <li>After the dialog is shown displaying the trips, switch back to the <strong>AWS console</strong>, select <strong>Services</strong> and type <code>X-ray</code>. Click the <strong>X-ray item</strong> in the list to open the <strong>AWS X-ray console</strong>.</li>
 <li>In the <strong>AWS X-Ray</strong> page, click <strong>Get started</strong> then click <strong>Cancel</strong>.</li>
 </ol>
-<p><img src="/static/images/4/4.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/4.png?width=90pc"></p>
 <ol start="6">
 <li>Select the <strong>Service map</strong> on the navigation panel.</li>
 <li>You will see a <strong>Service map</strong> that looks similar to this:</li>
 </ol>
-<p><img src="/static/images/4/5.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/5.png?width=90pc"></p>
 
-<div class="notices tip" ><p><img src="/images/4/6.png?width=90pc" alt="Xray">
+<div class="notices tip" ><p><img alt="Xray" src="/images/4/6.png?width=90pc">
 You can now also see the service map directly from Lambda console.</p>
 </div>
 
 <ol start="8">
 <li>Click the <strong>first green circle</strong> which indicates the call into the Lambda function. The <strong>Details</strong> panel will appear. This panel shows information such as the response distribution histogram where you can easily see what percentage of calls are taking various amounts of time to execute.</li>
 </ol>
-<p><img src="/static/images/4/7.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/7.png?width=90pc"></p>
 <ol start="9">
 <li>Click <strong>View Traces</strong>, this is at the bottom of the <strong>Service details</strong> which just showed up.</li>
 <li>In the <strong>Traces list</strong> click the link for the first item</li>
 <li>The <strong>Traces details</strong> panel will appear. You will be able to see a timeline view of the various actions and their execution durations, such as:</li>
 </ol>
-<p><img src="/static/images/4/8.png?width=90pc" alt="Xray"></p>
+<p><img alt="Xray" src="/static/images/4/8.png?width=90pc"></p>
 <p>Here, you can see that the overall call took 5 sec, 1.3 sec of which was taken by the scan of the <strong>TravelBuddyTripSectors DynamoDB</strong> table.</p>
 <ol start="12">
 <li>Enable active tracing on the other Lambda functions that have been created as part of this lab: <strong>idevelopTripSearchFull</strong>, <strong>idevelopTripSearchFromCity</strong>, <strong>idevelopTripSearchToCity</strong> and <strong>GetHotelSpecials</strong>. You can do this manually using the console. However, note that the function created through automation with a name starting with <strong>awscodestar</strong> will have its configuration overwritten if you re-deploy the code.</li>
 </ol>
-<p>See the next <a href="../5-challenge/"><strong>Challenge Exercise</strong></a> to address this.</p>
+<p>See the next <a href="/5-challenge/"><strong>Challenge Exercise</strong></a> to address this.</p>
 
 
 
@@ -2476,19 +2476,19 @@ You can now also see the service map directly from Lambda console.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Microservice Authentication :: DevAx - Monoliths to Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -822,7 +822,7 @@
   
     
     <li data-nav-id="/3-aaa/2-microservice-authen/" title="Microservice Authentication" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1634,9 +1634,9 @@
 <p>Right now, if you click the <strong>Go!</strong> button on the web site and do not enter a city to filter, you will see a dialog with all available trips. We want to change this behaviour so that you must be logged in in order to be able to search for all trips without a filter. This is just an example to demonstrate how we could limit certain API calls to only authenticated users.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#update-the-aws-api-gateway">Update the AWS API Gateway</a></li>
-<li><a href="#create-an-authorizer-that-uses-the-cognito-user-pool">Create an Authorizer that uses the Cognito User Pool</a></li>
-<li><a href="#mark-the-trips-microservices-to-require-authentication">Mark the <strong>/trips</strong> microservices to require authentication</a></li>
+<li><a href="/3-aaa/2-microservice-authen/#update-the-aws-api-gateway">Update the AWS API Gateway</a></li>
+<li><a href="/3-aaa/2-microservice-authen/#create-an-authorizer-that-uses-the-cognito-user-pool">Create an Authorizer that uses the Cognito User Pool</a></li>
+<li><a href="/3-aaa/2-microservice-authen/#mark-the-trips-microservices-to-require-authentication">Mark the <strong>/trips</strong> microservices to require authentication</a></li>
 </ul>
 <h4 id="update-the-aws-api-gateway">Update the AWS API Gateway</h4>
 <ol>
@@ -1668,7 +1668,7 @@
 <div class="notices warning" ><p>You must provide the single-quotes around the static value as shown above. Don&rsquo;t provide * by itself, surround it with single-quotes like shown. Make sure that there is no trailing space after the header name if you copy/pasted from the lab cloudformation values.</p>
 </div>
 
-<p><img src="/images/3/4.png?width=90pc" alt="microservices"></p>
+<p><img alt="microservices" src="/images/3/4.png?width=90pc"></p>
 <ol start="5">
 <li>Click the <strong>Save</strong> button in the <code>401</code> panel to <strong>commit</strong> the changes.</li>
 </ol>
@@ -1690,7 +1690,7 @@
 <li>Click <strong>Method Request</strong></li>
 <li>Click the <strong>pencil icon</strong> next to the <strong>Authorization</strong> field and from the menu that appears, select <code>TravelBuddy</code>. This is the authoriser we created in the previous step, and links to the <strong>Cognito User Pool</strong> we are using for our user database. If it does not appear, try refreshing your browser.</li>
 </ol>
-<p><img src="/images/3/5.png?width=90pc" alt="microservices"></p>
+<p><img alt="microservices" src="/images/3/5.png?width=90pc"></p>
 <ol start="17">
 <li>Click the <strong>grey tick</strong> next to the field to <strong>save</strong> the change.</li>
 </ol>
@@ -2516,19 +2516,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

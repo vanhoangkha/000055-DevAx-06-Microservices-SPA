@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Chuẩn bị môi trường :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -114,7 +114,7 @@
   
     
     <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1662,11 +1662,11 @@
 
 </p>
 <p>Mô hình bên dưới thể hiện các tài nguyên được tạo khi triển khai CloudFormation Template:</p>
-<p><img src="/images/1/0.png?width=50pc" alt="Diagram"></p>
+<p><img alt="Diagram" src="/images/1/0.png?width=50pc"></p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#kh%E1%BB%9Fi-t%E1%BA%A1o-keypair">Khởi tạo Keypair</a></li>
-<li><a href="#tri%E1%BB%83n-khai-cloudformation-template">Triển khai CloudFormation Template</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#khởi-tạo-keypair">Khởi tạo Keypair</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#triển-khai-cloudformation-template">Triển khai CloudFormation Template</a></li>
 </ul>
 <h4 id="khởi-tạo-keypair">Khởi tạo Keypair</h4>
 
@@ -1676,27 +1676,27 @@
 <ol>
 <li>Trước tiên, cần tạo một Keypair cho các máy ảo trong bài thực hành. Truy cập EC2 console, chọn <strong>Keypairs</strong></li>
 <li>Chọn <strong>Create key pair</strong>
-<img src="/images/1/1.png?width=90pc" alt="Keypair"></li>
+<img alt="Keypair" src="/images/1/1.png?width=90pc"></li>
 <li>Nhập tên keypair <strong>KPforDevAxInstances</strong>, chọn định dạng tập tin <strong>pem</strong> và chọn <strong>Create key pair</strong>
-<img src="/images/1/2.png?width=90pc" alt="Keypair"></li>
+<img alt="Keypair" src="/images/1/2.png?width=90pc"></li>
 <li>Một cửa sổ xuất hiện để chọn nơi lưu trữ tập tin keypair. Bạn cần lưu trữ keypair này để truy cập vào máy ảo EC2 trong các bước sau</li>
 </ol>
 <h4 id="triển-khai-cloudformation-template">Triển khai CloudFormation Template</h4>
 <ol>
 <li>Truy cập <strong>AWS CloudFormation</strong>
-<img src="/images/1/3.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/3.png?width=90pc"></li>
 <li>Chọn <strong>Create stack</strong>, chọn <strong>With new resources (standard)</strong>
-<img src="/images/1/4.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/4.png?width=90pc"></li>
 <li>Tại mục <strong>Prerequisite - Prepare template</strong> chọn <strong>Template is ready</strong></li>
 <li>Tại mục <strong>Template source</strong>, chọn <strong>Upload a template file</strong>, nhấp chọn <strong>Choose file</strong> và trỏ tới file template đã tải xuống. Chọn <strong>Next</strong>
-<img src="/images/1/5.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/5.png?width=90pc"></li>
 <li>Nhập tên stack tại mục <strong>Stack name</strong> (VD: <code>DevAx-M2M-M5</code>)</li>
 <li>Chọn keypair <strong>KPforDevAxInstances</strong> cho mục <strong>EEKeyPair</strong> và chọn <strong>Next</strong>
-<img src="/images/1/6.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/6.png?width=90pc"></li>
 <li>Chọn <strong>Next</strong> tại trang <strong>Configure stack options</strong>
-<img src="/images/1/7.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/7.png?width=90pc"></li>
 <li>Chọn <strong>Create stack</strong>
-<img src="/images/1/8.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/8.png?width=90pc"></li>
 <li>Chúng ta cần chờ một vài phút để các tài nguyên được khởi tạo và cấu hình.</li>
 </ol>
 
@@ -2515,19 +2515,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804544"></script>
+    <script src="/js/jquery.sticky.js?1733804544"></script>
+    <script src="/js/featherlight.min.js?1733804544"></script>
+    <script src="/js/highlight.pack.js?1733804544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804544"></script>
+    <script src="/js/learn.js?1733804544"></script>
+    <script src="/js/hugo-learn.js?1733804544"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

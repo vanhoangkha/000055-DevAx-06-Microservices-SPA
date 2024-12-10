@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo và Cung cấp API :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -454,7 +454,7 @@
   
     
     <li data-nav-id="/vi/2-spa/3-api-gateway/" title="Tạo và Cung cấp API" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1634,68 +1634,68 @@
 <p>Hiện tại, bạn đã tạo xong các hàm Lambda, đã đến lúc tạo và triển khai thủ công API Gateway sẽ cung cấp microservice dưới dạng API.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#cung-c%E1%BA%A5p-tripsfromcity-restful-api-endpoint">Cung cấp <strong>/tripsfromcity</strong> RESTful API endpoint</a></li>
-<li><a href="#cung-c%E1%BA%A5p-tripstocity-restful-api-endpoint">Cung cấp <strong>/tripstocity</strong> RESTful API endpoint</a></li>
-<li><a href="#tri%E1%BB%83n-khai-api-v%C3%A0-ki%E1%BB%83m-th%E1%BB%AD">Triển khai API và Kiểm thử</a></li>
-<li><a href="#exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</a></li>
-<li><a href="#ki%E1%BB%83m-th%E1%BB%AD-hotelspecials-api">Kiểm thử HotelSpecials API</a></li>
+<li><a href="/vi/2-spa/3-api-gateway/#cung-cấp-tripsfromcity-restful-api-endpoint">Cung cấp <strong>/tripsfromcity</strong> RESTful API endpoint</a></li>
+<li><a href="/vi/2-spa/3-api-gateway/#cung-cấp-tripstocity-restful-api-endpoint">Cung cấp <strong>/tripstocity</strong> RESTful API endpoint</a></li>
+<li><a href="/vi/2-spa/3-api-gateway/#triển-khai-api-và-kiểm-thử">Triển khai API và Kiểm thử</a></li>
+<li><a href="/vi/2-spa/3-api-gateway/#exercise-2---use-cloudformationsam-via-the-aws-cli-to-deploy-the-hotelsearch-microservice">Exercise 2 - Use CloudFormation/SAM via the AWS CLI to deploy the HotelSearch microservice</a></li>
+<li><a href="/vi/2-spa/3-api-gateway/#kiểm-thử-hotelspecials-api">Kiểm thử HotelSpecials API</a></li>
 </ul>
 <ol>
 <li>Truy cập <strong>AWS API Gateway console</strong> thông qua menu <strong>Services</strong> và tìm <code>api</code> trong thanh tìm kiếm. Nhấn <strong>Enter</strong>.</li>
 <li>Chọn <strong>Get Started</strong> nếu xuất hiện.</li>
 <li>Đi đến <strong>Create REST API</strong> và chọn <strong>Build</strong>. Chắc rằng bạn <strong>không</strong> chọn lựa chọn có từ &ldquo;<strong>Private</strong>&rdquo;.</li>
 </ol>
-<p><img src="/images/2/6.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/6.png?width=90pc"></p>
 <ol start="4">
 <li>Ở màn hình kế tiếp, chọn <strong>OK</strong>. Chắc rằng bạn lựa chọn <strong>New API</strong> :</li>
 </ol>
-<p><img src="/images/2/7.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/7.png?width=90pc"></p>
 <ol start="5">
 <li>Ở <strong>API Name</strong> nhập <code>iDevelop - Trip Search API</code></li>
 <li>Ở <strong>Description</strong> nhập <strong>Allows searching ở trips from/to cities</strong></li>
 <li>Chọn <strong>Create API</strong>.</li>
 </ol>
-<p><img src="/images/2/9.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/9.png?width=90pc"></p>
 <ol start="8">
 <li>API sẽ được tạo và chỉ có đường dẫn <strong>root</strong>. Chọn vào đường dẫn gốc <strong>/</strong> và chọn <strong>Actions</strong> để xem menu. Chọn <strong>Create Resource</strong>.</li>
 </ol>
-<p><img src="/images/2/10.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/10.png?width=90pc"></p>
 <ol start="9">
 <li>Trong <strong>New Child Resource</strong>, ở <strong>Resource Name</strong> nhập <code>trips</code></li>
 <li>Ở <strong>Resource Path</strong> nhập <code>trips</code></li>
 <li>Đánh dấu vào <strong>Enable API Gateway CORS</strong></li>
 <li>Chọn <strong>Create Resource</strong></li>
 </ol>
-<p><img src="/images/2/11.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/11.png?width=90pc"></p>
 <ol start="13">
 <li>Resource <strong>/trips</strong> sẽ được tạo. Chọn vào đường dẫn <strong>/trips</strong>, sau đó chọn  <strong>Actions</strong> và chọn <strong>Create Method</strong>.</li>
 </ol>
-<p><img src="/images/2/12.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/12.png?width=90pc"></p>
 <ol start="14">
 <li>Trong danh sách liệt kê xuất hiện, chọn <strong>GET</strong></li>
 </ol>
-<p><img src="/images/2/13.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/13.png?width=90pc"></p>
 <ol start="15">
 <li>Chọn <strong>dấu tick</strong> bên cạnh để xác nhận lưu thiết lập.</li>
 <li>Bảng <strong>/trips - GET - Setup</strong> sẽ xuất hiện. Ở <strong>Lambda Region</strong> chọn <code>ap-northeast-1</code> (hoặc region của bạn)</li>
 <li>Ở <strong>Lambda Function</strong>, nhập <code>idevelop</code> để thấy các hàm đang có trong region và chọn <code>idevelopTripSearchFull</code>.</li>
 </ol>
-<p><img src="/images/2/14.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/14.png?width=90pc"></p>
 <ol start="18">
 <li>Chọn <strong>Save</strong>.</li>
 <li>Trong hộp thoại xuất hiện sau khi phần quyền cho Lambda, chọn <strong>OK</strong>.</li>
 <li>Khi method được tạo, bạn sẽ thấy bảng <strong>Method Execution</strong>:</li>
 </ol>
-<p><img src="/images/2/15.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/15.png?width=90pc"></p>
 <p>Để kiểm tra hàm Lambda được gọi bởi API, chọn nút <strong>Test</strong>.</p>
 <ol start="21">
 <li>Trong bảng <strong>Method Test</strong>, kéo xuống để thấy nút <strong>Test</strong>.</li>
 </ol>
-<p><img src="/images/2/16.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/16.png?width=90pc"></p>
 <ol start="22">
 <li>Chọn nút <strong>Test</strong>. Sau một vài phút để hàm Lambda khởi chạy và thực thi, bạn sẽ thấy kết quả tương tự như sau:</li>
 </ol>
-<p><img src="/images/2/17.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/17.png?width=90pc"></p>
 
 <div class="notices note" ><p>Lưu ý rằng dữ liệu bạn thấy sẽ khác vì nó được tạo ngẫu nhiên bởi quá trình thiết lập bài thực hành.</p>
 </div>
@@ -1756,7 +1756,7 @@ Chọn vào <strong>/trips</strong> và từ menu <strong>Actions</strong>, ch�
 <li>Chọn <strong>Save</strong>.</li>
 </ol>
 <p>Template này sẽ lấy tham số <code>{city}</code> từ URL và thêm nó vào JSON payload và gửi đến hàm Lambda giống như hàm Lambda mong đợi.</p>
-<p><img src="/images/2/18.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/18.png?width=90pc"></p>
 
 <div class="notices note" ><p>Schema được định nghĩa ở đây cho hàm Lambda này là hoàn toàn có thể tùy chỉnh và trong ứng dụng của bạn, bạn có thể sử dụng một mô hình hoàn toàn khác. Mẫu ánh xạ cung cấp cho bạn sự linh hoạt để chuyển đổi dữ liệu đến một cách nhanh chóng thông qua API Gateway endpoint.</p>
 </div>
@@ -1768,7 +1768,7 @@ Chọn vào <strong>/trips</strong> và từ menu <strong>Actions</strong>, ch�
 <li>Chọn <strong>Test</strong>.</li>
 </ol>
 <p>API Gateway sẽ thực hiện lệnh gọi vào hàm Lambda, truyền giá trị Melbourne vào Body Mapping Template mà bạn đã xác định, chèn tham số tìm kiếm Melbourne vào JSON payload được gửi đến hàm Lambda. Điều này sẽ khiến handler sử dụng JSON và thực hiện tìm kiếm trong bảng DynamoDB và trả về kết quả. Bạn sẽ thấy một kết quả tương tự như sau:</p>
-<p><img src="/images/2/19.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/19.png?width=90pc"></p>
 <ol start="54">
 <li>Để cho phép truy cập từ trình duyệt, bạn cần bật CORS - Cross-origin scripting.
 Chọn vào <strong>/tripsfromcity/{city}</strong> và từ menu <strong>Actions</strong>, chọn <strong>Enable CORS</strong>.</li>
@@ -1828,7 +1828,7 @@ Chọn vào <strong>/tripsfromcity/{city}</strong> và từ menu <strong>Actions
 <ol start="82">
 <li>Kiểm thử gọi đến API <strong>/tripstocity</strong> để chắc chắn nó đã hoạt động.</li>
 </ol>
-<p><img src="/images/2/20.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/20.png?width=90pc"></p>
 <ol start="83">
 <li>Để cho phép truy cập từ trình duyệt, bạn cần bật CORS - Cross-origin scripting.
 Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</strong>, chọn <strong>Enable CORS</strong>.</li>
@@ -1836,13 +1836,13 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
 <li>Trong hộp thoại xuất hiện, chọn <strong>Yes, replace existing values</strong>. Khi các mục liệt kê có <strong>dấu tick xanh</strong>, bạn có thể tiếp tục các bước kế. Sẽ mất một ít thời gian để hoàn thành.</li>
 </ol>
 <p>Nếu đã hoàn thành đến đây, bạn sẽ có một cây Resource nhìn tương tự như thế này:</p>
-<p><img src="/images/2/21.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/21.png?width=90pc"></p>
 <h4 id="triển-khai-api-và-kiểm-thử">Triển khai API và Kiểm thử</h4>
 <ol start="86">
 <li>Bây giờ bạn chắc chắn rằng các microservices đang hoạt động bình thường, bạn đã sẵn sàng triển khai API và kiểm tra nó từ endpoint công khai. Chọn vàp <strong>/</strong> của API và chọn nút <strong>Actions</strong>.</li>
 <li>Chọn <strong>Deploy API</strong></li>
 </ol>
-<p><img src="/images/2/22.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/22.png?width=90pc"></p>
 <ol start="88">
 <li>Trong hộp thoại <strong>Deploy API</strong> xuất hiện, ở <strong>Deployment stage</strong> chọn <code>[New Stage]</code> để tạo một stage mới.</li>
 <li>Ở <strong>Stage name</strong> nhập <code>prod</code></li>
@@ -1850,9 +1850,9 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
 <li>Ở <strong>Deployment description</strong> nhập <code>Initial deployment</code></li>
 <li>Chọn <strong>Deploy</strong></li>
 </ol>
-<p><img src="/images/2/23.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/23.png?width=90pc"></p>
 <p>Stage mới tên <strong>prod</strong> sẽ được tạo và bạn sẽ thấy <strong>prod Stage Editor</strong></p>
-<p><img src="/images/2/24.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/24.png?width=90pc"></p>
 <ol start="93">
 <li>Chọn đường dẫn <strong>Invoke URL</strong>. Một cửa sổ mới sẽ mở ra và truy cập đến địa chỉ đó. Bạn sẽ thấy một thông báo lỗi nêu rõ <code>{&quot;message&quot;:&quot;Missing Authentication Token&quot;}</code>. Điều này là do không có trình xử lý ở đường dẫn gốc của stage - bạn chỉ có các resources/methods được xác định bên dưới các đường dẫn <strong>/trips, /tripsfromcity</strong> và <strong>/tripstocity</strong>. Chỉnh sửa URL trong thanh URL của trình duyệt và  thêm <strong>/trips</strong> rồi nhấn <strong>Enter</strong>. Trang sẽ làm mới và sau đó hiển thị tất cả các chuyến đi có sẵn dưới dạng JSON. Đầu ra sẽ tương tự như sau:</li>
 </ol>
@@ -1947,12 +1947,12 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
 </span></span></code></pre></div><ol start="100">
 <li>Trong web browser, mở <strong>CloudFormation console</strong>. Bạn sẽ thấy một kết quả như thế này:</li>
 </ol>
-<p><img src="/images/2/25.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/25.png?width=90pc"></p>
 <p>Điều này cho thấy rằng <strong>CloudFormation Change Set</strong> đã được tạo. Lệnh bạn đã đưa ra sẽ tạo Change Set và sau đó tự động thực hiện Change Set, vì vậy nếu bạn làm mới lại stack, bạn sẽ thấy:</p>
-<p><img src="/images/2/26.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/26.png?width=90pc"></p>
 <p>Điều này cho thấy rằng Change Set đang được áp dụng cho CloudFormation stack có tên <strong>HotelSpecialsAPI</strong></p>
 <p>Sẽ mất một vài phút để hoàn tất quá trình thực thi. Nếu bạn làm mới, cuối cùng bạn sẽ thấy:</p>
-<p><img src="/images/2/27.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/27.png?width=90pc"></p>
 <ol start="101">
 <li>
 <p>Chọn <strong>HotelSpecialsAPI</strong> stack để đánh dấu, chọn <strong>Events</strong> và xem lại các bước mà CloudFormation template đã áp dụng cho môi trường của bạn. Chúng sẽ khớp với các tài nguyên và hành động trong tập tin <code>template-output.yml</code>.</p>
@@ -1961,7 +1961,7 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
 <p>Khi Change Set đã được thực thi, <strong>HotelSpecials API</strong> của bạn đã được triển khai. Mở <strong>API Gateway console</strong> trong trình duyệt và trong <strong>APIs</strong>, chọn liên kết <strong>iDevelop - Hotel Specials API</strong> để hiển thị các tài nguyên trong API:</p>
 </li>
 </ol>
-<p><img src="/images/2/28.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/28.png?width=90pc"></p>
 
 <div class="notices note" ><p>Lưu ý rằng một phương thức <strong>GET</strong> duy nhất được xác định, theo mẫu CloudFormation template <code>template.yml</code> mà bạn đã triển khai.</p>
 </div>
@@ -1969,23 +1969,23 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
 <ol start="103">
 <li>Chọn vào <strong>GET</strong> method ở <strong>/hotelspecials</strong> để thấy bảng <strong>/hotelspecials - GET - Method Execution</strong>. Chọn <strong>Integration Request</strong></li>
 </ol>
-<p><img src="/images/2/29.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/29.png?width=90pc"></p>
 <ol start="104">
 <li>Bảng <strong>Integration Request</strong> sẽ xuất hiện. <strong>Lambda Function</strong> xác định rõ:</li>
 </ol>
-<p><img src="/images/2/30.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/30.png?width=90pc"></p>
 <p>The specified value is not a Lambda function, but instead, is a <strong>Stage Variable</strong> that will be replaced at runtime by API Gateway. Therefore, in order for this API call to succeed, the <strong>Stage</strong> in API Gateway must have defined a value for the <code>envHotelSpecials</code> stage variable.</p>
 <p>Giá trị được chỉ định không phải là một hàm Lambda, mà thay vào đó, là một <strong>Stage Variable</strong> sẽ được thay thế trong thời gian chạy bằng API Gateway. Do đó, để lệnh gọi API này thành công, <strong>Stage</strong> trong API Gateway phải xác định một giá trị cho <strong>Stage Variable</strong> <code>envHotelSpecials</code>.</p>
 <p>Chọn vào <strong>Stages</strong> bên dưới <strong>iDevelop - Hotel Specials API</strong>:</p>
-<p><img src="/images/2/31.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/31.png?width=90pc"></p>
 <ol start="105">
 <li>Chọn vào đường dẫn <strong>prod</strong></li>
 </ol>
-<p><img src="/images/2/32.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/32.png?width=90pc"></p>
 <ol start="106">
 <li>Trong <strong>prod Stage Editor</strong> chọn <strong>Stage Variables</strong></li>
 </ol>
-<p><img src="/images/2/33.png?width=90pc" alt="API Gateway"></p>
+<p><img alt="API Gateway" src="/images/2/33.png?width=90pc"></p>
 
 <div class="notices note" ><p>Lưu ý rằng một biến duy nhất được xác định - <code>envHotelSpecials</code> - tương quan với tên biến giai đoạn mà phương thức <strong>GET</strong> đã mong đợi. Giá trị của biến là <strong>GetHotelSpecials</strong> là tên của hàm Lambda mà mẫu được tạo bằng cách sử dụng tập tin JAR mà bạn đã tạo và tải lên trong quá trình đóng gói/triển khai.</p>
 </div>
@@ -2843,19 +2843,19 @@ Chọn vào <strong>/tripstocity/{city}</strong> và từ menu <strong>Actions</
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

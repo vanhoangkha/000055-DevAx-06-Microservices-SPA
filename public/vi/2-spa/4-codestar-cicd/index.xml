@@ -4,7 +4,9 @@
     <title>Triển khai API với CodeStar và CI/CD on DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
     <link>/vi/2-spa/4-codestar-cicd/</link>
     <description>Recent content in Triển khai API với CodeStar và CI/CD on DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate><atom:link href="/vi/2-spa/4-codestar-cicd/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="/vi/2-spa/4-codestar-cicd/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

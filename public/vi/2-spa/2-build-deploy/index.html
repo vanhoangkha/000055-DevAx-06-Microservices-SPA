@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Serverless Microservices :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -426,7 +426,7 @@
   
     
     <li data-nav-id="/vi/2-spa/2-build-deploy/" title="Serverless Microservices" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1644,9 +1644,9 @@
 <p>Đây là cùng một microservice mà chúng ta đã xem xét trong bài thực hành trước đây. Nhưng lần này, chúng ta sẽ cung cấp chức năng này trong trang web TravelBuddy của chúng ta và do đó, cần triển khai dịch vụ để chuẩn bị cho trang web. Trước đây, việc cấu hình API Gateway được quản lý bởi pipeline triển khai cho bạn - trong bài tập này, bạn sẽ cấu hình thủ công thiết cho cả hàm Lambda và API Gateway.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#t%E1%BA%A3i-m%C3%A3-ngu%E1%BB%93n-v%C3%A0-x%C3%A2y-d%E1%BB%B1ng-th%C3%A0nh-ph%E1%BA%A7n-cho-tri%E1%BB%83n-khai">Tải mã nguồn và xây dựng thành phần cho triển khai</a></li>
-<li><a href="#t%E1%BA%A1i-sao-b%E1%BA%A1n-l%E1%BA%A1i-th%E1%BA%A5y-th%C3%B4ng-b%C3%A1o-aws-x-ray-unavailable---ignoring">Tại sao bạn lại thấy thông báo <strong>AWS X-ray unavailable - ignoring</strong>?</a></li>
-<li><a href="#t%E1%BA%A1o-hai-h%C3%A0m-lambda-m%E1%BB%9Bi-s%E1%BB%AD-d%E1%BB%A5ng-chung-c%C3%A1-th%C3%A0nh-ph%E1%BA%A7n-tri%E1%BB%83n-khai">Tạo hai hàm Lambda mới sử dụng chung cá thành phần triển khai</a></li>
+<li><a href="/vi/2-spa/2-build-deploy/#tải-mã-nguồn-và-xây-dựng-thành-phần-cho-triển-khai">Tải mã nguồn và xây dựng thành phần cho triển khai</a></li>
+<li><a href="/vi/2-spa/2-build-deploy/#tại-sao-bạn-lại-thấy-thông-báo-aws-x-ray-unavailable---ignoring">Tại sao bạn lại thấy thông báo <strong>AWS X-ray unavailable - ignoring</strong>?</a></li>
+<li><a href="/vi/2-spa/2-build-deploy/#tạo-hai-hàm-lambda-mới-sử-dụng-chung-cá-thành-phần-triển-khai">Tạo hai hàm Lambda mới sử dụng chung cá thành phần triển khai</a></li>
 </ul>
 <h4 id="tải-mã-nguồn-và-xây-dựng-thành-phần-cho-triển-khai">Tải mã nguồn và xây dựng thành phần cho triển khai</h4>
 <ol>
@@ -1704,7 +1704,7 @@ Tải về mã nguồn tại <a href="https://workshops.devax.academy/monoliths-
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export DDB_TABLENAME_TRIPSECTOR<span style="color:#f92672">=</span>TravelBuddyTripSectors; mvn test
 </span></span></code></pre></div>
 <div class="notices tip" ><p>Nếu việc kiểm thử ra kết quả <strong>fail</strong>, hãy thử thiết lập lại profile aws mặc định cho hệ thống của bạn.
-<strong>Trên Windows:</strong> <code>set AWS_PROFILE=devaxacademy</code> 
+<strong>Trên Windows:</strong> <code>set AWS_PROFILE=devaxacademy</code>
 <strong>Trên MacOS/Linux:</strong> <code>export AWS_PROFILE=devaxacademy</code></p>
 </div>
 
@@ -1765,23 +1765,23 @@ Tải về mã nguồn tại <a href="https://workshops.devax.academy/monoliths-
 <p>Khi bạn chạy test trong môi trường Development local, AWS X-RAy agent không khả dụng, và vì như vậy việc gọi từ AWS SDK không được ghi nhận vào X-Ray. Tuy nhiên, thiết lập trong <code>pom.xml</code> xác định sử dụng AWS X-Ray recorder, tất cả các lệnh gọi tới thông qua SDK (VD: gọi tới DynamoDB) sẽ được ghi nhận. Việc này sẽ gây phát sinh lỗi và test sẽ fail.</p>
 <p>Chú ý rằng mỗi một lớp Lambda handler đều extend từ một lớp nền tên là <strong>LambdaHandlerWithXRayBase</strong>. Trong lớp này, có một khởi tạo static và nó xây dựng đối tượn <strong>ContextMissingStrategy</strong>, ghi đè hành động khi không có AWS X-Ray và thiết lập đó là hành động mặc định. Trong quá trình triển khai <strong>contextMissing handler</strong>, chúng ta có xuất ra một nội dung ra console, thay vì hành động mặc định là đưa ra exception. Việc triển khai lớp <strong>LambdaHandlerWithXRayBase</strong> tương tự như sau:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaHandlerWithXRayBase</span> 
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">static</span>  
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	  AWSXRayRecorderBuilder builder <span style="color:#f92672">=</span> AWSXRayRecorderBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">standard</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>	  AWSXRayRecorderBuilder builder <span style="color:#f92672">=</span> AWSXRayRecorderBuilder.<span style="color:#a6e22e">standard</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	  builder<span style="color:#f92672">.</span><span style="color:#a6e22e">withContextMissingStrategy</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ContextMissingStrategy<span style="color:#f92672">()</span> 
-</span></span><span style="display:flex;"><span>	  <span style="color:#f92672">{</span>		
+</span></span><span style="display:flex;"><span>	  builder.<span style="color:#a6e22e">withContextMissingStrategy</span>(<span style="color:#66d9ef">new</span> ContextMissingStrategy() 
+</span></span><span style="display:flex;"><span>	  {		
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextMissing</span><span style="color:#f92672">(</span>String arg0<span style="color:#f92672">,</span> Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> RuntimeException<span style="color:#f92672">&gt;</span> arg1<span style="color:#f92672">)</span> 
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">{</span> 
-</span></span><span style="display:flex;"><span>			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AWS X-ray unavailable - ignoring&#34;</span><span style="color:#f92672">);</span> 
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>	  
-</span></span><span style="display:flex;"><span>	  <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextMissing</span>(String arg0, Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> RuntimeException<span style="color:#f92672">&gt;</span> arg1) 
+</span></span><span style="display:flex;"><span>		{ 
+</span></span><span style="display:flex;"><span>			System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;AWS X-ray unavailable - ignoring&#34;</span>); 
+</span></span><span style="display:flex;"><span>		}	  
+</span></span><span style="display:flex;"><span>	  });
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	  AWSXRay<span style="color:#f92672">.</span><span style="color:#a6e22e">setGlobalRecorder</span><span style="color:#f92672">(</span>builder<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	  AWSXRay.<span style="color:#a6e22e">setGlobalRecorder</span>(builder.<span style="color:#a6e22e">build</span>());
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Là một thử nghiệm tùy chọn, bạn có thể thử xóa trình khởi tạo static khỏi lớp cơ sở <strong>LambdaHandlerWithXRayBase</strong> và chạy lại <strong>Maven build</strong>. Bạn sẽ thấy các lỗi như:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>com.amazonaws.xray.exceptions.SegmentNotFoundException: Thread failed to begin a subsegment: segment not found. Verify that a segment is in progress, and that the SegmentContextResolverChain is configured correctly in order to discover the segment.
 </span></span></code></pre></div><p>Nếu không có agent, và lệnh gọi hàm Lambda trong trường hợp Id tương quan được chuyển chính xác đến nó, <strong>SegmentContextResolverChain</strong> không thể xác định phân vùng AWS X-ray để đính kèm metadata đã ghi vào và đưa ra exception. Việc triển khai chúng ta cung cấp trong lớp cơ sở sẽ ghi đè hành vi này, nhằm bỏ qua điều kiện này một cách an toàn trong khi thử nghiệm trên môi trường phát triển của bạn.</p>
@@ -2668,19 +2668,19 @@ Thay giá trị trong <strong>Cloudformation Outputs</strong> thay cho khóa <st
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

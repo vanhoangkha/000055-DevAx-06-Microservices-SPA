@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Sử dụng API :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices-SPA</title>
 
     
-    <link href="/css/nucleus.css?1701078122" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701078122" rel="stylesheet">
-    <link href="/css/hybrid.css?1701078122" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701078122" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701078122" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701078122" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701078122" rel="stylesheet">
-    <link href="/css/theme.css?1701078122" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701078122" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804544" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804544" rel="stylesheet">
+    <link href="/css/theme.css?1733804544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804544" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701078122" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804544" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701078122"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701078122"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701078122"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804544"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701078122"></script>
+<script type="text/javascript" src="/js/search.js?1733804544"></script>
 
     
   </div>
@@ -606,7 +606,7 @@
   
     
     <li data-nav-id="/vi/2-spa/6-consume-api/" title="Sử dụng API" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1533,7 +1533,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1634,12 +1634,12 @@
 <p>Bây giờ bạn có một mô hình hoạt động của trang web đang chạy như một SPA gọi dữ liệu thông qua RESTful API được lưu trữ trên AWS Lambda và cung cấp từ Amazon API Gateway. Các nguồn cấp dữ liệu này được coi là công khai vì người dùng không cần đăng nhập và cung cấp thông tin đăng nhập cho lệnh gọi tới API. Trong bài tập này, bạn sẽ xem xét cách bạn có thể yêu cầu xác thực để thực hiện lệnh gọi API và việc sử dụng Khóa API để thực thi điều chỉnh tốc độ cuộc gọi và quản lý hạn ngạch. Để chứng minh, bạn sẽ sử dụng một ứng dụng Java client, để chỉ ra cách bạn có thể sử dụng các Java SDK được tạo tự động trong các ứng dụng của bạn.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#t%E1%BA%A1o-response-model-cho-tripsearch-api">Tạo Response Model cho TripSearch API</a></li>
-<li><a href="#g%C3%A1n-tripsfromcityresponse-model-cho-api-tripsfromcity">Gán TripsFromCityResponse model cho API <strong>/tripsfromcity</strong></a></li>
-<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-%E1%BB%A9ng-d%E1%BB%A5ng-client-java-s%E1%BB%AD-d%E1%BB%A5ng-api">Tạo một ứng dụng client Java sử dụng API</a></li>
-<li><a href="#t%C3%A1i-t%E1%BA%A1o-client-sdk-v%C3%A0-c%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-m%C3%A1y-development">Tái tạo client SDK và cài đặt trên máy development</a></li>
-<li><a href="#ki%E1%BB%83m-th%E1%BB%AD-sdk-v%E1%BB%ABa-t%E1%BA%A1o-m%E1%BB%9Bi-v%E1%BB%9Bi-%E1%BB%A9ng-d%E1%BB%A5ng-client-java">Kiểm thử SDK vừa tạo mới với Ứng dụng Client Java</a></li>
-<li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-api-key-trong-m%C3%A3-ngu%E1%BB%93n-client-v%C3%A0-ch%E1%BA%A1y-l%E1%BA%A1i-%E1%BB%A9ng-d%E1%BB%A5ng-s%E1%BB%AD-d%E1%BB%A5ng-api-v%E1%BB%9Bi-t%C3%ADnh-n%C4%83ng-throttling">Thiết lập API key trong mã nguồn Client và chạy lại Ứng dụng sử dụng API với tính năng throttling</a></li>
+<li><a href="/vi/2-spa/6-consume-api/#tạo-response-model-cho-tripsearch-api">Tạo Response Model cho TripSearch API</a></li>
+<li><a href="/vi/2-spa/6-consume-api/#gán-tripsfromcityresponse-model-cho-api-tripsfromcity">Gán TripsFromCityResponse model cho API <strong>/tripsfromcity</strong></a></li>
+<li><a href="/vi/2-spa/6-consume-api/#tạo-một-ứng-dụng-client-java-sử-dụng-api">Tạo một ứng dụng client Java sử dụng API</a></li>
+<li><a href="/vi/2-spa/6-consume-api/#tái-tạo-client-sdk-và-cài-đặt-trên-máy-development">Tái tạo client SDK và cài đặt trên máy development</a></li>
+<li><a href="/vi/2-spa/6-consume-api/#kiểm-thử-sdk-vừa-tạo-mới-với-ứng-dụng-client-java">Kiểm thử SDK vừa tạo mới với Ứng dụng Client Java</a></li>
+<li><a href="/vi/2-spa/6-consume-api/#thiết-lập-api-key-trong-mã-nguồn-client-và-chạy-lại-ứng-dụng-sử-dụng-api-với-tính-năng-throttling">Thiết lập API key trong mã nguồn Client và chạy lại Ứng dụng sử dụng API với tính năng throttling</a></li>
 </ul>
 <h4 id="tạo-response-model-cho-tripsearch-api">Tạo Response Model cho TripSearch API</h4>
 <p>In order for the SDK generator to create the appropriate classes for a strongly-typed language like Java (as opposed to Javascript, for example) we need to tell API Gateway what the shape or schema of the request/response objects looks like. In the <strong>TripSearch API</strong>, we are using the <strong>GET</strong> method for each of the three API calls. Therefore, there is no schema for inbound requests because the <strong>city</strong> parameter is passed on as part of the URL. If we instead changed the method to <strong>POST</strong>, we would need to pass in the city parameter in the <strong>body</strong> payload, and would need to create a model for this object schema for the code generator to create a Java class for us to bind to.</p>
@@ -1707,7 +1707,7 @@ Dữ liệu kết quả từ các lệnh gọi API được trả về trong <st
 <li>Ở <strong>Service name</strong> nhập <code>TripSearch</code></li>
 <li>Ở <strong>Java package name</strong> nhập <code>idevelop.api.sdk</code></li>
 </ol>
-<p><img src="/images/2/35.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/2/35.png?width=90pc"></p>
 <ol start="19">
 <li>Chọn <strong>Generate SDK</strong>. Java SDK sẽ được tạo và tải xuống dưới dạng tệp ZIP.</li>
 <li><strong>Giải nén</strong> tệp ZIP đã tải xuống trên môi trường làm việc của bạn</li>
@@ -1783,7 +1783,7 @@ If you’re using <strong>Cloud9</strong>, refer to the command below.</li>
 <li>For <strong>Burst</strong> type <code>1</code></li>
 <li>Under <strong>Quota</strong> type <code>1000</code> per month</li>
 </ol>
-<p><img src="/images/2/36.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/2/36.png?width=90pc"></p>
 <ol start="31">
 <li>Click <strong>Next</strong></li>
 <li>Click <strong>Add API Stage</strong></li>
@@ -1800,7 +1800,7 @@ If you’re using <strong>Cloud9</strong>, refer to the command below.</li>
 <li>Click <strong>Method Request</strong></li>
 <li>Under <strong>Settings</strong>, for <strong>API Key Required</strong>, click the <strong>pencil edit</strong> icon, and choose <code>true</code> from the list.</li>
 </ol>
-<p><img src="/images/2/37.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/2/37.png?width=90pc"></p>
 <ol start="45">
 <li>Click the <strong>grey tick</strong> icon to <strong>commit</strong> the change</li>
 <li>From the <strong>Actions</strong> menu, select <strong>Deploy API</strong></li>
@@ -1813,7 +1813,7 @@ If you’re using <strong>Cloud9</strong>, refer to the command below.</li>
 <li>For <strong>Service name</strong> type <code>TripSearch</code></li>
 <li>For <strong>Java package name</strong> type <code>idevelop.api.sdk</code></li>
 </ol>
-<p><img src="/images/2/38.png?width=90pc" alt="API"></p>
+<p><img alt="API" src="/images/2/38.png?width=90pc"></p>
 <ol start="52">
 <li>Click <strong>Generate SDK</strong>. The Java SDK will be generated and downloaded as a ZIP file.</li>
 <li><strong>Explode</strong> the downloaded ZIP file on your filesystem.</li>
@@ -2669,19 +2669,19 @@ If you’re using <strong>Cloud9</strong>, refer to the command below.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701078122"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701078122"></script>
-    <script src="/js/jquery.sticky.js?1701078122"></script>
-    <script src="/js/featherlight.min.js?1701078122"></script>
-    <script src="/js/highlight.pack.js?1701078122"></script>
+    <script src="/js/clipboard.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804545"></script>
+    <script src="/js/jquery.sticky.js?1733804545"></script>
+    <script src="/js/featherlight.min.js?1733804545"></script>
+    <script src="/js/highlight.pack.js?1733804545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701078122"></script>
-    <script src="/js/learn.js?1701078122"></script>
-    <script src="/js/hugo-learn.js?1701078122"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804545"></script>
+    <script src="/js/learn.js?1733804545"></script>
+    <script src="/js/hugo-learn.js?1733804545"></script>
 
-    <link href="/mermaid/mermaid.css?1701078122" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701078122"></script>
+    <link href="/mermaid/mermaid.css?1733804545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
