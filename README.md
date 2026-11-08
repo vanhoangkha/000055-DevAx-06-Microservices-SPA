@@ -1,4 +1,4 @@
-# 🌐 DevAx 06: Microservices SPA
+# DevAx 06: Microservices SPA
 
 Build a Single Page Application with microservices backend.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series, designe
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000055-DevAx-06-Microservices-SPA/)**
+**[Start the workshop](https://vanhoangkha.github.io/000055-DevAx-06-Microservices-SPA/)**
 
 ## Prerequisites
 
